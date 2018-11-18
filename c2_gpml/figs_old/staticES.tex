@@ -1,0 +1,52 @@
+% Define block styles
+\tikzstyle{block} = [thick, rectangle, draw, text width=3em, text centered, rounded corners, minimum height=3em]
+\tikzstyle{block2} = [thick, rectangle, draw, text width=3em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{sblock} = [thick, rectangle, draw, text width=3em, text centered, rounded corners, minimum height=3em]
+\tikzstyle{sum} = [thick, circle, draw, minimum height=.7cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1.2pt, thick]
+\begin{tikzpicture}[rounded corners]
+
+	\draw[rounded corners,dashed] (-4.4,-5.3) rectangle (4,-1.4);
+	\draw[rounded corners,dashed] (-4.4,-1) rectangle (4,2);
+	% Place nodes
+	\node at (0,0)[sblock](plant){$f(\theta)$};
+	\node at (-2.5,0)[sblock](iplant){$F_i(s)$};
+	\node at (2.5,0)[sblock](oplant){$F_o(s)$};
+	\node at (5,0)[dot](bit1){};
+	\node at (0.5,-4.5)[dot](bit2){};
+	\node at (2.5,-3)[block](highpass){$\quad$ \\[-0.9cm]\begin{equation*}\frac{s}{s+h}\end{equation*}};
+	\node at (0.5,-3)[sum](mult){$\times$};
+	\node at (-1.5,-3)[block](int){$\quad$ \\[-0.9cm]\begin{equation*}\frac{k}{s}\end{equation*}};
+	\node at (-3.5,-3)[sum, label=above right:{$-$}, label=below left:{$+$}](add){};
+	\node at (-1.5,-4.5)[block2](aaa){$a$};
+
+	% Draw edges
+	\path [line] (bit1) -- +(1,0); \draw (oplant.east) -- (bit1);
+	\path [line] (bit1)  |- (highpass.east);
+	\path [line] (highpass.west) -- (mult);
+	\path [line] (mult) -- (int.east);
+	\path [line] (int.west) -- (add);
+	\path [line] (add.west)  -| (-5,0) -- (iplant.west);
+	\path [line] (plant.east) -- (oplant.west);
+	\path [line] (iplant.east) -- (plant.west);
+	
+	\path [line] (aaa.west) -| (add.south);
+	\path [line] (aaa.east) +(2.5,0) -- (aaa.east);
+	\path [line] (bit2) -- (mult.south);
+	
+	\path [line] ([xshift=-.4cm]plant.north) +(0,.7) -- ([xshift=-.4cm]plant.north);
+	\path [line] ([xshift=.4cm]plant.north) +(0,.7) -- ([xshift=.4cm]plant.north);
+	
+	% Labels
+	\node at (-3.1,-1.9){Adaptation};
+	\node at (-3.4,1.5){System};
+	\node at (0.45,1.5){$\theta^*$};
+	\node at (-0.35,1.5){$f^*$};
+	\node at (2.5,-4.5){$\sin\omega t$};
+	\node at (-1.3,0.4){$\theta$};
+	\node at (5,0.4){$y$};
+	\node at (-2.5,-2.6){$\hat\theta$};
+	\node at (-0.2,-2.6){$\xi$};
+
+\end{tikzpicture}

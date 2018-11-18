@@ -1,0 +1,36 @@
+% Define block styles
+\tikzstyle{block} = [thick,rectangle, draw, text width=4em, text centered, rounded corners, minimum height=3em, fill=black!15]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=4em, text centered, rounded corners, minimum height=3em, fill=black!25]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[rounded corners]
+
+
+	% Place nodes
+	\node at(0,-5) [sum, label=below right:{$-$}](bsum1){};
+	\node at(4,-5) [sum](bsum2){};
+	\node at(2,-5) [block](bpol){$K_{\bpsi}$};
+	\node at(9,-3.5) [block](bdpol){$\nabla K_{\bpsi}$};
+	\node at(9,-5) [block](bdpol2){$\nabla K_{\bpsi}$};
+	\node at(7.5,-5) [dot] (bdd){};
+	\node at(4.6,-5) [dot] (bddu){};
+	\node at(6,-5) [bloc2k](bsys){P};
+
+	\path[line] (bsum1.east) -- (bpol.west); \path[line] (bpol.east) -- (bsum2.west);
+	\path[line] (bsum2.east) -- (bsys.west); \path[line] (bsys.east) -- (bdpol2.west);
+	\path[line] (bdd) -- +(0,-1.2) -| (bsum1.south);
+	\path[line] (bddu) |- (bdpol.west);
+	\path[line] (-1.2,-5) -- (bsum1.west);
+	\path[line] (bdpol.east) -- (11,-3.5);
+	\path[line] (bdpol2.east) -- (11,-5);
+	\path[line] (-1.2,-3.5) -| (bsum2.north);
+	
+	\node at (-0.6,-3.2) {$r - y_{\bpsi}$};
+	\node at (-0.9,-4.7) {$0$};
+	\node at (10.7,-3.2) {$\nabla u_{\bpsi}$};
+	\node at (10.7,-4.7) {$\nabla y_{\bpsi}$};
+	
+	
+	
+\end{tikzpicture}

@@ -1,0 +1,204 @@
+\documentclass[a4paper,11pt,twoside,openright]{book}
+
+\input{preamble}
+
+\begin{document}
+
+
+
+\frontmatter
+
+\input{titlepage}
+
+% Declaration
+\cleardoublepage
+
+This dissertation is the result of my own work and includes nothing which is the outcome of work done in collaboration except where specifically indicated in the text.
+
+
+
+\cleardoublepage
+
+% Quote
+\thispagestyle{empty}
+\begin{align*} &\; \\ &\; \\ &\; \\ &\;  \end{align*}
+
+\begin{center}
+\textit{``Aye, I suppose I could stay up that late.''} \\[1cm]
+\end{center}
+\begin{flushright}
+{\bf James Clerk Maxwell} \\
+after being informed of a compulsory 6 a.m \\church service on his arrival at Cambridge University.
+\end{flushright} 
+
+
+\cleardoublepage
+
+
+% Dedication
+\thispagestyle{empty}
+\begin{align*} &\; \\ &\; \\ &\; \\ &\;  \end{align*}
+
+\begin{center}
+\textit{Dedicated to Pa.} \\
+\textit{Thank you for paving the way.}
+\end{center}
+
+
+
+
+
+% Abstract
+\chapter*{A\lowercase{bstract}}
+\addcontentsline{toc}{chapter}{Abstract}
+
+
+We tackle the problem of learning control policies for systems in which knowledge of the underlying dynamics is unavailable or incomplete. This problem is given particular attention by the fields of Machine Learning and Control, in which interaction with the system is required in order to determine such a policy.
+Specifically we address the problem of how to incorporate useful prior knowledge about the system or task at hand and investigate what effect this may have on the learning process. To do this we build on the probabilistic learning control framework presented by \cite{DR11}.
+
+
+The first contribution of this thesis is to make use of prior structural knowledge regarding the dynamical equations governing the system in the form of known, or approximate, relationships between subsets of the state variables. We achieve this through the use of multiple dynamics models. Common examples of such prior knowledge are position-velocity relationships and tracking a known set, or distribution, of reference signals. Through demonstration of this technique on some simulated control problems we show situations in which forcing these prior beliefs into our model can have beneficial or adverse effects on learning.
+
+
+The second contribution is a class of priors that can be placed directly over a space of dynamics functions. These priors encode the fact that the discrete-time system we are dealing with is generated through sampling of some underlying continuous-time process, a commonly encountered situation. Often the underlying continuous process will have some useful structure in the form of invariant, linear or additively separable relationships. This structure gets lost when we move to the discrete system. We define a prior which is able to exploit any such underlying structure for improved predictive performance given only sampled data.
+
+
+The final contribution is to provide a qualitative comparison of the learning framework we have developed with a standard control theoretic approach. The comparison takes the form of a discussion outlining what knowledge is required of the user in order to implement a given method and what the potential pitfalls of each approach are. This discussion takes place in the context of two case study examples: a simulated robotic unicycle and a process control problem.
+
+
+
+%The control of systems where knowledge of the underlying dynamics is unavailable or incomplete is the topic of wide research. This problem is given particular attention by the fields of reinforcement learning and adaptive control in which, interaction with the system is required in order to determine a good control policy. In this thesis we address the problem of how to incorporate useful prior knowledge about the system or task at hand and investigate what effect this may have on the learning process.
+
+%Traditionally, reinforcement learning has tackled the learning problem in its full generality, making it unclear how to incorporate such prior knowledge. Conversely, adaptive control strategies have tended to place stringent assumptions on the form of the dynamics or control policy. We develop an existing probabilistic reinforcement learning framework so that useful prior knowledge can be incorporated using one of two methods. This allows us to fill in some of the middle ground. 
+
+%The first method makes use of prior structural information regarding the dynamical equations governing the system in the form of known, or approximate, relationships between a subset of the state variables. We refer to this method as augmented dynamics or multiple dynamics models. A common example of such prior information is position-velocity relationships. A further application is the case in which we wish to train our system to track a known set or distribution of reference signals. This can include access to some preview horizon of future reference signals. Finally, higher order Markov systems can also be handled under this framework.
+
+%The second method we present is a class of priors that can be placed directly over the space of dynamics functions. These priors encode the fact that the discrete system we are dealing with is generated through sampling of some underlying continuous time process, a commonly encountered situation. Often the underlying continuous process will have some useful structure in the form of invariant, linear or additively separable relationships. This structure gets lost when we move to the discrete system. We define a prior which is able to exploit any such underlying structure for improved predictive performance given only sampled data.
+
+%The final contribution of this thesis is to provide a qualitative comparison of the learning framework we have developed with a standard control theoretic approach. The comparison takes the form of a discussion outlining what knowledge is required of the user in order to implement a given method and what the potential pitfalls of each approach are. This discussion takes place in the context of two case study examples: a simulated robotic unicycle and an evaporator process control problem.
+
+
+
+
+% Acknowledgements
+\chapter*{A\lowercase{cknowledgements}}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+This is an unashamedly extensive (but far from exhaustive) list of acknowledgements to people who have helped and influenced me along the journey which has culminated in this thesis. I will start by saying that were it not for a few individuals I doubt I would have even considered doing a PhD. In particular, thank you Peter Doig and Linda McInnes for inspiring me about Physics and Mathematics during my time at Knox Academy. And Dr.\ Dave Anderson, at the University of Glasgow, thank you for your enthusiasm, your encouragement and for first sparking the idea of doing research.
+
+I wish to sincerely thank my supervisor, Prof.\ Jan Maciejowski, for giving me the freedom to pursue whichever avenue of research I felt most excited about and for gently guiding me through the subsequent rough waters. I have also received much input from my advisor, Dr.\ Carl Rasmussen, thank you for your patience in explaining many confusing concepts to me and taking the time to invest in my research and development. Dr.\ Ed Hartley, thank you for pouring your time and effort into answering my near continuous stream of questions in the early days of my studies. The beautiful figures in this thesis are a direct product of the wisdom you have passed on. For technical discussions and insightful comments I am greatly indebted to Marc Deisenroth, Andrew McHutcheon, Roger Frigola and Philip Hennig. Thank you for your help. 
+
+Rich Pates and Alberto Carignano, the PhD experience can often be depressing, full of uncertainty and confusion, but you have made it fun and light-hearted with your wit, banter and the general making light of each others' research plights (admittedly the time and effort we put into this amusement could have been better invested in actually solving these problems, but where is the fun in that). This good atmosphere has been perpetuated by the rest of the Control Group, so thank you Kris, Dave, Kaoru, Alison, Rohan, Panos, Ellie, Tim, Dariusz, Alex, Carlos, Luisa, Ian, Muyiwa, Amy, Marco, Xiaoke, Ye and Ze for being great colleagues. Anna Langley and Patrick Gosling, thank you for solving all my computer problems, I would still be doing my PhD now were it not for your expertise. And thank you Rachel Fogg, for keeping the whole division from descending into disarray, making sure we all stay sane and that we make wise choices.
+
+
+%As a brief interlude I would like to thank some inanimate objects that have been of particular importance to me over the past three years. Thank you to Melvin Bragg and Radio 4 for lightening the commute. Thank you Gertrude the bike for getting me around. Thank you Rah Collins' laptop for filling in when my one broke. Thank you to the Complete Jewish Bible for being an engrossing read. Thank you Johnny McAdam's ex-dreadlocks for the memories. Thank you Sports Direct mug for your girth. And thank you Toof for your endurance.
+
+
+Outside of research, I have been privileged to be a part of Gonville \& Caius College, who have provided me with more than my fair share of travel funding and free port. But the highlight of my time at Caius was being able to row. In particular I wish to thank the M2 crew of May Bumps 2010 for their camaraderie and fighting spirit. Housemates also make a huge difference in the day-to-day grind. I have been blessed with getting to live with the likes of Luke Smith, Tom Lee and Josh Noblett. Thank you for your friendship, support, laughs and shenanigans. My Cambridge experience would have been a poor one indeed were it not for you.
+
+As well as great housemates I am also grateful to the friends I have made since embarking on this journey. Thank you to Matt \& Mickey {\small(and Malachi \& Hero)} Peacock, Mike \& Belinda {\small(and Stjohn)} Bendzulla, Simon \& Christy Munday, Wei-Jin Goh, Bob \& Jacquie {\small (and Lizzie \& Johnny)} Storey, Faith \& Simon {\small(and Adlai)} Dwight, Philippe \& Christine Lafon, Chris Page, Matthias Weber, Ben \& Meri Leggott, Keith MacPherson, Phil \& Carol Wilthew, Ben \& Faith Rawley, Olly \& Katherine Cole, Matt \& Sarah Fox, Karen Carr \& the members of \textit{Supergroup} {\small(\#crankthatbass)} and those in my King's Arms and City Church home groups. You have all helped me through the inevitable ups and downs of research, simply by being yourselves. And of course, there are old friends whose influence just goes on and on. So thank you Andrew-John \& Elli McAdam, Luke \& Mim Emerton, Harry \& Esther Droop, Nick \& Jan Treadgold, Phil \& Lizzie Ford and Andy \& Theresa Merrick {\small (now Dad and Mum-in-law!).} Your friendship gives me life.
+
+
+
+As wonderful as it is having a family away from family, it is also amazing to have the support of your actual family! Mum \& Dad, you have invested so much in me. Your continual encouragement and enthusiasm for the work I do has spurred me on again and again. My sisters, Lisa and Sarah, you inspire me with your exploits. Gran, you are so generous in your love towards me, even diligently reading my technical papers to make sure I haven't made any mistakes. I treasure your words and your support. Grandad, thank you for making Engineering (and all that we did together) fun. I miss you. Uncle George \& Auntie Lorna, thank you for your prayerful support of me during my time here, I can tell you now that it has made the world of difference. Granny Lee, thank you for the love and kind words that you share so freely. And Pa, to whom this thesis is dedicated, your passion for knowledge and wisdom is an inspiration to me. It is an honour to follow in your footsteps.
+
+
+Kezia. My words cannot do justice to the support and love you have given me over the past months and years. Thank you for being a wonderful acquaintance, friend, girlfriend, fianc\`{e}e and wife, all in the course of a PhD. Thank you for giving me courage and hope when things looked bleak. Thank you for the strange and exotic food you make. Thank you for making sure I went outside. Thank you for pursuing what I think and how I feel. Thank you for letting me be me. Thank you for being the best distraction. I love you.
+
+Finally, thank you Jesus. Thank you for chasing after me. Thank you for giving me a hope and a purpose.  Thank you for your overwhelming goodness towards me, even when I was losing hope or was angry and frustrated with you. Thank you for giving me freedom. Thank you for bringing me here to do me good and not to shame or disappoint me. I look forward to the next adventure . . .
+
+
+
+
+
+
+
+% Nomenclature
+\chapter*{N\lowercase{omenclature}}
+\addcontentsline{toc}{chapter}{Nomenclature}
+
+\subsubsection{Sets}
+\begin{tabular}[]{p{0.1\textwidth}p{0.85\textwidth}}
+$\RR^D$ & the set of vectors of dimension $D$ with real elements \\[0.1cm]
+%
+$\ZZ_{[a,b]}$ & the set of integers in the range $[a,b]$
+\end{tabular}
+
+
+\subsubsection{Operators}
+\begin{tabular}[]{p{0.1\textwidth}p{0.85\textwidth}}
+$\otimes$ & the Kronecker product \\[0.1cm]
+%
+$\circ$ & the Hadamard product, element-wise matrix multiplication \\[0.1cm]
+%
+$\diag\{\cdot\}$ & returns a diagonal matrix with elements given by the elements of the input vector, given a matrix the operator will set all off diagonal elements to zero \\[0.1cm]
+%
+$\vect(\cdot)$ & takes a matrix and returns a vector containing the concatenation of the columns, we often employ the shorthand $\vec\bX = \vect(\bX)$
+\end{tabular}
+
+
+
+
+\subsubsection{Vectors and Matrices}
+\begin{tabular}[]{p{0.1\textwidth}p{0.85\textwidth}}
+$x[i]$ & the $i\tth$ element of the vector $\bx$ \\[0.1cm]
+$\bx[\bi]$ & a  sub-vector of $\bx$ consisting of the elements indexed by the elements of vector $\bi$ \\[0.1cm]
+$X[i,j]$ & the $(i,j)\tth$ element of the matrix $\bX$ \\[0.1cm]
+$X[:,i]$ & the $i\tth$ column of the matrix $\bX$ \\[0.1cm]
+$\bX[\bi,\bj]$ & a sub-matrix of $\bX$ consisting of rows and columns indexed by the elements of vectors $\bi$ and $\bj$ respectively
+%
+\end{tabular}
+
+\subsubsection{Random Variables}
+\begin{tabular}[]{p{0.1\textwidth}p{0.85\textwidth}}
+$p(\cdot)$ & probability density function over the vector space containing the input argument \\[0.1cm]
+%
+$\EE_{\bx}[\cdot]$ & expectation of the input argument with respect to $\bx$,  e.g.\ $\EE_{\bx}[\by] = \int\by p(\bx)\dd\bx$ \\[0.1cm]
+%
+$\cov_{\bx}[\cdot,\cdot]$ & covariance between two vectors with respect to $\bx$, related to the  expectation by $\cov_{\bx}[\by,\bz] = \EE_\bx[\by\bz\T] -\EE_\bx[\by]\EE_\bx[\bz]^\top$, we use the shorthand $\cov_{\bx}[\by] = \cov_{\bx}[\by,\by]$ for the variance \\[0.1cm]
+%
+$\sim$  &  a random vector $\bx$ sampled from the distribution $p(\bx)$ is denoted $\bx\sim p(\bx)$ \\[0.1cm]
+%
+$\ci$ & conditional independence, $\bx \ci \by | \bz$ means $\bx$ is conditionally independent of $\by$ given $\bz$ or $\cov[\bx,\by|\bz] = \mathbf{0}$ \\[0.1cm]
+%
+$\cN(\bm,\bS)$ & a Gaussian distribution with mean $\bm$ and covariance $\bS$, sometimes the random variable $\bx$ will be given explicitly as $\cN(\bx|\bm,\bS)$ 
+\end{tabular}
+
+
+
+
+% Contents
+\renewcommand{\contentsname}{C\lowercase{ontents}}
+\tableofcontents
+
+
+
+
+
+
+
+% MAIN
+\mainmatter
+\fancyhead[RE]{\bf\nouppercase{\leftmark}}
+\fancyhead[LO]{\bf\nouppercase{\rightmark}}
+
+\input{c1_intro/introduction}
+\input{c2_gpml/gpml}
+\input{c3_prioraug/prioraug}
+\input{c4_priorcov/priorcov}
+\input{c5_mpc/mpccomp}
+\input{c6_conc/conclusion}
+\input{c7_apps/appendices}
+
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliography}
+\renewcommand{\bibname}{B\lowercase{ibliography}}
+\bibliography{JoeREF}
+\bibliographystyle{jmb}
+
+
+
+
+
+
+\end{document}

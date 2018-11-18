@@ -1,0 +1,49 @@
+% Define block styles
+\tikzstyle{block} = [thick,rectangle, draw, text width=7em, text centered, rounded corners, minimum height=4em, fill=black!15]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=10em, text centered, rounded corners, minimum height=4em, fill=black!25]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[rounded corners]
+
+	\node at(6.5,-4.6) [block](poldel){\textbf{iLQG/DDP}};
+        \path[line] (poldel.west) -| (-1.5,-1.2) -- (0.9,1.2);
+
+	% Place nodes
+	\node at(-0.3,0) [block](pol){\textbf{Policy} \\[0.1cm]$\delta\bu = \pi(\delta\bx,\bpsi)$};
+	\node at(6.5,0) [bloc2k](sys){\textbf{System} \\[0.1cm]$ \dot\bx = f(\bx,\bu,\bth)$};
+	\node at(6.5,-2.1) [block](adapt){\textbf{Model}};
+	
+	\node at(2.7,0)[sum, label=above left:{$+$}, label=below left:{$+$}](summy){};
+	\node at(-3,0)[sum, label=above left:{$-$}, label=below right:{$+$}](neg){};
+	\node at(3.5,0)[dot](dot1){};
+	\node at(9.5,0)[dot](dot2){};
+	
+	
+	% Draw arrows
+	\path[line] (pol.east) -- (summy.west);
+	\path[line] (summy.east) -- (sys.west);
+        \path[line] (sys.east) -- (dot2) |- (adapt.east);
+        \path[line] (dot2.east) -- ([xshift=1cm] dot2.east);
+        \path[line] (dot1) |- (adapt.west);
+        \path[line] (neg.east) -- (pol.west);
+        \path[line] (adapt.south) -- (poldel.north);
+        \path[line] (dot2) -- +(0,1.8) -| (neg.north);
+        \path[line] ([xshift=1.2cm] poldel.east) -- (poldel.east);
+        \path[line] ([yshift=0.2cm]poldel.west) -| (summy.south);
+        \path[line] ([yshift=-0.2cm]poldel.west) -| (neg.south);
+
+        
+	% Labels
+	\node at (8.8,-4.3) {$\br$};
+        \node at (-2.7,1.5) {$\bx$};
+        \node at (-2.7,-4.5) {$\bar\bx$};
+        \node at (-2.3,0.3) {$\delta\bx$};
+        \node at (10,0.3) {$\bx$};
+        \node at (3.5,0.3) {$\bu$};
+        \node at (1.7,0.3) {$\delta\bu$};
+        \node at (3.1,-4) {$\bar\bu$};
+        \node at (-1.1,-4.2) {$\bpsi$};
+        \node at (7,-3.3) {$\hat\bth$};
+
+\end{tikzpicture}

@@ -1,0 +1,456 @@
+\begin{thebibliography}{90}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Abbeel {\em et~al.\/}(2007)Abbeel, Coates, Quigley \& Ng}]{ACQN07}
+{\sc Abbeel, P., Coates, A., Quigley, M. \& Ng, A.Y.} (2007). An application of
+  reinforcement learning to aerobatic helicopter flight. In {\em Advances in
+  Neural Information Processing Systems 19\/}.
+
+\bibitem[{Amari(1998)}]{Ama98}
+{\sc Amari, S.} (1998). Natural gradient works efficiently in learning. {\em
+  Neural Computation\/}, {\bf 10}, 251--276.
+
+\bibitem[{Anderson \& Moore(1979)}]{AnMo79}
+{\sc Anderson, B.D.O. \& Moore, J.B.} (1979). {\em Optimal Filtering\/}.
+  Prentice Hall.
+
+\bibitem[{Ariyur \& Krsti\'{c}(2003)}]{ArKr03}
+{\sc Ariyur, K.B. \& Krsti\'{c}, M.} (2003). {\em Real-Time Optimization by
+  Extremum-Seeking Control\/}. Wiley-Interscience.
+
+\bibitem[{{\AA}str\"{o}m \& Wittenmark(1994)}]{AsWi94}
+{\sc {\AA}str\"{o}m, K.J. \& Wittenmark, B.} (1994). {\em Adaptive Control\/}.
+  Prentice Hall, 2nd edn.
+
+\bibitem[{A\u{z}man \& Kocijan(2008)}]{AK08}
+{\sc A\u{z}man, K. \& Kocijan, J.} (2008). Non-linear model predictive control
+  for models with local information and uncertainties. {\em Transactions of the
+  Institute of Measurement and Control\/}, {\bf 30}, 371--396.
+
+\bibitem[{A\u{z}man \& Kocijan(2011)}]{AK11}
+{\sc A\u{z}man, K. \& Kocijan, J.} (2011). Dynamical systems identification
+  using {G}aussian process models with incorporated local models. {\em
+  Engineering Applications of Artificial Intelligence\/}, {\bf 24}, 398--408.
+
+\bibitem[{Bastin {\em et~al.\/}(2009)Bastin, Ne\u{s}i\'{c}, Tan \&
+  Mareels}]{BNTM09}
+{\sc Bastin, G., Ne\u{s}i\'{c}, D., Tan, Y. \& Mareels, I.} (2009). On extremum
+  seeking in bioprocesses with multivalued cost functions. {\em American
+  Institute of Chemical Engineers: Biotechnology Progress\/}, {\bf 25},
+  683--689.
+
+\bibitem[{Baxter \& Bartlett(2001)}]{BB01}
+{\sc Baxter, J. \& Bartlett, P.L.} (2001). Infinite-horizon policy-gradient
+  estimation. {\em Journal of Artificial Intelligence Research\/}, {\bf 15},
+  319--350.
+
+\bibitem[{Baxter {\em et~al.\/}(2001)Baxter, Tridgell \& Weaver}]{BTW00}
+{\sc Baxter, J., Tridgell, A. \& Weaver, L.} (2001). Learning to play chess
+  using temporal differences. {\em Machine Learning\/}, {\bf 40}, 243--263.
+
+\bibitem[{Bellman(1957)}]{Bell57}
+{\sc Bellman, R.} (1957). {\em Dynamic Programming\/}. Princeton University
+  Press, Princeton, New Jersey.
+
+\bibitem[{Bertsekas \& Tsitsiklis(1996)}]{BerTs96}
+{\sc Bertsekas, D.P. \& Tsitsiklis, J.} (1996). {\em Neuro-Dynamic
+  Programming\/}. Athena Scientific.
+
+\bibitem[{Bishop(2006)}]{Bish06}
+{\sc Bishop, C.M.} (2006). {\em Pattern Recognition and Machine Learning\/}.
+  Springer.
+
+\bibitem[{Bitmead {\em et~al.\/}(1990)Bitmead, Gevers \& Wertz}]{BGW90}
+{\sc Bitmead, R.R., Gevers, M. \& Wertz, V.} (1990). {\em Adaptive Optimal
+  Control: {T}he Thinking Man's {GPC}\/}. Prentice Hall International Series in
+  Systems and Control Engineering, Prentice Hall.
+
+\bibitem[{Boyd \& Vandenberghe(2004)}]{BoVa04}
+{\sc Boyd, S. \& Vandenberghe, L.} (2004). {\em Convex Optimization\/}.
+  Cambridge University Press.
+
+\bibitem[{Brookes(2005)}]{Bro05}
+{\sc Brookes, M.} (2005). The matrix reference manual: {\small
+  http://www.ee.ic.ac.uk/hp/staff/dmb/matrix/}.
+
+\bibitem[{Buchli {\em et~al.\/}(2011)Buchli, Stulp, Theodorou \&
+  Schaal}]{BSTS11}
+{\sc Buchli, J., Stulp, F., Theodorou, E. \& Schaal, S.} (2011). Learning
+  variable impedance control. {\em International Journal of Robotics
+  Research\/}.
+
+\bibitem[{Choi {\em et~al.\/}(2002)Choi, Krsti\'{c}, Ariyur \& Lee}]{CKAL02}
+{\sc Choi, J.Y., Krsti\'{c}, M., Ariyur, K.B. \& Lee, J.S.} (2002). Extremum
+  seeking control for discrete-time systems. {\em IEEE Transactions on
+  Automatic Control\/}, {\bf 47}, 318--323.
+
+\bibitem[{Deisenroth(2009)}]{Dei09}
+{\sc Deisenroth, M.P.} (2009). {\em Efficient Reinforcement Learning using
+  {G}aussian Processes\/}. Ph.D. thesis, Cambridge University.
+
+\bibitem[{Deisenroth \& Rasmussen(2011)}]{DR11}
+{\sc Deisenroth, M.P. \& Rasmussen, C.E.} (2011). {PILCO}: {A} model-based and
+  data-efficient approach to policy search. In {\em Proceedings of the 28th
+  International Conference on Machine Learning (ICML)\/}, Bellevue, WA.
+
+\bibitem[{Deisenroth {\em et~al.\/}(2011)Deisenroth, Hennig \&
+  Rasmussen}]{DHR11}
+{\sc Deisenroth, M.P., Hennig, P. \& Rasmussen, C.E.} (2011). Robotic unicycle
+  loss function, {Internal report, Cambridge University}.
+
+\bibitem[{Deisenroth {\em et~al.\/}(2012)Deisenroth, Turner, Huber, Haneback \&
+  Rasmussen}]{DTHH12}
+{\sc Deisenroth, M.P., Turner, R., Huber, M.F., Haneback, U.D. \& Rasmussen,
+  C.E.} (2012). Robust filtering and smoothing with {G}aussian processes. {\em
+  IEEE Transactions on Automatic Control\/}.
+
+\bibitem[{Duvenaud {\em et~al.\/}(2011)Duvenaud, Nickisch \& Rasmussen}]{DNR11}
+{\sc Duvenaud, D., Nickisch, H. \& Rasmussen, C.E.} (2011). Additive {G}aussian
+  processes. In {\em Advances in Neural Information Processing Systems 25\/},
+  1--8.
+
+\bibitem[{Engel {\em et~al.\/}(2003)Engel, Mannor \& Meir}]{EMM03}
+{\sc Engel, Y., Mannor, S. \& Meir, R.} (2003). Bayes meets {B}ellman: {T}he
+  {G}aussian process approach to temporal difference learning. In {\em
+  Proceedings of the 20th International Conference on Machine Learning\/},
+  vol.~20, 154--161, Washington DC, USA.
+
+\bibitem[{Engel {\em et~al.\/}(2005)Engel, Mannor \& Meir}]{EMM05}
+{\sc Engel, Y., Mannor, S. \& Meir, R.} (2005). Reinforcement learning with
+  {G}aussian processes. In {\em Proceedings of the 22nd International
+  Conference on Machine Learning\/}, vol.~22 of {\em ACM International
+  Conference Proceeding Series\/}, 201--208, ACM, Bonn, Germany.
+
+\bibitem[{Ernst {\em et~al.\/}(2005)Ernst, Geurts \& Wehenkel}]{EGW05}
+{\sc Ernst, D., Geurts, P. \& Wehenkel, L.} (2005). Tree-based batch mode
+  reinforcement learning. {\em Journal of Machine Learning Research\/}, {\bf
+  6}, 503--556.
+
+\bibitem[{Ernst {\em et~al.\/}(2009)Ernst, Glavic, Capitanescu \&
+  Wehenkel}]{EGCW09}
+{\sc Ernst, D., Glavic, M., Capitanescu, F. \& Wehenkel, L.} (2009).
+  Reinforcement learning versus model predictive control: {A} comparison on a
+  power system problem. {\em IEEE Transactions on Systems, Man, and
+  Cybernetics, Part B: Cybernetics\/}, {\bf 39}, 517--529.
+
+\bibitem[{Fabri \& Kadirkamanathan(1998)}]{FK97}
+{\sc Fabri, S. \& Kadirkamanathan, V.} (1998). Dual adaptive control of
+  nonlinear stochastic systems using neural networks. {\em Automatica\/}, {\bf
+  34}, 245--253.
+
+\bibitem[{Fel'dbaum(1960--61)}]{Fel61}
+{\sc Fel'dbaum, A.A.} (1960--61). Dual control theory, parts {I-IV}. {\em
+  Automation and Remote Control\/}, {\bf 21,22}, 874--880, 1033--1039, 1--12,
+  109--121.
+
+\bibitem[{Florian(2007)}]{Flo07}
+{\sc Florian, R.V.} (2007). Correct equations for the dynamics of the cart-pole
+  system, {Center for Cognitive and Neural Studies (Coneural), Romania}.
+
+\bibitem[{Forster(2009)}]{For09}
+{\sc Forster, D.} (2009). {\em Robotic unicycle\/}. Master's thesis, University
+  of Cambridge.
+
+\bibitem[{Geist \& Pietquin(2010{\natexlab{a}})}]{GP10b}
+{\sc Geist, M. \& Pietquin, O.} (2010{\natexlab{a}}). A brief survey of
+  parametric value function approximation. Tech. rep., Sup\'elec.
+
+\bibitem[{Geist \& Pietquin(2010{\natexlab{b}})}]{GP10a}
+{\sc Geist, M. \& Pietquin, O.} (2010{\natexlab{b}}). Kalman temporal
+  differences. {\em Journal of Artificial Intelligence Research\/}, {\bf 39},
+  483--532.
+
+\bibitem[{Geist {\em et~al.\/}(2009)Geist, Pietquin \& Fricout}]{GPF09}
+{\sc Geist, M., Pietquin, O. \& Fricout, G.} (2009). From supervised to
+  reinforcement learning: {A} kernel-based {B}ayesian filtering framework. {\em
+  International Journal On Advance in Software\/}, {\bf 2}, 101--116.
+
+\bibitem[{Girard {\em et~al.\/}(2003)Girard, Rasmussen,
+  {Qui\~{n}onerno-Candela} \& Murray-Smith}]{GRQM03}
+{\sc Girard, A., Rasmussen, C.E., {Qui\~{n}onerno-Candela}, J. \& Murray-Smith,
+  R.} (2003). Gaussian process priors with uncertain inputs - {A}pplication to
+  multiple-step ahead time series forecasting. In S.~Becker, S.~Thrun \&
+  K.~Obermayer, eds., {\em Advances in Neural Information Processing Systems
+  15\/}, 529--536, MIT Press, Cambridge, MA.
+
+\bibitem[{Hall {\em et~al.\/}(2011)Hall, Rasmussen \& Maciejowksi}]{HRM11}
+{\sc Hall, J., Rasmussen, C.E. \& Maciejowksi, J.M.} (2011). Reinforcement
+  learning with reference tracking control in continuous state spaces. In {\em
+  Proceedings of the 50th IEEE Conference on Decision and Control and European
+  Control Conference\/}.
+
+\bibitem[{Hall {\em et~al.\/}(2012)Hall, Rasmussen \& Maciejowksi}]{HRM12}
+{\sc Hall, J., Rasmussen, C.E. \& Maciejowksi, J.M.} (2012). Modelling and
+  control of nonlinear systems using {G}aussian processes with partial model
+  information. In {\em Proceedings of the 51st IEEE Conference on Decision and
+  Control\/}.
+
+\bibitem[{Hastie \& Tibshirani(1990)}]{HT90}
+{\sc Hastie, T.J. \& Tibshirani, R.J.} (1990). {\em Generalized Additive
+  Models\/}. Chapman \& Hall/CRC.
+
+\bibitem[{Hjalmarsson(2002)}]{Hja02}
+{\sc Hjalmarsson, H.} (2002). Iterative feedback tuning - {A}n overview. {\em
+  International Journal of Adaptive Control and Signal Processing\/}, {\bf 16},
+  373--395.
+
+\bibitem[{Hjalmarsson {\em et~al.\/}(1994)Hjalmarsson, Gunnarsson \&
+  Gevers}]{HGG94}
+{\sc Hjalmarsson, H., Gunnarsson, S. \& Gevers, M.} (1994). A convergent
+  iterative restricted complexity control design scheme. In {\em Proceedings of
+  the 33rd IEEE Conference on Decision and Control\/}, 1735--1740.
+
+\bibitem[{Hjalmarsson {\em et~al.\/}(1998)Hjalmarsson, Gevers, Gunnarsson \&
+  Lequin}]{HGGL98}
+{\sc Hjalmarsson, H., Gevers, M., Gunnarsson, S. \& Lequin, O.} (1998).
+  Iterative feedback tuning: {T}heory and applications. {\em IEEE Control
+  Systems Magazine\/}, {\bf 18}, 26--41.
+
+\bibitem[{Ioannou \& Fidan(2006)}]{IoFi06}
+{\sc Ioannou, P. \& Fidan, B.} (2006). {\em Adaptive Control Tutorial\/}.
+  Advances in Design and Control, SIAM (Society for Industrial and Applied
+  Mathematics).
+
+\bibitem[{Jacobson \& Mayne(1970)}]{JaMa70}
+{\sc Jacobson, D.H. \& Mayne, D.Q.} (1970). {\em Differential Dynamic
+  Programming\/}. American Elsevier, New York, NY.
+
+\bibitem[{Julier \& Uhlmann(1997)}]{JU97}
+{\sc Julier, S.J. \& Uhlmann, J.K.} (1997). A new extension of the kalman
+  filter to nonlinear systems. In {\em In International Symposium on
+  Aerospace/Defense Sensing, Simulation and Controls\/}, vol. 3068, 182--193.
+
+\bibitem[{Kaelbling {\em et~al.\/}(1996)Kaelbling, Littman \& Moore}]{KLM96}
+{\sc Kaelbling, L.P., Littman, M.L. \& Moore, A.W.} (1996). Reinforcement
+  learning: {A} survey. {\em Artificial Intelligence Research\/}, {\bf 4},
+  237--285.
+
+\bibitem[{Kakade(2002)}]{Kak02}
+{\sc Kakade, S.} (2002). A natural policy gradient. In {\em Advances in Neural
+  Information Processing Systems 14\/}.
+
+\bibitem[{Kalman(1960)}]{Kal60b}
+{\sc Kalman, R.E.} (1960). Contributions to the theory of optimal control. {\em
+  Bull. Soc. Math. Mex\/}, {\bf 5}, 102--119.
+
+\bibitem[{Krsti\'{c} {\em et~al.\/}(1995)Krsti\'{c}, Kanellakopoulos \&
+  Kokotovi\'{c}}]{KKK95}
+{\sc Krsti\'{c}, M., Kanellakopoulos, I. \& Kokotovi\'{c}, P.V.} (1995). {\em
+  Nonlinear and Adaptive Control Design\/}. Adaptive and Learning Systems for
+  Signal Processing, Communications and Control, Wiley-Interscience.
+
+\bibitem[{Ljung(1999)}]{Lju99}
+{\sc Ljung, L.} (1999). {\em System Identification: {T}heory for the User\/}.
+  Prentice Hall, 2nd edn.
+
+\bibitem[{Maciejowski(2002)}]{Mac02}
+{\sc Maciejowski, J.M.} (2002). {\em Predictive Control with Constraints\/}.
+  Pearson Education Limited.
+
+\bibitem[{Marbach \& Tsitsiklis(2001)}]{MT01}
+{\sc Marbach, P. \& Tsitsiklis, J.N.} (2001). Simulation-based optimization of
+  {M}arkov reward processes. {\em IEEE Transactions on Automatic Control\/},
+  {\bf 46}, 191--209.
+
+\bibitem[{Maybeck(1982)}]{May82}
+{\sc Maybeck, P.S.} (1982). {\em Stochastic Models, Estimation and Control\/}.
+  Academic Press.
+
+\bibitem[{McHutchon \& Rasmussen(2011)}]{MR11}
+{\sc McHutchon, A. \& Rasmussen, C.E.} (2011). Gaussian process training with
+  input noise. In {\em Advances in Neural Information Processing Systems 25\/}.
+
+\bibitem[{Mercer(1909)}]{Mer1909}
+{\sc Mercer, J.} (1909). Functions of positive and negative type and their
+  connection with the theory of integral equations. {\em Philosophical
+  Transactions of the Royal Society A\/}, {\bf 209}, 441--458.
+
+\bibitem[{Mitrovic {\em et~al.\/}(2010{\natexlab{a}})Mitrovic, Klanke, Osu,
+  Kawato \& Vijayakumar}]{MKOKV10}
+{\sc Mitrovic, D., Klanke, S., Osu, R., Kawato, M. \& Vijayakumar, S.}
+  (2010{\natexlab{a}}). A computational model of limb impedance control based
+  on principles of internal model uncertainty. {\em PLoS ONE\/}, {\bf 5}.
+
+\bibitem[{Mitrovic {\em et~al.\/}(2010{\natexlab{b}})Mitrovic, Klanke \&
+  Vijayakumar}]{MKV10}
+{\sc Mitrovic, D., Klanke, S. \& Vijayakumar, S.} (2010{\natexlab{b}}). {\em
+  Motor Learning to Interactive Learning in Robotics\/}, chap. Adaptive Optimal
+  Feedback Control with Learned Internal Dynamics Model, 65--84.
+  Springer-Verlag Berlin Heidelberg.
+
+\bibitem[{Morimoto {\em et~al.\/}(2003)Morimoto, Zeglin \& Atkeson}]{MZA02}
+{\sc Morimoto, J., Zeglin, G. \& Atkeson, C.G.} (2003). Minimax differential
+  dynamic programming: {A}pplication to a biped walking robot. In {\em
+  Proceedings of the IEEE/RSJ International Conterence on Intelligent Robots
+  and Systems\/}, vol.~2, 1927--1932.
+
+\bibitem[{Ne\u{s}i\'{c}(2009)}]{Nes09}
+{\sc Ne\u{s}i\'{c}, D.} (2009). Extremum seeking control: {C}onvergence
+  analysis. In {\em Proceedings of the 10th European Control Conference\/},
+  1702--1715, Budapest, Hungary.
+
+\bibitem[{Newell \& Lee(1989)}]{NeLe89}
+{\sc Newell, R.B. \& Lee, P.L.} (1989). {\em Applied Process Control - {A} Case
+  Study\/}. Prentice Hall, New York, NY.
+
+\bibitem[{Ng \& Jordan(2000)}]{NJ00}
+{\sc Ng, A.Y. \& Jordan, M.I.} (2000). \textsc{Pegasus}: {A} policy search
+  method for large {MDP}s and {POMDP}s. In {\em Proceedings of the Sixteenth
+  Conference on Uncertainty in Artificial Intelligence\/}.
+
+\bibitem[{Ng {\em et~al.\/}(2004{\natexlab{a}})Ng, Coates, Diel, Ganapathi,
+  Schulte, Tse, Berger \& Liang}]{NCDG04}
+{\sc Ng, A.Y., Coates, A., Diel, M., Ganapathi, V., Schulte, J., Tse, B.,
+  Berger, E. \& Liang, E.} (2004{\natexlab{a}}). Autonomous inverted helicopter
+  flight via reinforcement learning. In {\em International Symposium on
+  Experimental Robotics\/}.
+
+\bibitem[{Ng {\em et~al.\/}(2004{\natexlab{b}})Ng, Kim, Jordan \&
+  Sastry}]{NKJS04}
+{\sc Ng, A.Y., Kim, J.H., Jordan, M.I. \& Sastry, S.} (2004{\natexlab{b}}).
+  Autonomous helicopter flight via reinforcement learning. In {\em Advances in
+  Neural Information Processing Systems 16\/}.
+
+\bibitem[{Peters \& Schaal(2008)}]{PS08}
+{\sc Peters, J. \& Schaal, S.} (2008). Reinforcement learning of motor skills
+  with policy gradients. {\em Neural Networks\/}, {\bf 21}, 682--697.
+
+\bibitem[{Peters {\em et~al.\/}(2005)Peters, Vijayakumar \& Schaal}]{PVS05}
+{\sc Peters, J., Vijayakumar, S. \& Schaal, S.} (2005). Natural actor-critic.
+  In {\em Proceedings of the Sixteenth European Conference on Machine
+  Learning\/}, 280--291.
+
+\bibitem[{Qui\~{n}onerno Candela \& Rasmussen(2005)}]{QR05}
+{\sc Qui\~{n}onerno Candela, J. \& Rasmussen, C.E.} (2005). A unifying view of
+  sparse approximate {G}aussian process regression. {\em Journal of Machine
+  Learning Research\/}, {\bf 6}, 1939--1959.
+
+\bibitem[{Rasmussen \& Williams(2006)}]{RaWi06}
+{\sc Rasmussen, C.E. \& Williams, C.K.I.} (2006). {\em Gaussian Processes for
+  Machine Learning\/}. The MIT Press, Cambridge, MA.
+
+\bibitem[{S\"{a}rkk\"{a}(2011)}]{Sar11}
+{\sc S\"{a}rkk\"{a}, S.} (2011). Linear operators and stochastic partial
+  differential equations in {G}aussian process regression. In {\em Proceedings
+  of the International Conference on Artificial Neural Networks (ICANN)\/},
+  Espoo, Finland.
+
+\bibitem[{Simpkins {\em et~al.\/}(2008)Simpkins, de~Callafon \&
+  Todorov}]{SCT08}
+{\sc Simpkins, A., de~Callafon, R. \& Todorov, E.} (2008). Optimal trade-off
+  between exploration and exploitation. In {\em Proceedings of the American
+  Control Conference\/}, Seattle, Washington.
+
+\bibitem[{Snelson \& Gharamani(2006)}]{SG06}
+{\sc Snelson, E. \& Gharamani, Z.} (2006). Sparse {G}aussian processes using
+  pseudo-inputs. In B.~Weiss, B.~Sch\"{o}lkopf \& J.~Platt, eds., {\em Advances
+  in Neural Information Processing Systems 18\/}, 1259--1266.
+
+\bibitem[{Solak {\em et~al.\/}(2003)Solak, Murray-Smith, Leithead, Leith \&
+  Rasmussen}]{SMLL03}
+{\sc Solak, E., Murray-Smith, R., Leithead, W.E., Leith, D.J. \& Rasmussen,
+  C.E.} (2003). Derivative observations in {G}aussian process models of dynamic
+  systems. In S.~Thrun, S.~Becker \& K.~Obermayer, eds., {\em Advances in
+  Neural Information Processing Systems 15\/}, 1033--1040, Vancouver, Canada.
+
+\bibitem[{Sutton \& Barto(1998)}]{SuBa98}
+{\sc Sutton, R.S. \& Barto, A.G.} (1998). {\em Reinforcement Learning: {A}n
+  Introduction\/}. The MIT Press, Cambridge, MA.
+
+\bibitem[{Sutton {\em et~al.\/}(1992)Sutton, Barto \& Williams}]{SBW92}
+{\sc Sutton, R.S., Barto, A.G. \& Williams, R.J.} (1992). Reinforcement
+  learning is direct adaptive optimal control. In {\em Proceedings of the
+  American Control Conference\/}, 2143--2146.
+
+\bibitem[{Sutton {\em et~al.\/}(2000)Sutton, MacAllester, Singh \&
+  Mansour}]{SMSM00}
+{\sc Sutton, R.S., MacAllester, D., Singh, S. \& Mansour, Y.} (2000). Policy
+  gradient methods for reinforcement learning with function approximation. In
+  {\em Advances in Neural Information Processing Systems 12\/}, 1057--1063, MIT
+  Press.
+
+\bibitem[{Tesauro(1992)}]{Tes92}
+{\sc Tesauro, G.} (1992). Practical issues in temporal difference learning.
+  {\em Machine Learning\/}, {\bf 8}, 257--277.
+
+\bibitem[{Tesauro(1995)}]{Tes95}
+{\sc Tesauro, G.} (1995). Temporal difference learning and {TD}-{G}ammon. {\em
+  Communications of the ACM\/}, {\bf 38}.
+
+\bibitem[{Theodorou {\em et~al.\/}(2010{\natexlab{a}})Theodorou, Buchli \&
+  Schaal}]{TBS10b}
+{\sc Theodorou, E., Buchli, J. \& Schaal, S.} (2010{\natexlab{a}}). A
+  generalized path integral control approach to reinforcement learning. {\em
+  Journal of Machine Learning Research\/}, {\bf 11}, 3153--2197.
+
+\bibitem[{Theodorou {\em et~al.\/}(2010{\natexlab{b}})Theodorou, Buchli \&
+  Schaal}]{TBS10a}
+{\sc Theodorou, E., Buchli, J. \& Schaal, S.} (2010{\natexlab{b}}).
+  Reinforcement learning of motor skills in high dimensions: {A} path integral
+  approach. In {\em Proceedings of IEEE International Conference on Robotics
+  and Automation\/}, 2397--2403, Anchorage, Alaska.
+
+\bibitem[{Ting {\em et~al.\/}(2010)Ting, Vijayakumar \& Schaal}]{TVS10}
+{\sc Ting, J.A., Vijayakumar, S. \& Schaal, S.} (2010). Locally weighted
+  regression for control. In C.~Sammut \& G.I. Webb, eds., {\em Encyclopedia of
+  Machine Learning\/}, 613--624, Springer.
+
+\bibitem[{Todorov \& Li(2005)}]{TL05}
+{\sc Todorov, E. \& Li, W.} (2005). A generalized iterative {LQG} method for
+  locally-optimal feedback control of constrained nonlinear stochastic systems.
+  In {\em Proceedings of the American Control Conference\/}.
+
+\bibitem[{Todorov \& Tassa(2009)}]{TT09}
+{\sc Todorov, E. \& Tassa, Y.} (2009). Iterative local dynamic programming. In
+  {\em IEEE Symposium on Adaptive Dynamic Programming and Reinforcement
+  Learning\/}, 90--95, Nashville, TN.
+
+\bibitem[{Tse \& Bar-Shalom(1972)}]{TB72}
+{\sc Tse, E. \& Bar-Shalom, Y.} (1972). An actively adaptive control for linear
+  systems with random parameters via the dual control approach. In {\em
+  Proceedings of the IEEE Conference on Decision and Control and 11th Symposium
+  on Adaptive Processes\/}, 623 -- 627.
+
+\bibitem[{Tse \& Bar-Shalom(1975)}]{TB75}
+{\sc Tse, E. \& Bar-Shalom, Y.} (1975). Generalized certainty equivalence and
+  dual effect in stochastic control. {\em IEEE Transactions on Automatic
+  Control\/}, {\bf 20}, 817--819.
+
+\bibitem[{Tsitsiklis \& Van~Roy(1997)}]{TV97}
+{\sc Tsitsiklis, J.N. \& Van~Roy, B.} (1997). An analysis of
+  temporal-difference learning with function approximation. {\em IEEE
+  Transactions on Automatic Control\/}, {\bf 42}, 674--690.
+
+\bibitem[{Unbehauen(2000)}]{Un00}
+{\sc Unbehauen, H.} (2000). Adaptive dual control: {A} survey. In {\em
+  Proceedings of the Adaptive Systems for Signal Processing, Communications,
+  and Control Symposium\/}, 171--180, Lake Louise, Alta.
+
+\bibitem[{Vijayakumar {\em et~al.\/}(2005)Vijayakumar, D'Souza \&
+  Schaal}]{VDS05}
+{\sc Vijayakumar, S., D'Souza, A. \& Schaal, S.} (2005). Incremental online
+  learning in high dimensions. {\em Neural Computation\/}, {\bf 17},
+  2602--2634.
+
+\bibitem[{Watkins(1989)}]{Wat89}
+{\sc Watkins, C.J.C.H.} (1989). {\em Learning from Delayed Rewards\/}. Ph.D.
+  thesis, University of Cambridge, Cambridge, UK.
+
+\bibitem[{Watkins \& Dayan(1992)}]{WD92}
+{\sc Watkins, C.J.C.H. \& Dayan, P.} (1992). $\mathcal{Q}$-{L}earning. {\em
+  Machine Learning\/}, {\bf 8}, 279--292.
+
+\bibitem[{Williams(1992)}]{Wil92}
+{\sc Williams, R.J.} (1992). Simple statistical gradient-following algorithms
+  for connectionist reinforcement learning. {\em Machine Learning\/}, {\bf 8},
+  229--256.
+
+\bibitem[{Wittenmark(1995)}]{Wit95}
+{\sc Wittenmark, B.} (1995). Adaptive dual control methods: An overview. In
+  {\em Proceedings of the 5th IFAC Symposium on Adaptive Systems in Control and
+  Signal Processing\/}, 67--72.
+
+\bibitem[{Wittenmark(2000)}]{Wit00}
+{\sc Wittenmark, B.} (2000). Adaptive dual control. Draft for EOLSS.
+
+\end{thebibliography}

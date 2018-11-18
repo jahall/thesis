@@ -1,0 +1,29 @@
+\tikzstyle{line} = [draw, -latex]
+\begin{tikzpicture}[rounded corners, text centered]
+\tikzstyle{dot} = [circle, draw, black!30, fill= black!30, inner sep=1pt]
+  \small
+  \node[draw, thick, fill=black!15, text width=6em, minimum height=3.5em] at (0,-3.5) (pilco){\bf Learning};
+  \path[line] (pilco.west) -| (-4.8,-1.0) -- (-2.8,1.0);
+
+  \node[draw, thick, fill=black!15, text width=6em, minimum height=3.5em] at (-3.8,0) (pol)
+{\bf Policy  \\ {\footnotesize $\bu = \bpi(\bx)$}};
+  \node[draw,black!50, thick, text width=6em, minimum height=4.5em] at (0,0) (sys)
+{\bf System \\ {\footnotesize $\bx_+ = \bff(\bx,\bu)$}};
+  \node[draw, thick, fill=black!15, text width=6em, minimum height=3.5em] at (0,-1.8) (GP)
+{\bf Model \\ {\footnotesize $p(\bff|\cD)$ }};
+  
+  \node[dot] at (-2,0) (dot1){};
+  \node[dot] at (2,0) (dot2){};
+
+  \path[draw,black!50] (sys.east) -- (dot2);
+  \path[line,black!50] (dot2) |- (-5.5,1.3) |- (pol.west);
+  \path[line,black!50] (pol.east) -- (sys.west);
+  \path[line,black!50] (dot1) |- (GP.west);
+  \path[line,black!50] (dot2) |- (GP.east);
+  \path[line] (GP.south) -- (pilco.north);
+
+  \node at (1.6,0.2) {\color{gray}$\bx$};
+  \node at (-2,0.2) {\color{gray}$\bu$};
+  \node at (-4.4,-3.25) {$\bpsi$};
+
+\end{tikzpicture}

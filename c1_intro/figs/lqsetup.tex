@@ -1,0 +1,24 @@
+\tikzstyle{block} = [thick, rectangle, draw, text width=7em, text centered, rounded corners, minimum height=4em, fill=black!15]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=9em, text centered, rounded corners, minimum height=4em, fill=black!25]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+
+\begin{tikzpicture}[rounded corners]
+	
+	% Place nodes
+	\node at(0,0) [block](controller){\textbf{Policy} \\$\pi(\bx^{\text{tr}})$};
+	\node at(5,0) [bloc2k](system){\textbf{System} \\$\bx'=f(\bx,\bu) + \mathbf{w}$};
+	
+	% Draw arrows
+	\path[line] (controller.east) -- (system.west);
+	\path[line] (system.east) -| (8,1.5) -| (-2.5,0.5) -- ([yshift=.5cm]controller.west);
+	\path[line] (-2.5,-0.5) -- ([yshift=-.5cm]controller.west);
+	
+	
+	% Labels
+	\node at (2.3,.3) {$\bu$};
+	\node at (-2,.8) {$\bx$};
+	\node at (-2,-.15) {$\bx^{\mathbf{r}}$};
+	\node at (7.5,.3) {$\bx$};
+
+\end{tikzpicture}

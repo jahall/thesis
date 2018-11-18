@@ -1,0 +1,947 @@
+\relax 
+\select@language{english}
+\@writefile{toc}{\select@language{english}}
+\@writefile{lof}{\select@language{english}}
+\@writefile{lot}{\select@language{english}}
+\citation{DR11}
+\@writefile{toc}{\contentsline {chapter}{Abstract}{ix}}
+\@writefile{toc}{\contentsline {chapter}{Acknowledgements}{xi}}
+\@writefile{toc}{\contentsline {chapter}{Nomenclature}{xv}}
+\@writefile{toc}{\contentsline {subsubsection}{Sets}{xv}}
+\@writefile{toc}{\contentsline {subsubsection}{Operators}{xv}}
+\@writefile{toc}{\contentsline {subsubsection}{Vectors and Matrices}{xv}}
+\@writefile{toc}{\contentsline {subsubsection}{Random Variables}{xvi}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}I\lowercase {ntroduction}}{1}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{1}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:learnframe}{{1.1(a)}{2}}
+\newlabel{sub@fig:learnframe}{{(a)}{2}}
+\newlabel{fig:learnframe2}{{1.1(b)}{2}}
+\newlabel{sub@fig:learnframe2}{{(b)}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces These figures demonstrate the high level distinction between a model-free and model-based framework for learning control. Both frameworks are used for learning a parameterised discrete-time state-feedback control policy $\boldsymbol  {\pi }$, mapping the system state $\mathbf  {x}$ to the control action $\mathbf  {u}$, to achieve some task or meet some performance criteria. The system has dynamics governed by the unknown function $\mathbf  {f}$ which maps the current state and action to the state at the following timestep $\mathbf  {x}_+$.\relax }}{2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Model-free learning}}}{2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Model-based learning}}}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}The Learning Framework}{2}}
+\citation{AsWi94}
+\citation{IoFi06}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}R\lowercase {eview of the} L\lowercase {iterature}}{5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Background}{5}}
+\citation{SBW92}
+\citation{KKK95}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Adaptive Control}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Introduction}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Model Reference Adaptive Control}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Traditional Approach}{6}}
+\citation{HGG94}
+\citation{HGGL98}
+\citation{Hja02}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Layout of an MRAC scheme where $\mathbf  {f}_m$ describes the ideal closed loop system and $\boldsymbol  {\epsilon }$ is the error between the actual $\mathbf  {x}$ and ideal response $\mathbf  {s}$. The adaptation function $\mathbf  {g}$ can be determined through a variety of methods including stability theory.\relax }}{7}}
+\newlabel{fig:MRAC}{{2.1}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{Iterative Feedback Tuning}{7}}
+\citation{TB75}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Self-Tuning Regulators}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{Traditional Approach}{8}}
+\citation{AsWi94}
+\citation{Mac02}
+\citation{Fel61}
+\citation{Wit00}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Layout of an \textit  {indirect} self-tuning regulator for a system described by the equations $\mathbf  {x}_+ = \mathbf  {f}(\mathbf  {x},\mathbf  {u})$ parameterised by the unknown or time-varying parameters $\mathbf  {w}$. First an estimate of the unknown parameters is made $\mathbb  {E}[\mathbf  {w}]$, then the estimated system model is used under some control design scheme to determine policy parameters $\boldsymbol  {\psi }$.\relax }}{9}}
+\newlabel{fig:STRfig}{{2.2}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{Adaptive Model Predictive Control}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{Dual Control}{9}}
+\newlabel{sec:DC}{{2.2.3}{9}}
+\citation{Wit95}
+\citation{Un00}
+\citation{TB72}
+\citation{FK97}
+\citation{SCT08}
+\citation{BNTM09}
+\citation{ArKr03}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Extremum Seeking Control}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{Background}{10}}
+\citation{Nes09}
+\citation{ArKr03}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Layout of the extremum-seeking scheme with a sinusoidal dither signal of frequency $\omega $ for an unknown static map $g(\psi )$ with optimal value $g^*$ and associated setpoint $\psi ^*$.\relax }}{11}}
+\newlabel{fig:statES}{{2.3}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{Illustrative Example}{11}}
+\newlabel{eqn:staticmap}{{2.1}{11}}
+\citation{CKAL02}
+\citation{Tes92,Tes95}
+\citation{SuBa98}
+\citation{KLM96}
+\citation{BerTs96}
+\newlabel{eqn:xi}{{2.2}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Reinforcement Learning}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Introduction}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Markov Decision Process Framework}{13}}
+\citation{Bell57}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Dynamic Programming}{14}}
+\citation{SuBa98}
+\citation{Tes92,Tes95}
+\citation{BTW00}
+\citation{GP10b}
+\@writefile{thm}{\contentsline {algo}{{Algorithm}{2.{1}}{Policy Iteration}}{15}}
+\newlabel{algo:polit}{{2.{1}}{15}}
+\@writefile{thm}{\contentsline {algo}{{Algorithm}{2.{2}}{Value Iteration}}{15}}
+\newlabel{algo:valit}{{2.{2}}{15}}
+\newlabel{eqn:Qfixed}{{2.3}{15}}
+\citation{TV97}
+\citation{Wat89}
+\citation{WD92}
+\citation{EGW05}
+\citation{EGCW09}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Temporal Differences}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{Bootstrapping Methods}{16}}
+\newlabel{eqn:JQcost1}{{2.4}{16}}
+\newlabel{eqn:JQcost2}{{2.5}{16}}
+\citation{EMM03,EMM05}
+\citation{GPF09}
+\citation{GP10a}
+\@writefile{toc}{\contentsline {subsubsection}{Residual Methods}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{Practical Issues}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Policy-Gradient Algorithms}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{Background}{17}}
+\citation{PS08}
+\citation{Wil92}
+\citation{PS08}
+\citation{SMSM00}
+\citation{MT01}
+\citation{BB01}
+\citation{PS08}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Layout of the actor-critic policy gradient scheme where the policy is updated according to the rule $\boldsymbol  {\psi }\leftarrow \boldsymbol  {\psi }+ \Delta \boldsymbol  {\psi }$. Note that the actor applies the policy and the critic updates the parameters.\relax }}{18}}
+\newlabel{fig:actorcritic}{{2.4}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{The Likelihood Ratio Trick}{18}}
+\citation{SMSM00}
+\citation{MT01}
+\citation{SMSM00}
+\citation{MT01}
+\citation{SMSM00}
+\@writefile{toc}{\contentsline {subsubsection}{The Policy Gradient Theorem}{19}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{2.{1}}{Policy Gradient Theorem}}{19}}
+\newlabel{theo:polgrad}{{2.{1}}{19}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{1}{}}{19}}
+\citation{Kak02}
+\citation{Ama98}
+\citation{Kak02}
+\citation{PVS05}
+\citation{PVS05}
+\@writefile{toc}{\contentsline {subsubsection}{The Natural Policy Gradient}{20}}
+\citation{NJ00}
+\citation{NKJS04}
+\citation{NCDG04}
+\citation{TVS10}
+\citation{Dei09}
+\citation{DR11}
+\citation{DR11}
+\@writefile{toc}{\contentsline {subsubsection}{Model-Based Policy Gradients}{21}}
+\citation{JaMa70}
+\citation{TT09}
+\citation{ACQN07}
+\citation{MZA02}
+\citation{TL05}
+\citation{MKV10}
+\citation{VDS05}
+\citation{MKOKV10}
+\citation{TVS10}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Layout of a local learning scheme with learned dynamics model parameterised by $\mathbb  {E}[\mathbf  {w}|\mathcal  {D}]$. The iLQG or DDP algorithms would be placed in the local learning block in this diagram.\relax }}{22}}
+\newlabel{fig:iLQGLD}{{2.5}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.6}Local Learning}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{Differential Dynamic Programming and Iterative LQG}{22}}
+\citation{TBS10b}
+\citation{BSTS11}
+\citation{TBS10a}
+\citation{DR11}
+\@writefile{toc}{\contentsline {subsubsection}{Policy Improvement with Path Integrals}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Summary}{23}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}P\lowercase {robabilistic} L\lowercase {earning} C\lowercase {ontrol}}{25}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Overview}{25}}
+\newlabel{sec:learnover}{{3.1}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Problem Formulation}{25}}
+\newlabel{eqn:system}{{3.1}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Framework for model-based learning control. The \textit  {interaction} phase involves the policy running in closed-loop with the system according to the current best parameter setting $\boldsymbol  {\psi }$. During this phase the model updates its training data set $\mathcal  {D}$ and then updates its internal model of the system. The \textit  {simulation} phase then involves improving the policy based on the updated model. This procedure then iterates until the task is has been achieved. \relax }}{26}}
+\newlabel{fig:pilcoframework}{{3.1}{26}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Interaction phase}}}{26}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Simulation phase}}}{26}}
+\newlabel{eqn:learn1}{{3.2}{26}}
+\newlabel{eqn:learn2}{{3.3}{26}}
+\newlabel{eqn:Jcost}{{3.4}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Model-Based Approach}{27}}
+\newlabel{sec:modelbased}{{3.1.2}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}The Gaussian Assumption}{27}}
+\@writefile{thm}{\contentsline {ass}{{Assumption}{3.{1}}{Moment Matching}}{27}}
+\newlabel{ass:moment}{{3.{1}}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Stage-costs for which the expectation in Eq.$\tmspace  -\thinmuskip {.1667em}$~(\ref  {eqn:costint}) can be evaluated analytically for $\mathbf  {z}_k \sim \mathcal  {N}$. These functions are useful for penalising deviations of the state-action $\mathbf  {z}$ from a given setpoint $\mathbf  {r}$. The quadratic is shown by the dashed line and the inverted-Gaussian is shown by the solid.\relax }}{28}}
+\newlabel{fig:cost_costs}{{3.2}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Learning Control Policies}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Policy Evaluation}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{Stage-Costs}{28}}
+\newlabel{eqn:costint}{{3.5}{28}}
+\newlabel{eqn:cost_quad}{{3.6}{28}}
+\newlabel{eqn:cost_gauss}{{3.7}{28}}
+\newlabel{eqn:Equad}{{3.8}{28}}
+\newlabel{eqn:Egauss}{{3.9}{28}}
+\newlabel{fig:exp_far}{{3.3(a)}{29}}
+\newlabel{sub@fig:exp_far}{{(a)}{29}}
+\newlabel{fig:exp_near}{{3.3(b)}{29}}
+\newlabel{sub@fig:exp_near}{{(b)}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Illustration of how a ``natural" exploration of the state-action space can arise through use of an inverted-Gaussian stage cost. The stage cost is shown as a black line and two distributions over state-action space are shown by the blue and red curves, with the means shown explicitly.\relax }}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Distributions with means far away from the setpoint}}}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Distributions with means close to the setpoint}}}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{Natural Exploration-Exploitation}{29}}
+\newlabel{sec:natexp}{{3.2.1}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Policy Improvement}{30}}
+\newlabel{eqn:Jderiv1}{{3.10}{30}}
+\newlabel{eqn:Jderiv2}{{3.13}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Propagation of uncertainty from a given state-action pair $(\mathbf  {x}_{k-1},\mathbf  {u}_{k-1})$ to the pair at the following timestep $(\mathbf  {x}_k,\mathbf  {u}_k)$ given a distribution over dynamics functions $p(\mathbf  {f}|\mathcal  {D},\boldsymbol  {\theta })$ and the control policy $\boldsymbol  {\pi }$.\relax }}{31}}
+\newlabel{fig:propxu}{{3.4}{31}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}State-Action Prediction}{31}}
+\newlabel{sec:xuprediction}{{3.3}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Propagating Uncertainty}{31}}
+\@writefile{thm}{\contentsline {ass}{{Assumption}{3.{2}}{}}{31}}
+\newlabel{ass:gauss}{{3.{2}}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Gaussian Approximation Schemes}{31}}
+\citation{AnMo79}
+\citation{JU97}
+\citation{May82}
+\citation{DTHH12}
+\newlabel{fig:propLinUnsA}{{3.5(a)}{33}}
+\newlabel{sub@fig:propLinUnsA}{{(a)}{33}}
+\newlabel{fig:propLinUnsB}{{3.5(b)}{33}}
+\newlabel{sub@fig:propLinUnsB}{{(b)}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Propagation of uncertainty through a deterministic mapping $\mathbf  {f}$ using linearisation, the unscented transformation and exact moment matching. The lower plots show two distributions over $\mathbf  {z}$. The central plot shows the stochastic function $\mathbf  {f}$ with mean shown by the solid line and the 2$\sigma $ uncertainty region in gray. The right hand plot shows the true output distributions (obtained by sampling) and the various approximation schemes. Fig.$\tmspace  -\thinmuskip {.1667em}$ (a) is an example of the degeneracy of the linearised approximation and Fig.$\tmspace  -\thinmuskip {.1667em}$ (b) shows the degeneracy of the unscented transform.\relax }}{33}}
+\newlabel{fig:propLinUns}{{3.5}{33}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Linear approximation. Linearisations of the function about the state-action mean $\mathbb {E}{[\mathbf {z}]}$ are shown.}}}{33}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Unscented transformation. Sigma points $\mathcal {S}$ along with their projections $\mathbf {f}(\mathcal {S})$ and weights $W$ are shown.}}}{33}}
+\citation{RaWi06}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Modelling Uncertainty}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Bayesian Modelling}{34}}
+\newlabel{sec:bayesmodelling}{{3.4}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Problem Outline}{34}}
+\newlabel{sec:bayesproblem}{{3.4.1}{34}}
+\@writefile{thm}{\contentsline {defin}{{Definition}{3.{1}}{Gaussian process}}{34}}
+\newlabel{def:GP}{{3.{1}}{34}}
+\newlabel{eqn:cZY}{{3.14}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Parametric Approach}{35}}
+\@writefile{toc}{\contentsline {subsubsection}{Prior}{35}}
+\newlabel{eqn:param}{{3.15}{35}}
+\newlabel{eqn:Phi1}{{3.16}{35}}
+\newlabel{eqn:Phi2}{{3.17}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Samples from a prior and posterior distribution over quadratic functions $\mathbf  {f}(\mathbf  {z}) = \boldsymbol  {\Phi }(\mathbf  {z})^\top \mathbf  {w}$ where $\boldsymbol  {\phi }(\mathbf  {z}) = {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left [\vcenter to\@ne \big@size {}\right .$}\box \z@ }1; \mathbf  {z}; \mathrm  {vec}(\mathbf  {z}\mathbf  {z}^\top ){\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left ]\vcenter to\@ne \big@size {}\right .$}\box \z@ }$ with prior Gaussian distribution over the weights $p(\mathbf  {w}|\boldsymbol  {\theta }) = \mathcal  {N}(\mathbf  {0},\boldsymbol  {\Omega })$. The red, black and dashed lines show the underlying function $\mathbf  {f}$, mean of the distribution over functions (prior $\mathbf  {m}$ and posterior $\mathbf  {m}_+$) and sampled functions respectively. The grey regions denote two standard deviations, or 95\% confidence region, of the distribution. Training data is shown as blue dots on the posterior plot.\relax }}{36}}
+\newlabel{fig:linearprior}{{3.6}{36}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Samples from the prior $p(\mathbf {f}|\boldsymbol {\theta })$.}}}{36}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Samples from the posterior $p(\mathbf {f}|\mathcal {D},\boldsymbol {\theta })$.}}}{36}}
+\newlabel{eqn:covfunc}{{3.19}{36}}
+\@writefile{toc}{\contentsline {subsubsection}{Posterior}{36}}
+\citation{Mer1909}
+\newlabel{eqn:parampostM}{{3.22}{37}}
+\newlabel{eqn:parampostV}{{3.23}{37}}
+\newlabel{eqn:rbfM}{{3.24}{37}}
+\newlabel{eqn:rbfV}{{3.25}{37}}
+\@writefile{toc}{\contentsline {subsubsection}{Kernel Trick}{37}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{3.{1}}{Kernel Trick}}{37}}
+\newlabel{theo:kerneltrick}{{3.{1}}{37}}
+\newlabel{eqn:rbfM2}{{3.26}{37}}
+\newlabel{eqn:rbfV2}{{3.27}{37}}
+\citation{RaWi06}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{2}{}}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Nonparametric Approach}{38}}
+\@writefile{toc}{\contentsline {subsubsection}{Prior}{38}}
+\newlabel{fig:post}{{3.7(b)}{39}}
+\newlabel{sub@fig:post}{{(b)}{39}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Samples from a Gaussian process prior and posterior after data from the underlying function has been observed. The red, black and dashed lines show the underlying function $\mathbf  {f}$, mean of the Gaussian process (prior $\mathbf  {m}$ and posterior $\mathbf  {m}_+$) and sampled functions respectively. The grey regions denote two standard deviations, or 95\% confidence region, of the GP distribution. Training data is shown as blue dots on the posterior plot.\relax }}{39}}
+\newlabel{fig:priorpost}{{3.7}{39}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Samples from the GP prior $p(\mathbf {f}|\boldsymbol {\theta })$.}}}{39}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Samples from the GP posterior $p(\mathbf {f}|\mathcal {D},\boldsymbol {\theta })$.}}}{39}}
+\@writefile{toc}{\contentsline {subsubsection}{Posterior}{39}}
+\newlabel{eqn:gpbayes}{{3.30}{39}}
+\newlabel{eqn:marlik}{{3.31}{40}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{3.{2}}{Gaussian Process Posterior}}{40}}
+\newlabel{theo:GPpost}{{3.{2}}{40}}
+\newlabel{eqn:gpmean}{{3.32}{40}}
+\newlabel{eqn:gpvar}{{3.33}{40}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{3}{}}{40}}
+\citation{RaWi06}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Graphical model depicting the model selection hierarchy from possible model structures $\mathcal  {H}$ to the associated hyperparameters $\boldsymbol  {\theta }$ which in turn control the distribution over the actual underlying function $\mathbf  {f}$ which determines the observed data set $\mathcal  {D}$. The clear nodes depict hidden variables and the gray nodes depict observed variables.\relax }}{41}}
+\newlabel{fig:modsel}{{3.8}{41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.4}Model Selection and Training}{41}}
+\newlabel{sec:nLML}{{3.4.4}{41}}
+\citation{RaWi06}
+\citation{QR05}
+\citation{SG06}
+\newlabel{eqn:hypbayes}{{3.35}{42}}
+\newlabel{eqn:logmar}{{3.36}{42}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.5}Sparse Approximations}{42}}
+\newlabel{sec:sparse}{{3.4.5}{42}}
+\citation{Dei09}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.6}Priors for General Nonlinear Functions}{43}}
+\newlabel{sec:kernels}{{3.4.6}{43}}
+\@writefile{toc}{\contentsline {subsubsection}{Squared Exponential Kernel}{43}}
+\newlabel{eqn:SEkernel}{{3.39}{43}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{3.{3}}{Squared Exponential Kernel}}{44}}
+\newlabel{theo:SEkernel}{{3.{3}}{44}}
+\newlabel{eqn:universalapp}{{3.40}{44}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{4}{}}{44}}
+\@writefile{toc}{\contentsline {subsubsection}{Additive Squared Exponential Kernel}{44}}
+\citation{HT90}
+\citation{DNR11}
+\newlabel{eqn:aSEkernel}{{3.42}{45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces The moment matching approximation for a Gaussian process evaluated at a distribution over state-actions $p(\mathbf  {z})$. The red lines depict the Gaussian approximations to the true distributions given by the red shaded areas.\relax }}{46}}
+\newlabel{fig:multiprop}{{3.9}{46}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Multiple-Step Predictions}{46}}
+\newlabel{sec:multistep}{{3.5}{46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Overview}{46}}
+\newlabel{eqn:uncM}{{3.43}{46}}
+\newlabel{eqn:uncV}{{3.44}{46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Parametric Form}{47}}
+\@writefile{toc}{\contentsline {subsubsection}{General Basis Functions}{47}}
+\newlabel{eqn:uncparamM}{{3.45}{47}}
+\newlabel{eqn:uncparamV}{{3.46}{47}}
+\@writefile{toc}{\contentsline {subsubsection}{Linear Model}{47}}
+\newlabel{eqn:linMU}{{3.47}{47}}
+\newlabel{eqn:linSIG}{{3.48}{47}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Nonparametric Form}{47}}
+\@writefile{toc}{\contentsline {subsubsection}{General Covariance Function}{47}}
+\citation{Dei09}
+\citation{GRQM03}
+\newlabel{eqn:uncgpM}{{3.49}{48}}
+\newlabel{eqn:uncgpV}{{3.50}{48}}
+\newlabel{eqn:exps}{{3.51}{48}}
+\@writefile{toc}{\contentsline {subsubsection}{Squared-Exponential Kernel}{48}}
+\newlabel{eqn:SEpropM}{{3.52}{48}}
+\newlabel{eqn:muA}{{3.53}{49}}
+\newlabel{eqn:sigA}{{3.54}{49}}
+\newlabel{eqn:SEpropV}{{3.55}{49}}
+\newlabel{eqn:muAB}{{3.56}{49}}
+\newlabel{eqn:sigAB}{{3.57}{49}}
+\@writefile{toc}{\contentsline {subsubsection}{Additive Squared-Exponential Kernel}{49}}
+\newlabel{eqn:aSEpropM}{{3.59}{50}}
+\newlabel{eqn:aSEpropV}{{3.60}{50}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Constraints}{50}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}State Constraints}{50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Barrier functions for which the expectation in Eq.$\tmspace  -\thinmuskip {.1667em}$~(\ref  {eqn:costint}) can be evaluated analytically for $x \sim \mathcal  {N}$. These functions in are useful for penalising deviations outside of the set defined by $x_{\qopname  \relax m{min}}$ and $x_{\qopname  \relax m{max}}$. The polynomial is shown in blue and the affine is shown in red.\relax }}{51}}
+\newlabel{fig:cost_barriers}{{3.10}{51}}
+\newlabel{eqn:con_poly}{{3.61}{51}}
+\newlabel{eqn:con_aff}{{3.62}{51}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Action Constraints}{51}}
+\newlabel{sec:actioncon}{{3.6.2}{51}}
+\citation{DR11}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Approximations to the $\mathrm  {sat}$ function for which the expectation and covariance with respect to a Gaussian distributed input can be evaluated analytically. Specifically $s_1(u) = \qopname  \relax o{sin}(u)$ and $s_2(u) = \genfrac  {}{}{}1{9}{8}\qopname  \relax o{sin}{\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left (\vcenter to\@ne \big@size {}\right .$}\box \z@ }\genfrac  {}{}{}1{2}{3}u{\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left )\vcenter to\@ne \big@size {}\right .$}\box \z@ } + \genfrac  {}{}{}1{1}{8}\qopname  \relax o{sin}(2u)$. Both satisfy the conditions $s_i(u) \in [-1,1]$ and $s'_i(0) = 1$.\relax }}{52}}
+\newlabel{fig:sinsat}{{3.11}{52}}
+\newlabel{eqn:gsin}{{3.65}{52}}
+\newlabel{eqn:gsat}{{3.66}{52}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Summary}{52}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}M\lowercase {ultiple} D\lowercase {ynamics} M\lowercase {odels}}{53}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction}{53}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Augmented Dynamics}{54}}
+\newlabel{sec:augmentedDYN}{{4.2}{54}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Framework}{54}}
+\newlabel{eqn:multimodel}{{4.1}{54}}
+\@writefile{thm}{\contentsline {exa}{{Example}{4.{1}}{Position-Velocity}}{54}}
+\@writefile{thm}{\contentsline {exa}{{Example}{4.{2}}{Reference Generator}}{54}}
+\@writefile{thm}{\contentsline {ass}{{Assumption}{4.{1}}{}}{55}}
+\newlabel{ass:multigauss}{{4.{1}}{55}}
+\newlabel{eqn:multicov}{{4.2}{55}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{4.{1}}{Output-Input Covariance}}{55}}
+\newlabel{theo:inpout}{{4.{1}}{55}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{5}{}}{55}}
+\citation{Bish06}
+\citation{Bish06}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Graphical model for which the conditional independence relationship $\mathbf  {a}\perp \tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}\perp \mathbf  {b}{\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left |\vcenter to\@ne \big@size {}\right .$}\box \z@ } \mathbf  {c}$ holds. See \cite  {Bish06} Chapter 8.2 for a more detailed outline.\relax }}{56}}
+\newlabel{fig:condind}{{4.1}{56}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Subset of Inputs}{56}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{4.{2}}{Conditional Independence}}{56}}
+\newlabel{theo:condind}{{4.{2}}{56}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{6}{}}{57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Higher Order Markov Systems}{57}}
+\newlabel{sec:nonmarkov}{{4.2.3}{57}}
+\citation{HRM12}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Known State Relationships}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}General Mappings}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Position-Velocity}{58}}
+\newlabel{sec:posvel}{{4.3.2}{58}}
+\newlabel{eqn:posint}{{4.3}{58}}
+\newlabel{eqn:veldiff}{{4.4}{58}}
+\newlabel{eqn:int1}{{4.5}{58}}
+\newlabel{eqn:int2}{{4.6}{58}}
+\newlabel{fig:posint}{{4.2(a)}{59}}
+\newlabel{sub@fig:posint}{{(a)}{59}}
+\newlabel{fig:veldiff}{{4.2(b)}{59}}
+\newlabel{sub@fig:veldiff}{{(b)}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Approximate reconstruction of the current position/velocity states given previous observations of the velocity/position states up to time $t-\delta _t$. The thick blue and red lines in each plot make approximations of zero and constant acceleration $\mathaccentV {dot}05F\mathbf  {x}^{\text  {v}}$ respectively. The thin red line in plot (b) shows actual gradient at time $t-\delta _t$, which the constant acceleration approximation utilises.\relax }}{59}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Integral approximations.}}}{59}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Derivative approximations.}}}{59}}
+\newlabel{eqn:diff1}{{4.7}{59}}
+\newlabel{eqn:diff2}{{4.8}{59}}
+\newlabel{eqn:dada}{{4.9}{59}}
+\newlabel{eqn:mama}{{4.10}{59}}
+\newlabel{fig:posint2}{{4.3(a)}{60}}
+\newlabel{sub@fig:posint2}{{(a)}{60}}
+\newlabel{fig:veldiff2}{{4.3(b)}{60}}
+\newlabel{sub@fig:veldiff2}{{(b)}{60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Approximate reconstruction of the current position/velocity states given previous observations of the velocity/position states up to time $t-2\delta _t$. The blue lines in plot (a) and (b) use only the three observed points on the graph to make a quadratic approximation of the actual curve. The red line in plot (a) additionally uses the red shaded area $\DOTSI \intop \ilimits@ \mathbf  {x}^{\text  {v}}\mathrm  {d}\tau $ over $[t-2\delta _t,t-\delta _t]$ to form a cubic approximation. This is equivalent to the red line in plot (b) which uses the derivatives $\frac  {\mathrm  {d}\mathbf  {x}^{\text  {p}}}{\mathrm  {d}\tau }(t-\delta _t)$ and $\frac  {\mathrm  {d}\mathbf  {x}^{\text  {p}}}{\mathrm  {d}\tau } (t-2\delta _t)$ shown by thin red lines to make a quartic approximation.\relax }}{60}}
+\newlabel{fig:posvel2}{{4.3}{60}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Integral approximations.}}}{60}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Derivative approximations.}}}{60}}
+\newlabel{eqn:dada2}{{4.11}{60}}
+\newlabel{eqn:mama2}{{4.12}{60}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Example: Pendulum}{60}}
+\newlabel{sec:pendulum}{{4.3.3}{60}}
+\@writefile{toc}{\contentsline {subsubsection}{Setup}{60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Torque-limited pendulum with angle from the down position $\theta $, length $l$ and input torque $u$.\relax }}{61}}
+\newlabel{fig:pendulum}{{4.4}{61}}
+\citation{DR11}
+\newlabel{fig:standi1}{{4.5(a)}{62}}
+\newlabel{sub@fig:standi1}{{(a)}{62}}
+\newlabel{fig:standj1}{{4.5(b)}{62}}
+\newlabel{sub@fig:standj1}{{(b)}{62}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The graph in (a) depicts the cost trajectories over six iterations of 50 Monte Carlo runs of the standard learning algorithm to the pendulum problem. The black crosses show the actual costs incurred and the blue crosses show the associated mean predicted costs. The maximum cost and the global optimum are shown by the red line and the red dashed line respectively. The three solutions that the algorithm tended to settle for are shown by the trajectories in (b). The blue is close the global optimum solution, consisting of a single swing-back, while the black is a local optimum consisting of two swings. Finally, the red is a locally optimal solution of simply applying full actuation torque over the whole horizon.\relax }}{62}}
+\newlabel{fig:stand1}{{4.5}{62}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Distribution of costs after each iteration}}}{62}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Three locally optimal solutions}}}{62}}
+\@writefile{toc}{\contentsline {subsubsection}{Standard Method}{62}}
+\newlabel{fig:noisy1}{{4.6(a)}{63}}
+\newlabel{sub@fig:noisy1}{{(a)}{63}}
+\newlabel{fig:eul1}{{4.6(b)}{63}}
+\newlabel{sub@fig:eul1}{{(b)}{63}}
+\newlabel{fig:heu1}{{4.6(c)}{63}}
+\newlabel{sub@fig:heu1}{{(c)}{63}}
+\newlabel{fig:cub1}{{4.6(d)}{63}}
+\newlabel{sub@fig:cub1}{{(d)}{63}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Plots of the distribution of actual costs (black) and the mean predicted cost (blue) for different levels of additive noise $\mathcal  {N}(\mathbf  {0},\sigma ^2\mathbf  {I})$ on the prediction of $\theta $. The x-axis displays the algorithm iteration and the y-axis shows the cost $J(\boldsymbol  {\psi })$. These plots were constructed from 100 Monte Carlo runs with initial training data sets obtained by applying different random torque actions.\relax }}{63}}
+\newlabel{fig:integ}{{4.6}{63}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Use GPs to learn evolution of both $\theta $ and $\mathaccentV{dot}05F\theta $.}}}{63}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Reconstruct $\theta $ using the Euler method.}}}{63}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Reconstruct $\theta $ using the Heun method.}}}{63}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Reconstruct $\theta $ using the Cubic method.}}}{63}}
+\@writefile{toc}{\contentsline {subsubsection}{Position Reconstruction}{64}}
+\newlabel{eqn:pen_eul}{{4.13}{64}}
+\newlabel{eqn:pen_heu}{{4.14}{64}}
+\newlabel{eqn:pen_cub}{{4.15}{64}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces This table provides the number of learning algorithm runs that have fallen into either the bad local minimum, a suboptimal solution or the global optimum solution at the end of the six trials out of the 100 Monte Carlo runs. They are compared across the different methods for position reconstruction and values of additive predictive noise. The values correspond to those depicted in Fig.$\tmspace  -\thinmuskip {.1667em}$~\ref  {fig:integ}.\relax }}{65}}
+\newlabel{tab:integ}{{4.1}{65}}
+\@writefile{toc}{\contentsline {subsubsection}{Velocity Reconstruction}{65}}
+\newlabel{eqn:pen_eulv}{{4.16}{65}}
+\newlabel{eqn:pen_heuv}{{4.17}{65}}
+\newlabel{fig:noisy2}{{4.7(a)}{66}}
+\newlabel{sub@fig:noisy2}{{(a)}{66}}
+\newlabel{fig:eul2}{{4.7(b)}{66}}
+\newlabel{sub@fig:eul2}{{(b)}{66}}
+\newlabel{fig:heu2}{{4.7(c)}{66}}
+\newlabel{sub@fig:heu2}{{(c)}{66}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Plots of the distribution of actual costs (black) and the mean predicted cost (blue) for different levels of additive noise $\mathcal  {N}(\mathbf  {0},\sigma ^2\mathbf  {I})$ on the prediction of $\mathaccentV {dot}05F\theta $. The x-axis displays the algorithm iteration and the y-axis shows the cost $J(\boldsymbol  {\psi })$. These plots were constructed from 100 Monte Carlo runs with initial training data sets obtained by applying different random torque actions.\relax }}{66}}
+\newlabel{fig:differ}{{4.7}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Use GPs to learn evolution of both $\theta $ and $\mathaccentV{dot}05F\theta $.}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Reconstruct $\mathaccentV{dot}05F\theta $ using the Euler method.}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Reconstruct $\mathaccentV{dot}05F\theta $ using the Heun method.}}}{66}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces These plots are directly related to the Monte Carlo runs shown in Fig.$\tmspace  -\thinmuskip {.1667em}$~\ref  {fig:heu2} in which a Heun-type method has been used to achieve velocity reconstruction. They show the lowest predicted cost predicted by a given internal model for a globally optimal policy against the policy the algorithm actually converged on using this model. Points appearing in the gray region would indicate that the model was predicting that the globally optimal solution was performing worse than its own solution.\relax }}{67}}
+\newlabel{fig:penpred}{{4.8}{67}}
+\citation{For09}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Comparison of CPU time for a single cost function evaluation (with derivatives) for the pendulum. The black line is for the prediction of $\theta $ and $\mathaccentV {dot}05F\theta $ using two GPs. The blue line is for the case where one of the states is reconstructed using information back to time $k-1$ and the red line for information back to $k-2$. The x-axis depicts the size of training data set available to the GP.\relax }}{68}}
+\newlabel{fig:pencomps}{{4.9}{68}}
+\@writefile{toc}{\contentsline {subsubsection}{Computational Savings}{68}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}Example: Unicycle}{68}}
+\newlabel{sec:unicycle}{{4.3.4}{68}}
+\@writefile{toc}{\contentsline {subsubsection}{Setup}{68}}
+\citation{MR11}
+\citation{DHR11}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces The robotic unicycle. The spatial position of the unicycle is defined by the pitch angle $\phi $, roll angle $\theta $, yaw angle $\psi $, wheel angle $\phi _\text  {w}$, turntable angle $\psi _\text  {t}$ and the body-centred coordinates of the global origin $(x_\text  {c},y_\text  {c})$. The controlled inputs are the motor torque applied to the wheel $u_\text  {w}$ and the motor torque applied to the turntable $u_\text  {t}$.\relax }}{69}}
+\newlabel{fig:unicycle}{{4.10}{69}}
+\newlabel{fig:uni_sta}{{4.11(a)}{70}}
+\newlabel{sub@fig:uni_sta}{{(a)}{70}}
+\newlabel{fig:uni_eul}{{4.11(b)}{70}}
+\newlabel{sub@fig:uni_eul}{{(b)}{70}}
+\newlabel{fig:uni_heu}{{4.11(c)}{70}}
+\newlabel{sub@fig:uni_heu}{{(c)}{70}}
+\newlabel{fig:uni_fan}{{4.11(d)}{70}}
+\newlabel{sub@fig:uni_fan}{{(d)}{70}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Boxplots depicting the cost $J(\boldsymbol  {\psi })$ of applying the learned control policy after a given iteration of the algorithm. These were constructed from 50 Monte Carlo runs with random initial training data sets of around 10$\tmspace  +\thinmuskip {.1667em}$s. The blue box encloses the 25$\ensuremath  {^{\text  {th}}}$ to 75$\ensuremath  {^{\text  {th}}}$ percentile of the data, with the 50$\ensuremath  {^{\text  {th}}}$ percentile shown by the red line.\relax }}{70}}
+\newlabel{fig:uniplots}{{4.11}{70}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {GP models for all states}}}{70}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Reconstruct $\phi , \theta $ and $\psi $ using the Euler method}}}{70}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Reconstruct $\phi , \theta $ and $\psi $ using the Heun method}}}{70}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Reconstruct $\phi , \theta $ and $\psi $ using the Cubic method}}}{70}}
+\newlabel{eqn:unicost}{{4.18}{70}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Average data set growth corresponding to the Monte Carlo runs shown in Fig.$\tmspace  -\thinmuskip {.1667em}$~\ref  {fig:uni_sta}. All the data sets grew at around the same rate (represented by the black line) with the exception of the Euler method which grew more slowly due to its poorer performance.\relax }}{71}}
+\newlabel{fig:uni_datasize}{{4.12}{71}}
+\@writefile{toc}{\contentsline {subsubsection}{Results}{71}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Comparison of CPU time for a single cost function evaluation $J(\boldsymbol  {\psi })$ (with derivatives) for the unicycle with $H = {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "4264306 \vcenter to\@ne \big@size {}\right .$}\box \z@ }10/\delta _t{\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "5265307 \vcenter to\@ne \big@size {}\right .$}\box \z@ }$ and $\delta _t= 0.15\tmspace  +\thinmuskip {.1667em}$s. The black line is for prediction of $\theta $ and $\mathaccentV {dot}05F\theta $ with GPs. The blue line is for the case where position states are reconstructed using information back to time $k-1$ and the red line for information back to $k-2$. The x-axis depicts the size of training data set available to the GP.\relax }}{72}}
+\newlabel{fig:unicomps}{{4.13}{72}}
+\@writefile{toc}{\contentsline {subsubsection}{Computational Savings}{72}}
+\citation{BGW90}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Reference Tracking}{73}}
+\newlabel{sec:reffy}{{4.4}{73}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Problem Formulation}{73}}
+\newlabel{eqn:reftrack1}{{4.19}{73}}
+\newlabel{eqn:reftrack2}{{4.20}{73}}
+\citation{HRM11}
+\newlabel{fig:linref1}{{4.14(a)}{74}}
+\newlabel{sub@fig:linref1}{{(a)}{74}}
+\newlabel{fig:linref2}{{4.14(b)}{74}}
+\newlabel{sub@fig:linref2}{{(b)}{74}}
+\newlabel{fig:linref3}{{4.14(c)}{74}}
+\newlabel{sub@fig:linref3}{{(c)}{74}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Examples of reference signals generated from the linear system $\mathbf  {x}^{\mathbf  {r}}_k = \mathbf  {A}^{\mathbf  {r}}\mathbf  {x}^{\mathbf  {r}}_{k-1} + \mathbf  {b}^{\mathbf  {r}}e_{k-1}$ where $r_k = [1,\mathbf  {0}]\mathbf  {x}^{\mathbf  {r}}$. Plots (a)-(c) were generated using $\mathbf  {A}^{\mathbf  {r}}_1, \mathbf  {b}^{\mathbf  {r}}_1$, $\mathbf  {A}^{\mathbf  {r}}_2, \mathbf  {b}^{\mathbf  {r}}_2$ and $\mathbf  {A}^{\mathbf  {r}}_3, \mathbf  {b}^{\mathbf  {r}}_3$ respectively. The means are plotted in thick solid lines, samples shown by dashed lines and the $2\sigma $ confidence region shaded in grey.\relax }}{74}}
+\newlabel{fig:linrefs}{{4.14}{74}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Steps}}}{74}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Periodic Waves}}}{74}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Filtered Noise}}}{74}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Preview Horizon}{74}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Reference Dynamics}{74}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Cart-pole setup with position $x$, pole angle $\theta $, pole length $l$, action force $u$ and lateral location of the setpoint $r$. The setpoint is shown by the blue cross and the Euclidean distance from the tip of the pole to the setpoint is shown by the dotted line. \relax }}{75}}
+\newlabel{fig:cartpole}{{4.15}{75}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}Example: Cart-pole}{75}}
+\@writefile{toc}{\contentsline {subsubsection}{Setup}{75}}
+\newlabel{fig:cart01}{{4.16(a)}{76}}
+\newlabel{sub@fig:cart01}{{(a)}{76}}
+\newlabel{fig:cart02}{{4.16(b)}{76}}
+\newlabel{sub@fig:cart02}{{(b)}{76}}
+\newlabel{fig:cart03}{{4.16(c)}{76}}
+\newlabel{sub@fig:cart03}{{(c)}{76}}
+\newlabel{fig:cart04}{{4.16(d)}{76}}
+\newlabel{sub@fig:cart04}{{(d)}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Cost incurred by the current policy after a given iteration of the algorithm. The policy has access to different preview horizons $T_{\text  {p}}$ of the reference. Black crosses show the actual cost incurred while the blue shows the mean predicted cost. \relax }}{76}}
+\newlabel{fig:cartcosts}{{4.16}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {No preview horizon}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Preview horizon $T_{\text {p}} = 0.1\tmspace +\thinmuskip {.1667em}$s}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Preview horizon $T_{\text {p}} = 0.3\tmspace +\thinmuskip {.1667em}$s}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Preview horizon $T_{\text {p}} = 1.0\tmspace +\thinmuskip {.1667em}$s}}}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Responses of the cart-pole system corresponding to the costs depicted in Fig.$\tmspace  -\thinmuskip {.1667em}$~\ref  {fig:cartcosts} at the sixth iteration. The policy preview horizon $T_{\text  {p}}$ was altered between these four sets of runs. The runs show the step responses of 50 runs after the 10th iteration of the algorithm. Red lines show runs in which the pole falls over or can balance but have not learned to track yet.\relax }}{76}}
+\newlabel{fig:cartplots}{{4.17}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {No preview horizon}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Preview horizon $T_{\text {p}} = 0.1\tmspace +\thinmuskip {.1667em}$s}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Preview horizon $T_{\text {p}} = 0.3\tmspace +\thinmuskip {.1667em}$s}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Preview horizon $T_{\text {p}} = 1.0\tmspace +\thinmuskip {.1667em}$s}}}{76}}
+\newlabel{fig:cart05}{{4.18(a)}{77}}
+\newlabel{sub@fig:cart05}{{(a)}{77}}
+\newlabel{fig:cart06}{{4.18(b)}{77}}
+\newlabel{sub@fig:cart06}{{(b)}{77}}
+\newlabel{fig:cart07}{{4.18(c)}{77}}
+\newlabel{sub@fig:cart07}{{(c)}{77}}
+\newlabel{fig:cart08}{{4.18(d)}{77}}
+\newlabel{sub@fig:cart08}{{(d)}{77}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces Cost incurred by the algorithm by applying the current best policy after a given iteration (given by the x-axis). Black crosses show the actual cost incurred while the blue shows the predicted cost. \relax }}{77}}
+\newlabel{fig:cartcosts2}{{4.18}{77}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {No preview horizon}}}{77}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Preview horizon $T_{\text {p}} = 0.1\tmspace +\thinmuskip {.1667em}$s}}}{77}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Preview horizon $T_{\text {p}} = 0.3\tmspace +\thinmuskip {.1667em}$s}}}{77}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Preview horizon $T_{\text {p}} = 1.0\tmspace +\thinmuskip {.1667em}$s}}}{77}}
+\@writefile{toc}{\contentsline {subsubsection}{Results}{77}}
+\newlabel{fig:cart09}{{4.19(a)}{78}}
+\newlabel{sub@fig:cart09}{{(a)}{78}}
+\newlabel{fig:cart10}{{4.19(b)}{78}}
+\newlabel{sub@fig:cart10}{{(b)}{78}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces Cost incurred by the algorithm by applying the current best policy after a given iteration (given by the x-axis). Black crosses show the actual cost incurred while the blue shows the predicted cost. \relax }}{78}}
+\newlabel{fig:cartcosts3}{{4.19}{78}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Access only to the reference position}}}{78}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Access to the full reference state.}}}{78}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}Example: Unicycle}{78}}
+\newlabel{fig:uni01}{{4.20(a)}{79}}
+\newlabel{sub@fig:uni01}{{(a)}{79}}
+\newlabel{fig:uni02}{{4.20(b)}{79}}
+\newlabel{sub@fig:uni02}{{(b)}{79}}
+\newlabel{fig:uni03}{{4.20(c)}{79}}
+\newlabel{sub@fig:uni03}{{(c)}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces Plots showing the movement of the base of the balanced unicycle as it tracks a spinning setpoint defined in the body-fixed coordinate system $(x_\text  {c},y_\text  {c})$. The left hand plots show the actual spatial trajectory of the base of the unicycle in blue whilst the red line shows the trajectory of the front of the wheel in order to demonstrate the spinning motion. The other plots show the reference in black and the relevant state of the unicycle in blue.\relax }}{79}}
+\newlabel{fig:uniorbits}{{4.20}{79}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Spinning on the spot}}}{79}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Spin whilst moving slowly round the circle}}}{79}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Spin whilst moving rapidly round the circle}}}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.21}{\ignorespaces Plots showing the movement of the base of the balanced unicycle as it tracks a figure-of-eight in the body-fixed coordinate system $(x_\text  {c},y_\text  {c})$. The left hand plots show the actual spatial trajectory of the base of the unicycle in red and the unit circle in black. The other plots show the reference trajectory in black and the relevant state of the unicycle in blue.\relax }}{81}}
+\newlabel{fig:uniFOE}{{4.21}{81}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Summary}{81}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}P\lowercase {riors} O\lowercase {ver} S\lowercase {ampled} S\lowercase {ystems}}{83}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction}{83}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Problem Outline}{84}}
+\newlabel{eqn:conttime}{{5.1}{84}}
+\newlabel{eqn:cont-sample}{{5.2}{84}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Settings of $a_{ip}$ and $b_i$ for some common Runge-Kutta methods.\relax }}{85}}
+\newlabel{tab:RKmeths}{{5.1}{85}}
+\newlabel{eqn:cD}{{5.3}{85}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Numerical Integration}{85}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Taylor-Series Expansion}{85}}
+\newlabel{eqn:intdt}{{5.4}{85}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Runge-Kutta Methods}{86}}
+\newlabel{eqn:RK1}{{5.5}{86}}
+\newlabel{eqn:RK2}{{5.6}{86}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Priors Over Sampled Continuous-Time Systems}{86}}
+\newlabel{sec:priorovercont}{{5.4}{86}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Illustrative Examples}{86}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}General Framework}{87}}
+\newlabel{eqn:Mdelta}{{5.7}{87}}
+\newlabel{eqn:Vdelta}{{5.8}{87}}
+\newlabel{eqn:piter1}{{5.9}{88}}
+\newlabel{eqn:piter2}{{5.10}{88}}
+\newlabel{eqn:Efc}{{5.11}{88}}
+\newlabel{eqn:Cfc}{{5.12}{88}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Non-Autonomous Case}{88}}
+\newlabel{sec:nonaut}{{5.4.3}{88}}
+\newlabel{eqn:nonaut1}{{5.13}{88}}
+\newlabel{eqn:nonaut2}{{5.14}{88}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Priors Over Useful Function Classes}{89}}
+\newlabel{sec:usekernels}{{5.4.4}{89}}
+\@writefile{toc}{\contentsline {subsubsection}{Class of Functions}{89}}
+\@writefile{toc}{\contentsline {subsubsection}{Full Nonlinear Part}{90}}
+\newlabel{eqn:SEprop}{{5.16}{90}}
+\@writefile{toc}{\contentsline {subsubsection}{Additive Nonlinear Part}{90}}
+\@writefile{toc}{\contentsline {subsubsection}{Linear Part}{90}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}Structural Implications on the Prior}{91}}
+\newlabel{sec:intuition}{{5.4.5}{91}}
+\newlabel{eqn:sampM}{{5.17}{91}}
+\newlabel{eqn:sampK}{{5.18}{91}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.6}Computational Complexity}{92}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.7}Example: Pendulum}{92}}
+\newlabel{sec:pendulum2}{{5.4.7}{92}}
+\@writefile{toc}{\contentsline {subsubsection}{Inferring Linear Plus Nonlinear Structure}{92}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Average negative log-marginal likelihoods for discrete GPs with the continuous-time prior $\mathcal  {GP}(\mathbf  {m}_{\text  {lin}},\mathbf  {K}_{\text  {full}})$ trained on data from the \textit  {unconstrained} pendulum. The graph is obtained from 50 Monte-Carlo runs for different types of sampled prior and values of $\delta _t$. Each box depicts the 10$\ensuremath  {^{\text  {th}}}$ to 90$\ensuremath  {^{\text  {th}}}$ percentile of the data with the red line showing the 50$\ensuremath  {^{\text  {th}}}$ percentile.\relax }}{93}}
+\newlabel{fig:pend_SEandLIN}{{5.1}{93}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces The average of the learned hyperparameters for methods trained using a $\mathcal  {GP}(\mathbf  {m}_{\text  {lin}},\mathbf  {K}_{\text  {full}})$ continuous-time prior and a setting of $\delta _t=0.4\tmspace  +\thinmuskip {.1667em}$s on the \textit  {unconstrained} pendulum data. The numbers in bold depict important changes from the Euler to the RK4 method.\relax }}{93}}
+\newlabel{tab:hyps_dt04}{{5.2}{93}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces The average of the learned hyperparameters for methods trained using a $\mathcal  {GP}(\mathbf  {m}_{\text  {lin}},\mathbf  {K}_{\text  {full}})$ continuous-time prior and a setting of $\delta _t=0.1\tmspace  +\thinmuskip {.1667em}$s on the \textit  {unconstrained} pendulum data. The numbers in bold depict important changes from the Euler to the RK4 method.\relax }}{94}}
+\newlabel{tab:hyps_dt01}{{5.3}{94}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Average negative log-marginal likelihoods for discrete GPs with the continuous-time prior $\mathcal  {GP}(\mathbf  {0},\mathbf  {K}_{\text  {full}})$ trained on data from the \textit  {unconstrained} pendulum. The graph is obtained from 50 Monte-Carlo runs for different types of sampled prior and values of $\delta _t$. Each box depicts the 10$\ensuremath  {^{\text  {th}}}$ to 90$\ensuremath  {^{\text  {th}}}$ percentile of the data with the red line showing the 50$\ensuremath  {^{\text  {th}}}$ percentile.\relax }}{95}}
+\newlabel{fig:pend_SEonly}{{5.2}{95}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces The average of the learned hyperparameters for methods trained using a $\mathcal  {GP}(\mathbf  {0},\mathbf  {K}_{\text  {full}})$ continuous-time prior and a setting of $\delta _t=0.1\tmspace  +\thinmuskip {.1667em}$s on the \textit  {unconstrained} pendulum data. The numbers in bold depict important changes from the Euler to the RK4 method.\relax }}{95}}
+\newlabel{tab:hyps_SEdt04}{{5.4}{95}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Comparison of the predictive performance of the RK-based methods given a continuous-time prior $\mathcal  {GP}(\mathbf  {m}_{\text  {lin}},\mathbf  {K}_{\text  {full}})$ using the RMS and nLPD metrics and based on data from the \textit  {unconstrained} pendulum. The graph is obtained from 50 Monte-Carlo runs for different types of sampled prior and values of $\delta _t$. Each box depicts the 10$\ensuremath  {^{\text  {th}}}$ to 90$\ensuremath  {^{\text  {th}}}$ percentile of the data with the red line showing the 50$\ensuremath  {^{\text  {th}}}$ percentile.\relax }}{97}}
+\newlabel{fig:pend_validate}{{5.3}{97}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Root mean square errors}}}{97}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Negative log-predictive density errors}}}{97}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Average negative log-marginal likelihoods for discrete GPs with the continuous-time prior $\mathcal  {GP}(\mathbf  {m}_{\text  {lin}},\mathbf  {K}_{\text  {add}} + \mathbf  {K}_{\text  {full}})$ trained on data from the \textit  {artificially constrained} pendulum. The graph is obtained from 50 Monte-Carlo runs for different types of sampled prior and values of $\delta _t$. Each box depicts the 10$\ensuremath  {^{\text  {th}}}$ to 90$\ensuremath  {^{\text  {th}}}$ percentile of the data with the red line showing the 50$\ensuremath  {^{\text  {th}}}$ percentile.\relax }}{98}}
+\newlabel{fig:pend2_SEaSEandLIN}{{5.4}{98}}
+\@writefile{toc}{\contentsline {subsubsection}{Inferring Linear Plus Additive Structure}{98}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces The average of the learned hyperparameters for methods trained using a $\mathcal  {GP}(\mathbf  {m}_{\text  {lin}},\mathbf  {K}_{\text  {add}}+\mathbf  {K}_{\text  {full}})$ continuous-time prior and a setting of $\delta _t=0.3\tmspace  +\thinmuskip {.1667em}$s on the \textit  {artificially constrained} pendulum data. The numbers in bold depict important changes from the Euler to the RK4 method.\relax }}{99}}
+\newlabel{tab:hyps2_dt04}{{5.5}{99}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Comparison of the predictive performance of the RK-based methods given a continuous-time prior $\mathcal  {GP}(\mathbf  {m}_{\text  {lin}},\mathbf  {K}_{\text  {add}} + \mathbf  {K}_{\text  {full}})$ using the RMS and nLPD metrics and based on data from the \textit  {artificially constrained} pendulum. The graph is obtained from 50 Monte-Carlo runs for different types of sampled prior and values of $\delta _t$. Each box depicts the 10$\ensuremath  {^{\text  {th}}}$ to 90$\ensuremath  {^{\text  {th}}}$ percentile of the data with the red line showing the 50$\ensuremath  {^{\text  {th}}}$ percentile.\relax }}{99}}
+\newlabel{fig:pend2_validate}{{5.5}{99}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Root mean square errors}}}{99}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Negative log-predictive density errors}}}{99}}
+\citation{SMLL03}
+\citation{Sar11}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Combining Time-Derivative and Sampled Data}{100}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Single Data Points}{100}}
+\newlabel{eqn:cDD}{{5.24}{100}}
+\newlabel{eqn:lalalala}{{5.25}{100}}
+\citation{AK11}
+\citation{AK08}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}State-Action Derivative Observations}{101}}
+\@writefile{toc}{\contentsline {subsubsection}{Overview}{101}}
+\@writefile{toc}{\contentsline {subsubsection}{General Kernels}{101}}
+\@writefile{toc}{\contentsline {subsubsection}{Squared Exponential Kernel}{102}}
+\@writefile{toc}{\contentsline {subsubsection}{Additive Squared Exponential Kernel}{102}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Local Model Validation}{103}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Summary}{103}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}C\lowercase {ase} S\lowercase {tudies}}{105}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Introduction}{105}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Guidelines for Tuning}{105}}
+\citation{For09}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Unicycle}{107}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Problem Overview}{107}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Linear Control Theory}{107}}
+\@writefile{toc}{\contentsline {subsubsection}{Linearised Model Selection}{107}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces The robotic unicycle. The spatial position of the unicycle is defined by the pitch angle $\phi $, roll angle $\theta $, yaw angle $\psi $, wheel angle $\phi _\text  {w}$, turntable angle $\psi _\text  {t}$ and the body-centred coordinates of the global origin $(x_\text  {c},y_\text  {c})$. The controlled inputs are the motor torque applied to the wheel $u_\text  {w}$ and the motor torque applied to the turntable $u_\text  {t}$.\relax }}{108}}
+\newlabel{fig:uniboy}{{6.1}{108}}
+\newlabel{eqn:LQmodel}{{6.1}{109}}
+\citation{Kal60b}
+\citation{BoVa04}
+\@writefile{toc}{\contentsline {subsubsection}{Policy Design}{110}}
+\newlabel{eqn:lqr1}{{6.2}{110}}
+\newlabel{eqn:lqr2}{{6.3}{110}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Learning Control}{111}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}Comparison of the LQR and Learned Policies}{112}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces State trajectories over 10$\tmspace  +\thinmuskip {.1667em}$s of the unicycle when an LQR policy is applied in order to move from the initial position $(x_\text  {c},y_\text  {c}) = (0,1)$ to the origin. The policy is derived from a linear model obtained from a spinning operating point. The values of this operating point for each state are shown in red, and dashed lines for the spinning states $\mathaccentV {dot}05F\psi $ and $\mathaccentV {dot}05F\psi _\text  {t}$.\relax }}{113}}
+\newlabel{fig:LQuni}{{6.2}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Pitch $\phi $}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Roll $\theta $}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Yaw $\psi $}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Location $x_\text {c}$}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Location $y_\text {c}$}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Pitch $\mathaccentV{dot}05F\phi $}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Roll $\mathaccentV{dot}05F\theta $}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Yaw $\mathaccentV{dot}05F\psi $}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(i)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Wheel $\mathaccentV{dot}05F\phi _\text {w}$}}}{113}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(j)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Turntable $\mathaccentV{dot}05F\psi _\text {t}$}}}{113}}
+\citation{NeLe89}
+\citation{Mac02}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces State trajectories over 10$\tmspace  +\thinmuskip {.1667em}$s of the unicycle when a learned affine policy is applied in order to move from the initial position $(x_\text  {c},y_\text  {c}) = (0,1)$ to the origin. The values of the operating point used for the LQR policy, from Fig.$\tmspace  -\thinmuskip {.1667em}$~\ref  {fig:LQuni}, for each state are shown in red, and dashed lines for the spinning states $\mathaccentV {dot}05F\psi $ and $\mathaccentV {dot}05F\psi _\text  {t}$.\relax }}{114}}
+\newlabel{fig:MLuni}{{6.3}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Pitch $\phi $}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Roll $\theta $}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Yaw $\psi $}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Location $x_\text {c}$}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Location $y_\text {c}$}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Pitch $\mathaccentV{dot}05F\phi $}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Roll $\mathaccentV{dot}05F\theta $}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Yaw $\mathaccentV{dot}05F\psi $}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(i)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Wheel $\mathaccentV{dot}05F\phi _\text {w}$}}}{114}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(j)}{\ignorespaces {\relax \fontsize {9}{11}\selectfont \abovedisplayskip 8\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 4\p@ plus2\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Turntable $\mathaccentV{dot}05F\psi _\text {t}$}}}{114}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Process Control}{114}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Problem Overview}{114}}
+\citation{NeLe89}
+\citation{NeLe89}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces \relax \fontsize  {10}{12}\selectfont  \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \topsep \z@ \parsep \parskip \itemsep \z@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Schematic of the forced-circulation evaporator model of \cite  {NeLe89}. The model consists of three distinct components: the evaporator, separator and condenser. The state of the system is made up of the product composition $X_2$, the evaporator pressure $P_2$ and the separator level $L_2$. The controlled inputs are product flow rate $F_2$, steam pressure $P_{100}$ and the cooling water flow rate $F_{200}$ which are applied through servomechanisms.\relax }}{115}}
+\newlabel{fig:evap}{{6.4}{115}}
+\citation{Lju99}
+\citation{NeLe89}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Linear Control Theory}{116}}
+\@writefile{toc}{\contentsline {subsubsection}{Model Identification}{116}}
+\@writefile{toc}{\contentsline {subsubsection}{Control Policy Design}{116}}
+\citation{NeLe89}
+\newlabel{eqn:evap_aug}{{6.4}{117}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}Learning Control}{118}}
+\@writefile{toc}{\contentsline {subsubsection}{Problem Setup}{118}}
+\@writefile{toc}{\contentsline {subsubsection}{Prior Over Dynamics}{118}}
+\@writefile{toc}{\contentsline {subsubsection}{Stage-Cost Function}{118}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Illustration of the intrinsic caution introduced when using barrier functions as soft constraints. Note that $p_2(x)$ will be penalised more heavily than $p_1(x)$ even though its mean is further away from the constraint edge.\relax }}{119}}
+\newlabel{fig:bazza}{{6.5}{119}}
+\@writefile{toc}{\contentsline {subsubsection}{Policy Structure}{119}}
+\newlabel{fig:RBFfig}{{6.6(a)}{120}}
+\newlabel{sub@fig:RBFfig}{{(a)}{120}}
+\newlabel{fig:aRBFfig}{{6.6(b)}{120}}
+\newlabel{sub@fig:aRBFfig}{{(b)}{120}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Basis function locations to provide a grid over a two dimensional space for a standard RBF compared with an additive RBF.\relax }}{120}}
+\newlabel{fig:RBFs}{{6.6}{120}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {RBF}}}{120}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Additive RBF}}}{120}}
+\@writefile{toc}{\contentsline {subsubsection}{Safe Implementation}{120}}
+\newlabel{fig:X2fig}{{6.7(a)}{121}}
+\newlabel{sub@fig:X2fig}{{(a)}{121}}
+\newlabel{fig:P2fig}{{6.7(b)}{121}}
+\newlabel{sub@fig:P2fig}{{(b)}{121}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces Distributions over possible setpoint changes for the states $X_2$ and $P_2$. The change takes place over a period of 5 mins using a ramp function. The thick black line depicts the mean of the change, the gray areas denotes the 2$\sigma $ region and samples from these distributions are given by dashed lines.\relax }}{121}}
+\newlabel{fig:X2P2sets}{{6.7}{121}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$X_2$ setpoint}}}{121}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$P_2$ setpoint}}}{121}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.4}Application of Learning Control}{121}}
+\@writefile{toc}{\contentsline {subsubsection}{Experimental Setup}{121}}
+\newlabel{fig:pol_aff}{{6.8(a)}{122}}
+\newlabel{sub@fig:pol_aff}{{(a)}{122}}
+\newlabel{fig:pol_add}{{6.8(b)}{122}}
+\newlabel{sub@fig:pol_add}{{(b)}{122}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces Trajectories of the state variables of the evaporator over five independent runs of the learning algorithm using different policy structures. The trials are the application of the current best policy after a given simulation phase. The actual state trajectories are given in blue, the setpoints are given in red and the tank constraints are given by the red dashed lines. The x-axes depict a range of $[0, 40]\tmspace  +\thinmuskip {.1667em}$mins while the y-axes show $[10, 30]\tmspace  +\thinmuskip {.1667em}$\%, $[40, 80]\tmspace  +\thinmuskip {.1667em}$kPa and $[-0.2, 4.2]\tmspace  +\thinmuskip {.1667em}$m for $X_2$, $P_2$ and $L_2$ respectively.\relax }}{122}}
+\newlabel{fig:randy}{{6.8}{122}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Affine control policy}}}{122}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Additive Gaussian-RBF control policy}}}{122}}
+\citation{Mac02}
+\@writefile{toc}{\contentsline {subsubsection}{Altering the Policy Structure}{123}}
+\newlabel{fig:lag08}{{6.9(a)}{124}}
+\newlabel{sub@fig:lag08}{{(a)}{124}}
+\newlabel{fig:lag04}{{6.9(b)}{124}}
+\newlabel{sub@fig:lag04}{{(b)}{124}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.9}{\ignorespaces Trajectories of the state variables of the evaporator over five independent runs of the learning algorithm where wrong approximations of the real servomechanism lag of 1.2$\tmspace  +\thinmuskip {.1667em}$mins are forced upon the internal model of the dynamics. The trials are the application of the current best policy after a given simulation phase. The actual state trajectories are given in blue, the setpoints are given in red and the tank constraints are given by the red dashed lines. The x-axes depict a range of $[0, 40]\tmspace  +\thinmuskip {.1667em}$mins while the y-axes show $[10, 30]\tmspace  +\thinmuskip {.1667em}$\%, $[40, 80]\tmspace  +\thinmuskip {.1667em}$kPa and $[-0.2, 4.2]\tmspace  +\thinmuskip {.1667em}$m for $X_2$, $P_2$ and $L_2$ respectively.\relax }}{124}}
+\newlabel{fig:laggy}{{6.9}{124}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Assumed servomechanism lag of 0.8$\tmspace +\thinmuskip {.1667em}$mins}}}{124}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Assumed servomechanism lag of 0.4$\tmspace +\thinmuskip {.1667em}$mins}}}{124}}
+\@writefile{toc}{\contentsline {subsubsection}{Incorporating Erroneous Prior Information}{125}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Summary}{125}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}C\lowercase {onclusions and} F\lowercase {uture} W\lowercase {ork}}{127}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Conclusions}{127}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Future Work}{129}}
+\citation{RaWi06}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}M\lowercase {athematical} B\lowercase {ackground}}{131}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Gaussian Identities}{131}}
+\newlabel{app:gauss}{{A.1}{131}}
+\citation{RaWi06}
+\citation{Bro05}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Kullback-Leibler Divergence}{132}}
+\newlabel{app:KLdiv}{{A.2}{132}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Matrix Calculus}{132}}
+\newlabel{app:matcal}{{A.3}{132}}
+\newlabel{eqn:dvecdvec}{{A.8}{132}}
+\citation{Flo07}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}E\lowercase {quations of} M\lowercase {otion}}{135}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Pendulum}{135}}
+\newlabel{app:pend}{{B.1}{135}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Torque-limited pendulum with angle from the down position $\theta $, input torque $u$, weight $W$ and friction torque $T_{\text  {f}}$.\relax }}{135}}
+\newlabel{fig:pendfig}{{B.1}{135}}
+\newlabel{fig:pole_FBD}{{B.2(a)}{136}}
+\newlabel{sub@fig:pole_FBD}{{(a)}{136}}
+\newlabel{fig:cart_FBD}{{B.2(b)}{136}}
+\newlabel{sub@fig:cart_FBD}{{(b)}{136}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Cart-pole free body diagrams with position $x$, pole angle $\theta $, action force $u$, weight of the pole $w$, weight of the cart $W$, friction force $F_{\text  {f}}$, internal force $F$ and reaction force $R$. \relax }}{136}}
+\newlabel{fig:cartpole_FBD}{{B.2}{136}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Cart free body diagram}}}{136}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Pole free body diagram}}}{136}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Cart-Pole}{136}}
+\newlabel{app:cart}{{B.2}{136}}
+\newlabel{eqn:cart1}{{B.2}{136}}
+\newlabel{eqn:cart2}{{B.3}{136}}
+\newlabel{eqn:cart3}{{B.4}{136}}
+\newlabel{eqn:cart4}{{B.5}{136}}
+\newlabel{eqn:cart5}{{B.6}{136}}
+\newlabel{eqn:cart6}{{B.7}{136}}
+\citation{For09}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces The robotic unicycle with state variables: pitch angle $\phi $, roll angle $\theta $, yaw angle $\psi $, wheel angle $\phi _\text  {w}$, turntable angle $\psi _\text  {t}$, the associated angular velocities and the location of the global origin $(x_\text  {c},y_\text  {c})$. The actions are the wheel motor torque $u_\text  {w}$ and the turntable motor torque $u_\text  {t}$. The global coordinate system is defined by the vectors $\mathbf  {i}, \mathbf  {j}$ and $\mathbf  {k}$.\relax }}{137}}
+\newlabel{fig:unibody}{{B.3}{137}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.3}Unicycle}{137}}
+\newlabel{app:unicycle}{{B.3}{137}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.1}Method}{137}}
+\newlabel{eqn:xceqn}{{B.8}{137}}
+\newlabel{eqn:yceqn}{{B.9}{137}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces Physical constants used for the simulated robotic unicycle. The coordinate systems defined by the $\mathbf  {i}, \mathbf  {j}$ and $\mathbf  {k}$ vectors are shown in Fig.$\tmspace  -\thinmuskip {.1667em}$~\ref  {fig:FBDs}.\relax }}{138}}
+\newlabel{tab:uniconsts}{{B.1}{138}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.2}Wheel FBD}{138}}
+\newlabel{eqn:wFBD1}{{B.10}{139}}
+\newlabel{eqn:wFBD2}{{B.11}{139}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.3}Frame FBD}{139}}
+\newlabel{fig:wheelFBD}{{B.4(a)}{140}}
+\newlabel{sub@fig:wheelFBD}{{(a)}{140}}
+\newlabel{fig:frameFBD}{{B.4(b)}{140}}
+\newlabel{sub@fig:frameFBD}{{(b)}{140}}
+\newlabel{fig:turntableFBD}{{B.4(c)}{140}}
+\newlabel{sub@fig:turntableFBD}{{(c)}{140}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces Free body diagrams of the wheel, frame and turntable of the unicycle. The model has the angular state variables pitch $\phi $, roll $\theta $, yaw $\psi $, wheel angle $\phi _\text  {w}$ and turntable angle $\psi _\text  {t}$. The vectors $\mathbf  {i}, \mathbf  {j}$ and $\mathbf  {k}$ define the global fixed frame of reference. The centres of mass for each component are shown by the black dots. Forces and moments are shown on the right, with unknown quantities as dashed lines.\relax }}{140}}
+\newlabel{fig:FBDs}{{B.4}{140}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {The wheel as a free body diagram and coordinate system defined by $\mathbf {i}_\text {w},\mathbf {j}_\text {w}$ and $\mathbf {k}_\text {w}$}}}{140}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {The frame as a free body diagram and coordinate system defined by $\mathbf {i}_\text {f},\mathbf {j}_\text {f}$ and $\mathbf {k}_\text {f}$}}}{140}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {The turntable as a free body diagram and coordinate system defined by $\mathbf {i}_\text {t},\mathbf {j}_\text {t}$ and $\mathbf {k}_\text {t}$}}}{140}}
+\newlabel{eqn:fFBD1}{{B.12}{141}}
+\newlabel{eqn:fFBD2}{{B.13}{141}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.4}Turntable FBD}{141}}
+\newlabel{eqn:tFBD1}{{B.14}{141}}
+\newlabel{eqn:tFBD2}{{B.15}{141}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.5}Eliminating Internal Forces}{141}}
+\newlabel{eqn:uniE1}{{B.16}{141}}
+\citation{NeLe89}
+\citation{NeLe89}
+\citation{NeLe89}
+\citation{NeLe89}
+\citation{NeLe89}
+\newlabel{eqn:uniE2}{{B.17}{142}}
+\newlabel{eqn:uniE3}{{B.18}{142}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.4}Evaporator}{142}}
+\newlabel{app:evaporator}{{B.4}{142}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces Evaporator equations as derived in Chapter 2.2 of \cite  {NeLe89}. The evaporator state can be given by $X_2$, $P_2$ and $L_2$ since they appear as time derivatives.\relax }}{143}}
+\newlabel{tab:evapeqs}{{B.2}{143}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces Evaporator variables, values at a steady state solution and constraints. Given in Table 2.1 in \cite  {NeLe89}. Flow constraints are physical limitations of the relevant actuators whereas constraints on the level and pressures are recommended to avoid damage to the system.\relax }}{143}}
+\newlabel{tab:evapvars}{{B.3}{143}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces Physical constants in the evaporator model.\relax }}{144}}
+\newlabel{tab:evapconsts}{{B.4}{144}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}MATLAB C\lowercase {ode}}{145}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\newlabel{app:mcode}{{C}{145}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.1}Computing the Expected Cost}{145}}
+\newlabel{app:codeCost}{{C.1}{145}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.2}Prior Over Sampled Systems}{150}}
+\newlabel{app:codePrior}{{C.2}{150}}
+\bibdata{JoeREF}
+\bibcite{ACQN07}{{1}{2007}{{Abbeel {\em  et~al.\/}}}{{Abbeel, Coates, Quigley \& Ng}}}
+\bibcite{Ama98}{{2}{1998}{{Amari}}{{}}}
+\bibcite{AnMo79}{{3}{1979}{{Anderson \& Moore}}{{}}}
+\bibcite{ArKr03}{{4}{2003}{{Ariyur \& Krsti\'{c}}}{{}}}
+\bibcite{AsWi94}{{5}{1994}{{{\r A}str\"{o}m \& Wittenmark}}{{}}}
+\bibcite{AK08}{{6}{2008}{{A\u {z}man \& Kocijan}}{{}}}
+\bibcite{AK11}{{7}{2011}{{A\u {z}man \& Kocijan}}{{}}}
+\bibcite{BNTM09}{{8}{2009}{{Bastin {\em  et~al.\/}}}{{Bastin, Ne\u {s}i\'{c}, Tan \& Mareels}}}
+\bibcite{BB01}{{9}{2001}{{Baxter \& Bartlett}}{{}}}
+\bibcite{BTW00}{{10}{2001}{{Baxter {\em  et~al.\/}}}{{Baxter, Tridgell \& Weaver}}}
+\bibcite{Bell57}{{11}{1957}{{Bellman}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{155}}
+\bibcite{BerTs96}{{12}{1996}{{Bertsekas \& Tsitsiklis}}{{}}}
+\bibcite{Bish06}{{13}{2006}{{Bishop}}{{}}}
+\bibcite{BGW90}{{14}{1990}{{Bitmead {\em  et~al.\/}}}{{Bitmead, Gevers \& Wertz}}}
+\bibcite{BoVa04}{{15}{2004}{{Boyd \& Vandenberghe}}{{}}}
+\bibcite{Bro05}{{16}{2005}{{Brookes}}{{}}}
+\bibcite{BSTS11}{{17}{2011}{{Buchli {\em  et~al.\/}}}{{Buchli, Stulp, Theodorou \& Schaal}}}
+\bibcite{CKAL02}{{18}{2002}{{Choi {\em  et~al.\/}}}{{Choi, Krsti\'{c}, Ariyur \& Lee}}}
+\bibcite{Dei09}{{19}{2009}{{Deisenroth}}{{}}}
+\bibcite{DR11}{{20}{2011}{{Deisenroth \& Rasmussen}}{{}}}
+\bibcite{DHR11}{{21}{2011}{{Deisenroth {\em  et~al.\/}}}{{Deisenroth, Hennig \& Rasmussen}}}
+\bibcite{DTHH12}{{22}{2012}{{Deisenroth {\em  et~al.\/}}}{{Deisenroth, Turner, Huber, Haneback \& Rasmussen}}}
+\bibcite{DNR11}{{23}{2011}{{Duvenaud {\em  et~al.\/}}}{{Duvenaud, Nickisch \& Rasmussen}}}
+\bibcite{EMM03}{{24}{2003}{{Engel {\em  et~al.\/}}}{{Engel, Mannor \& Meir}}}
+\bibcite{EMM05}{{25}{2005}{{Engel {\em  et~al.\/}}}{{Engel, Mannor \& Meir}}}
+\bibcite{EGW05}{{26}{2005}{{Ernst {\em  et~al.\/}}}{{Ernst, Geurts \& Wehenkel}}}
+\bibcite{EGCW09}{{27}{2009}{{Ernst {\em  et~al.\/}}}{{Ernst, Glavic, Capitanescu \& Wehenkel}}}
+\bibcite{FK97}{{28}{1998}{{Fabri \& Kadirkamanathan}}{{}}}
+\bibcite{Fel61}{{29}{1960--61}{{Fel'dbaum}}{{}}}
+\bibcite{Flo07}{{30}{2007}{{Florian}}{{}}}
+\bibcite{For09}{{31}{2009}{{Forster}}{{}}}
+\bibcite{GP10b}{{32}{2010{a}}{{Geist \& Pietquin}}{{}}}
+\bibcite{GP10a}{{33}{2010{b}}{{Geist \& Pietquin}}{{}}}
+\bibcite{GPF09}{{34}{2009}{{Geist {\em  et~al.\/}}}{{Geist, Pietquin \& Fricout}}}
+\bibcite{GRQM03}{{35}{2003}{{Girard {\em  et~al.\/}}}{{Girard, Rasmussen, {Qui\~{n}onerno-Candela} \& Murray-Smith}}}
+\bibcite{HRM11}{{36}{2011}{{Hall {\em  et~al.\/}}}{{Hall, Rasmussen \& Maciejowksi}}}
+\bibcite{HRM12}{{37}{2012}{{Hall {\em  et~al.\/}}}{{Hall, Rasmussen \& Maciejowksi}}}
+\bibcite{HT90}{{38}{1990}{{Hastie \& Tibshirani}}{{}}}
+\bibcite{Hja02}{{39}{2002}{{Hjalmarsson}}{{}}}
+\bibcite{HGG94}{{40}{1994}{{Hjalmarsson {\em  et~al.\/}}}{{Hjalmarsson, Gunnarsson \& Gevers}}}
+\bibcite{HGGL98}{{41}{1998}{{Hjalmarsson {\em  et~al.\/}}}{{Hjalmarsson, Gevers, Gunnarsson \& Lequin}}}
+\bibcite{IoFi06}{{42}{2006}{{Ioannou \& Fidan}}{{}}}
+\bibcite{JaMa70}{{43}{1970}{{Jacobson \& Mayne}}{{}}}
+\bibcite{JU97}{{44}{1997}{{Julier \& Uhlmann}}{{}}}
+\bibcite{KLM96}{{45}{1996}{{Kaelbling {\em  et~al.\/}}}{{Kaelbling, Littman \& Moore}}}
+\bibcite{Kak02}{{46}{2002}{{Kakade}}{{}}}
+\bibcite{Kal60b}{{47}{1960}{{Kalman}}{{}}}
+\bibcite{KKK95}{{48}{1995}{{Krsti\'{c} {\em  et~al.\/}}}{{Krsti\'{c}, Kanellakopoulos \& Kokotovi\'{c}}}}
+\bibcite{Lju99}{{49}{1999}{{Ljung}}{{}}}
+\bibcite{Mac02}{{50}{2002}{{Maciejowski}}{{}}}
+\bibcite{MT01}{{51}{2001}{{Marbach \& Tsitsiklis}}{{}}}
+\bibcite{May82}{{52}{1982}{{Maybeck}}{{}}}
+\bibcite{MR11}{{53}{2011}{{McHutchon \& Rasmussen}}{{}}}
+\bibcite{Mer1909}{{54}{1909}{{Mercer}}{{}}}
+\bibcite{MKOKV10}{{55}{2010{a}}{{Mitrovic {\em  et~al.\/}}}{{Mitrovic, Klanke, Osu, Kawato \& Vijayakumar}}}
+\bibcite{MKV10}{{56}{2010{b}}{{Mitrovic {\em  et~al.\/}}}{{Mitrovic, Klanke \& Vijayakumar}}}
+\bibcite{MZA02}{{57}{2003}{{Morimoto {\em  et~al.\/}}}{{Morimoto, Zeglin \& Atkeson}}}
+\bibcite{Nes09}{{58}{2009}{{Ne\u {s}i\'{c}}}{{}}}
+\bibcite{NeLe89}{{59}{1989}{{Newell \& Lee}}{{}}}
+\bibcite{NJ00}{{60}{2000}{{Ng \& Jordan}}{{}}}
+\bibcite{NCDG04}{{61}{2004{a}}{{Ng {\em  et~al.\/}}}{{Ng, Coates, Diel, Ganapathi, Schulte, Tse, Berger \& Liang}}}
+\bibcite{NKJS04}{{62}{2004{b}}{{Ng {\em  et~al.\/}}}{{Ng, Kim, Jordan \& Sastry}}}
+\bibcite{PS08}{{63}{2008}{{Peters \& Schaal}}{{}}}
+\bibcite{PVS05}{{64}{2005}{{Peters {\em  et~al.\/}}}{{Peters, Vijayakumar \& Schaal}}}
+\bibcite{QR05}{{65}{2005}{{Qui\~{n}onerno Candela \& Rasmussen}}{{}}}
+\bibcite{RaWi06}{{66}{2006}{{Rasmussen \& Williams}}{{}}}
+\bibcite{Sar11}{{67}{2011}{{S\"{a}rkk\"{a}}}{{}}}
+\bibcite{SCT08}{{68}{2008}{{Simpkins {\em  et~al.\/}}}{{Simpkins, de~Callafon \& Todorov}}}
+\bibcite{SG06}{{69}{2006}{{Snelson \& Gharamani}}{{}}}
+\bibcite{SMLL03}{{70}{2003}{{Solak {\em  et~al.\/}}}{{Solak, Murray-Smith, Leithead, Leith \& Rasmussen}}}
+\bibcite{SuBa98}{{71}{1998}{{Sutton \& Barto}}{{}}}
+\bibcite{SBW92}{{72}{1992}{{Sutton {\em  et~al.\/}}}{{Sutton, Barto \& Williams}}}
+\bibcite{SMSM00}{{73}{2000}{{Sutton {\em  et~al.\/}}}{{Sutton, MacAllester, Singh \& Mansour}}}
+\bibcite{Tes92}{{74}{1992}{{Tesauro}}{{}}}
+\bibcite{Tes95}{{75}{1995}{{Tesauro}}{{}}}
+\bibcite{TBS10b}{{76}{2010{a}}{{Theodorou {\em  et~al.\/}}}{{Theodorou, Buchli \& Schaal}}}
+\bibcite{TBS10a}{{77}{2010{b}}{{Theodorou {\em  et~al.\/}}}{{Theodorou, Buchli \& Schaal}}}
+\bibcite{TVS10}{{78}{2010}{{Ting {\em  et~al.\/}}}{{Ting, Vijayakumar \& Schaal}}}
+\bibcite{TL05}{{79}{2005}{{Todorov \& Li}}{{}}}
+\bibcite{TT09}{{80}{2009}{{Todorov \& Tassa}}{{}}}
+\bibcite{TB72}{{81}{1972}{{Tse \& Bar-Shalom}}{{}}}
+\bibcite{TB75}{{82}{1975}{{Tse \& Bar-Shalom}}{{}}}
+\bibcite{TV97}{{83}{1997}{{Tsitsiklis \& Van~Roy}}{{}}}
+\bibcite{Un00}{{84}{2000}{{Unbehauen}}{{}}}
+\bibcite{VDS05}{{85}{2005}{{Vijayakumar {\em  et~al.\/}}}{{Vijayakumar, D'Souza \& Schaal}}}
+\bibcite{Wat89}{{86}{1989}{{Watkins}}{{}}}
+\bibcite{WD92}{{87}{1992}{{Watkins \& Dayan}}{{}}}
+\bibcite{Wil92}{{88}{1992}{{Williams}}{{}}}
+\bibcite{Wit95}{{89}{1995}{{Wittenmark}}{{}}}
+\bibcite{Wit00}{{90}{2000}{{Wittenmark}}{{}}}
+\bibstyle{jmb}

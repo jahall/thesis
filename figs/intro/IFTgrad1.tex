@@ -1,0 +1,35 @@
+% Define block styles
+\tikzstyle{block} = [thick,rectangle, draw, text width=4em, text centered, rounded corners, minimum height=3em, fill=black!15]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=4em, text centered, rounded corners, minimum height=3em, fill=black!25]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\tikzstyle{dotty} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[rounded corners]
+
+
+	% Place nodes
+	\node at(0,0) [sum, label=below right:{$-$}](sum1){};
+	\node at(4,0) [sum](sum2){};
+	\node at(2,0) [block](pol){$K_{\bpsi}$};
+	\node at(2,1.5) [block](dpol){$\nabla K_{\bpsi}$};
+	\node at(6,0) [bloc2k](sys){P};
+	\node at(7.5,0) [dot] (dd){};
+	\node at(4.6,0) [dot] (ddu){};
+	
+	\path[line] (sum1.east) -- (pol.west); \path[line] (pol.east) -- (sum2.west);
+	\path[line] (sum2.east) -- (sys.west); \path[line] (sys.east) -- (9,0);
+	\path[line] (dpol.east) -| (sum2.north);
+	\path[line] (-1.2,1.5) -- (dpol.west);
+	\path[line] (dd) -- +(0,-1.2) -| (sum1.south);
+	\path[line] (-1.2,0) -- (sum1.west);
+	\path[line] (ddu) |- (9,1.5);
+	
+	\node at (-0.6,1.8) {$r - y_{\bpsi}$};
+	\node at (-0.9,0.3) {$0$};
+	\node at (8.7,1.8) {$\nabla u_{\bpsi}$};
+	\node at (8.7,0.3) {$\nabla y_{\bpsi}$};
+	
+	\node at(11.1,0){}; %%%filler
+
+\end{tikzpicture}

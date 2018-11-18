@@ -1,0 +1,42 @@
+\newcommand{\bu}{\ensuremath{\mathbf{u}}}
+\newcommand{\bx}{\ensuremath{\mathbf{x}}}
+\newcommand{\bz}{\ensuremath{\mathbf{z}}}
+\newcommand{\br}{\ensuremath{\mathbf{r}}}
+\newcommand{\bth}{\ensuremath{\boldsymbol{\theta}}}
+
+% Define block styles
+\tikzstyle{block} = [thick,rectangle, draw, text width=7em, text centered, rounded corners, minimum height=4em, fill=white]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=12em, text centered, rounded corners, minimum height=4em, fill=white]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[]
+
+        \path[line] (-1.2,-1.2) -- (1.2,1.2);
+
+	% Place nodes
+	\node at(0,0) [block](pol){Policy $\pi(\bu|\bx,\br,\bth)$};
+	\node at(5,0) [bloc2k](sys){System $\quad\quad\quad\quad\quad p(\bx_{+1}|\bx,\bu)$};
+	\node at(5,-2.5) [block](adapt){Adaptation};
+	\node at(2,0)[dot](dot1){};
+	\node at(8,0)[dot](dot2){};
+	
+	% Draw arrows
+	\path[line] (pol.east) -- (sys.west);
+        \path[line] (sys.east) -- (dot2) |- (adapt.east);
+        \path[line] (dot2.east) -- ([xshift=1cm] dot2.east);
+        \path[line] (dot1) |- (adapt.west);
+        \draw[] (adapt.south) |- (-1.2,-3.8) -- (-1.2,-1.2);
+        \path[line] (dot2) |- ([xshift=-1cm,yshift=1.8cm] pol.west) |- ([yshift=0.4cm]pol.west);
+        \path[line] ([xshift=-1cm,yshift=-0.4cm] pol.west) |- ([yshift=-0.4cm]pol.west);
+        \path[line] (sys.south) -- (adapt.north);
+
+	% Labels
+	\node at (-2,-0.2) {$\br$};
+        \node at (-2,0.6) {$\bx$};
+        \node at (8.5,0.3) {$\bx$};
+        \node at (2,0.3) {$\bu$};
+        \node at (-0.8,-3.4) {$\bth$};
+        \node at ([xshift=0.8cm,yshift=-0.5cm] sys.south) {$p(c|\bx,\bu)$};
+
+\end{tikzpicture}

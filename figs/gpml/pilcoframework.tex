@@ -1,0 +1,38 @@
+
+\tikzstyle{block} = [ellipse, draw, text width=5em, text centered, minimum height=3em]
+\tikzstyle{line} = [draw, -latex]
+    
+\begin{tikzpicture}[scale=1]
+	\small
+	% Nodes
+	\node[block](agent) at (0,0) {Agent};
+	\node[block](world) at (0,-3) {System};
+	\node[block, fill=yellow](model) at (0,-1.5) {Model};
+	
+	\node[block, fill=yellow](agent2) at (8,0) {Agent};
+	\node[block](world2) at (8,-3) {System};
+	\node[block](model2) at (8,-1.5) {Model};
+	
+	% Paths
+	\path (agent.east) edge[line, thick, bend left=60] (world.east);
+	\path (agent.east) edge[line, thick, bend left=60] (model.east);
+	\path (world.west) edge[line, thick, bend left=60] (agent.west);
+	\path (world.west) edge[line, thick, bend left=60] (model.west);
+	
+	\path (agent2.east) edge[line, thick, bend left=60] (model2.east);
+	\path (model2.west) edge[line, thick, bend left=60] (agent2.west);
+	\path ([xshift=0.5mm,yshift=1mm]model2.west) edge[line, bend left=60] ([xshift=0.5mm,yshift=-1mm]agent2.west);
+	
+	% Labels
+	\node[text width=3em,text centered] at (2.5,-1.5){$\bu$};
+	\node[text width=3em,text centered] at (-2.5,-1.5){$\bx$};
+	\node[text width=3em,text centered] at (10.1,-0.75){$\bu$};
+	\node[text width=3em,text centered] at (5.9,-0.75){$\bx$};
+	\node[text width=3em,text centered] at (6.5,-0.75){$c$};
+	
+	\node[text centered] at (0,-4){\textbf{Interaction}};
+	\node[text centered] at (8,-4){\textbf{Simulation}};
+	\node[text centered] at (0,-4.5){Learn model from data};
+	\node[text centered] at (8,-4.5){Improve policy based on this model};
+	
+\end{tikzpicture}

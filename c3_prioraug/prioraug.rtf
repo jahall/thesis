@@ -1,0 +1,524 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 \\chapter\{Prior Knowledge Through Augmented Dynamics\} \\thispagestyle\{empty\}\
+\
+\
+\\section\{Introduction\}\
+Often prior knowledge will come in the form of known, or approximate, relationships between a subset of the system states. An obvious example of this is position-velocity relationships. However, more general problems may be tackled. The task of tracking a reference signal with a given linear combination of states in which the control policy may have access to some preview horizon of the reference can also be tackled by this framework. A further example is non-Markov systems where the system ``state" actually depends on a number of delayed states. All these problems can be tackled using an augmented dynamics model or the use of multiple dynamics models. In order to fit into the probabilistic framework, the use of multiple dynamics must satisfy the propagation of uncertainty criteria outlined in the previous chapter.\
+\
+\
+\\section\{Multiple Dynamics Models\}\
+\\subsection\{Framework\}\
+\
+Consider the case in which the system dynamics function $\\bff$ consists of the concatenation of $M$ distinct functions\
+\\begin\{equation\}\
+\\bff(\\bz) = \\bff_\{1:M\}(\\bz) := \\bmat\{\\bff_1(\\bz) \\\\ \\vdots \\\\ \\bff_M(\\bz)\}\
+\\label\{eqn:multimodel\}\
+\\end\{equation\}\
+Each sub-function (or sub-dynamics) $\\bff_m$ can explicitly depend on any of the previous functional outputs $\\bff_\{1:m-1\}$ as well as the state-action $\\bz$. In mathematical terms $\\bff_m(\\bz) = \\bff_m\\big(\\bz,\\bff_\{1:m-1\}(\\bz)\\big)$ for $m \\in \\ZZ_\{[2,M]\}$. Now define the concatenation of the state-action and the $m-1$ previous functions\
+\\begin\{equation\}\
+\\bp_m(\\bz) = \\bmat\{\\bz \\\\ \\bff_\{1:m-1\}(\\bz) \}\
+\\end\{equation\}\
+where $\\bp_1(\\bz) = \\bz$.\
+%\
+In order to fit into the probabilistic framework of the previous chapter it will be necessary to build up a moment-matched Gaussian approximation $\\bff(\\bz) \\sim \\cN(\\bm_*, \\bS_*)$ given $\\bz \\sim \\cN(\\bm,\\bS)$. \\Ass\{gauss\} states that $\\bm_* = \\EE_\{\\bz,\\bff\}[\\bff(\\bz)]$ and $\\bS_* = \\cov_\{\\bz,\\bff\}[\\bff(\\bz)]$. However, further approximations will have to be made in the case of multiple dynamics models since these moments cannot be calculated for general sub-functions even if the moments of each can be evaluated individually. Therefore \\Ass\{multigauss\} is made.\
+\
+\\begin\{ass\} \\label\{ass:multigauss\}\
+In the case of multiple dynamics models the mean $\\EE_\{\\bz,\\bff\}[\\bff(\\bz)]$ is composed of blocks $\\EE_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big)\\big]$ and the block diagonal of the covariance matrix $\\cov_\{\\bz,\\bff\}[\\bff(\\bz)]$ is composed of blocks $\\cov_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big)\\big]$ where $\\bp_m(\\bz) \\sim \\cN$.\
+\\end\{ass\}\
+\
+Therefore, propagation of uncertainty is reduced to the iterative procedure of evaluating the mean $\\EE_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big)\\big]$ and covariance $\\cov_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big)\\big]$ for each sub-dynamics given the assumed joint Gaussian over the previous values $\\bp_m(\\bz) \\sim \\cN$. This is possible provided that these moments can be evaluated for each sub-dynamics.\
+\
+Now in order to fill out the full covariance matrix $\\cov_\{\\bz,\\bff\}[\\bff(\\bz)]$, given \\Ass\{multigauss\}, the cross terms $\\cov_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big), \\bp_m(\\bz)\\big]$ are required. It turns out that if the mean $\\EE_\{\\bp_m,\\bff_m\}[\\bff_m\\big(\\bp_m(\\bz)\\big)]$ is differentiable with respect to the input mean $\\bm = \\EE_\{\\bp_m\}[\\bp_m(\\bz)]$ then this term can always be evaluated as\
+%\
+\\begin\{align\}\
+\\cov_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big), \\bp_m(\\bz)\\big] &= \\bigg(\\diff\{\}\{ \\bm \} \\EE_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big)\\big] \\bigg) \\bS\
+\\label\{eqn:multicov\}\
+\\end\{align\}\
+%\
+where $\\bS = \\cov_\{\\bp_m\}[\\bp_m(\\bz)]$ is the input covariance. This expression holds due to \\Theo\{inpout\}.\
+\
+\
+\\begin\{theo\}[Output-Input Covariance] \\label\{theo:inpout\}\
+Consider two random vectors $\\ba$ and $\\bb$ where $\\bb$ is functionally dependent on $\\ba \\sim \\cN(\\bm,\\bS)$. Then the following statement is true\
+\\begin\{equation\}\
+\\diff\{\}\{ \\bm \}\\EE_\{\\ba,\\bb\}[\\bb] =  \\cov_\{\\ba,\\bb\}[\\bb,\\ba] \\bS^\{-1\}\
+\\end\{equation\}\
+\\espa\
+\\end\{theo\}\
+\
+\
+\
+\\begin\{proof\}\
+The proof follows directly from the definition of expectation and covariance\
+\\begin\{align*\}\
+\\diff\{\}\{\\bm\}\\EE_\{\\ba,\\bb\}[\\bb]\
+&= \\int \\EE_\{\\bb\}[\\bb] \\bigg( \\diff\{\}\{\\bm\} \\cN\\big(\\ba|\\bm,\\bS\\big) \\bigg) \\dd\\ba  \\\\\
+&= \\int \\EE_\{\\bb\}[\\bb] \\Big(  (\\ba - \\bm)\\T \\bS^\{-1\} \\cN\\big(\\ba|\\bm,\\bS\\big) \\Big) \\dd\\ba \\\\\
+\\end\{align*\}\
+Now expanding out the brackets yields the expression\
+\\begin\{flalign*\}\
+\\qquad\\qquad\\qquad\\qquad\\quad\\;\\;\
+\\diff\{\}\{\\bm\}\\EE_\{\\ba,\\bb\}[\\bb]\
+&= \\bigg( \\EE_\{\\ba,\\bb\}[\\bb \\ba\\T] - \\EE_\{\\ba,\\bb\}[\\bb] \\bm\\T \\bigg) \\bS^\{-1\}   \\\\ &\
+= \\cov_\{\\ba,\\bb\}[\\bb,\\ba] \\bS^\{-1\} & \\blacksquare\
+\\end\{flalign*\}\
+\\end\{proof\}\
+\
+Note that the assumption of joint Gaussianity is equivalent to assuming linear relationships between sub-dynamics. To see this, observe that \\Eq\{multicov\} is in the form of a Jacobian matrix (or linearised dynamics) multiplied by the input covariance.\
+\
+\
+\
+\
+\
+\\subsection\{Subset of Inputs\}\
+Often the case will be that each sub-dynamics is only functionally dependent on a subset, or linear transformation, $\\bs_m(\\bz)$ of the state-actions and outputs of previous functions $\\bp_m(\\bz)$. How then is the expectation and covariance with respect to $\\bp_m(\\bz)$ to be filled in? The answer can be found by considering the general linear transformation $\\bs_m(\\bz) = \\bP_m\\bp_m(\\bz)$. The matrix $\\bP_m$ could either pick off appropriate elements of $\\bp_m$ or be viewed as an arbitrary linear combination. Since this mapping is linear, a Gaussian distribution $\\bp_m(\\bz) \\sim \\cN(\\bm,\\bS)$ leads to another Gaussian distribution $\\bs_m(\\bz) \\sim \\cN\\big(\\bm_\{\\bs\},\\bS_\{\\bs\}\\big)$ with mean $\\bm_\{\\bs\} = \\bP_m\\bm$ and covariance $\\bS_\{\\bs\} = \\bP_m\\bS\\bP_m\\T$. Therefore the predictive mean and covariance are simply\
+\\begin\{align\}\
+\\EE_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big)\\big] &= \\EE_\{\\bs_m,\\bff_m\}\\big[\\bff_m(\\bs_m(\\bz)\\big)\\big] \\\\\
+\\cov_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big)\\big] &= \\cov_\{\\bs_m,\\bff_m\}\\big[\\bff_m\\big(\\bs_m(\\bz)\\big)\\big]\
+\\end\{align\}\
+In order to obtain the cross covariance term $\\cov_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big), \\bp_m(\\bz)\\big] = \\cov_\{\\ba,\\bb\}[\\bb,\\ba]$ first define $\\bc = \\bs_m(\\bz)$. Then note that, since $\\bb$ is only affected by $\\ba$ through $\\bc$, the conditional independence relationship $\\ba \\ci \\bb | \\bc$ holds. This relationship can be represented by the graphical model shown in \\Fig\{condind\}. Due to the joint Gaussian assumption, \\Theo\{condind\} can be appealed to.\
+\
+\
+\
+\
+\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t]\
+\\centering\
+%\
+\\tikzstyle\{sum\} = [circle, draw, minimum height=.8cm]\
+\\tikzstyle\{line\} = [draw, -stealth']\
+\\begin\{tikzpicture\}\
+	\\node[sum] (a) at (-2,0) \{$\\ba$\}; \
+	\\node[sum] (b) at (0,1) \{$\\bc$\};\
+	\\node[sum] (c) at (2,0) \{$\\bb$\};\
+	\\path[line] (a) -- (b); \\path[line] (b) -- (c);\
+\\end\{tikzpicture\}\
+%\
+\\caption\{Graphical model for which the conditional independence relationship $\\ba \\ci \\bb \\big| \\bc$ holds. See \\cite\{Bish06\} Chapter 8.2 for a more detailed outline.\}\
+\\label\{fig:condind\}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\
+\
+\
+\
+\\begin\{theo\}[Conditional Independence] \\label\{theo:condind\}\
+Take three random vectors $\\ba,\\bb$ and $\\bc$ which are jointly Gaussian distributed. Given $\\ba \\ci \\bb | \\bc$ the following statement is true\
+\\begin\{equation\}\
+\\cov[\\bb,\\ba] = \\cov[\\bb,\\bc] \\cov[\\bc]^\{-1\} \\cov[\\bc,\\ba]\
+\\end\{equation\}\
+\\end\{theo\}\
+\
+\\begin\{proof\}\
+Consider the joint distribution $p(\\ba,\\bb,\\bc)$ partitioned as follows\
+\\begin\{equation*\}\
+\\bmat\{\\ba \\\\ \\bb \\\\ \\bc\} \\sim \\cN \\left(\
+\\bmat\{\\bm_\{\\ba\} \\\\ \\bm_\{\\bb\} \\\\ \\bm_\{\\bc\}\},\
+\\bmat\{\
+\\bS_\{\\ba\} & \\bS_\{\\ba\\bb\} & \\bS_\{\\ba\\bc\} \\\\\
+\\bS_\{\\bb\\ba\} & \\bS_\{\\bb\} & \\bS_\{\\bb\\bc\} \\\\\
+\\bS_\{\\bc\\ba\} & \\bS_\{\\bc\\bb\} & \\bS_\{\\bc\}\
+\} \\right)\
+\\end\{equation*\}\
+Conditioning $\\ba$ and $\\bb$ on $\\bc$ using the identity for a Gaussian conditional distribution yields the cross covariance term\
+\\begin\{equation\}\
+\\cov[\\bb,\\ba|\\bc] = \\bS_\{\\bb\\ba\} - \\bS_\{\\bb\\bc\} \\bS_\{\\bc\}^\{-1\} \\bS_\{\\bc\\ba\}\
+\\end\{equation\}\
+This expression is equal to zero since the conditional independence relationship $\\ba \\ci \\bb | \\bc$ can be stated equivalently as $\\cov[\\ba,\\bb|\\bc] = \\bO$. The result follows from a rearrangement of terms.\
+\\qed\
+\\end\{proof\}\
+\
+However, computing the inverse of the potentially singular matrix $\\cov[\\bc]$ is unsatisfactory. Fortunately, explicit calculation of this inversion is unnecessary since $\\cov[\\bb,\\bc] \\bS_\{\\bs\}^\{-1\} = \\dd\\EE[\\bb]/\\dd\\bm_\{\\bs\}$ due to \\Theo\{inpout\}. Therefore the cross covariances can be expressed as\
+\\begin\{align\}\
+\\cov_\{\\bp_m,\\bff_m\}\\big[\\bff_m\\big(\\bp_m(\\bz)\\big), \\bp_m(\\bz)\\big]\
+&= \\bigg(\\diff\{\}\{ \\bm_\{\\bs\} \} \\EE_\{\\bs_m,\\bff_m\}[\\bff_m\\big(\\bs_m(\\bz)\\big)\\big] \\bigg) \\bP_m \\bS\
+\\end\{align\}\
+where $\\bP_m\\bS = \\cov[\\bc,\\ba]$. This concludes the definition of the framework for propagation of Gaussian uncertainty given multiple dynamics models of the form given in \\Eq\{multimodel\}. Note that the only condition on each sub-dynamics is that the mean $\\EE_\{\\bs_m,\\bff_m\}\\big[\\bff_m\\big(\\bs_m(\\bz)\\big)\\big]$ and covariance $\\cov_\{\\bs_m,\\bff_m\}\\big[\\bff_m\\big(\\bs_m(\\bz)\\big)\\big]$ are analytically tractable for $\\bs_m \\sim \\cN$, $\\bff_m \\sim \\mathcal\{GP\}$ and that the mean is differentiable with respect to the mean of the input distribution $\\bm_\{\\bs\}$. Now some specific applications are discussed.\
+\
+\
+\\subsection\{$N$th Order Markov Systems\} \\label\{sec:nonmarkov\}\
+One use of this framework that is immediately transparent is the case in which the system in question has a Markov order greater than 1 in its relationship to previous states. In other words, with multiple dynamics models, $N\\tth$-order Markov systems of the form\
+\\begin\{equation\}\
+\\bx_k = \\bff\\big(\\bx_\{k-1\},\\bu_\{k-1\}\\dots\\bx_\{k-N\},\\bu_\{k-N\}\\big)\
+\\end\{equation\}\
+can be considered by defining the augmented state-space system\
+\\begin\{equation\}\
+\\bx^\{\\aug\}_k = \\bmat\{ \\bff\\big(\\bx^\{\\aug\}_\{k-1\},\\bu_\{k-1\}\\big) \\\\[0.1cm] \
+\\bx_\{k-1\} \\\\\
+\\bu_\{k-1\} \\\\\
+\\big[\\bO_\{\}, \\bI, \\bO\\big] \\bx^\{\\aug\}_\{k-1\}\
+\}\
+\\end\{equation\}\
+with augmented state $\\bx^\{\\aug\}_k = [\\bx_\{k\}; \\bx_\{k-1\}; \\bu_\{k-1\} \\dots \\bu_\{k-N\};  \\bx_\{k-N\}] \\in \\RR^\{E+ND\}$. This is a useful property that will be exploited in the subsequent sections.\
+\
+\
+\
+\
+\
+\
+\
+\\section\{Known State Relationships\}\
+\
+\\subsection\{General Mappings\}\
+The framework of multiple dynamics models outlined in the previous section finds one of its most useful applications in the incorporation of known relationships between states, a form of partial model information. This application is presented in \\cite\{HRM12\}. Specifically, given a system composed of $M$ distinct functions as given in \\Eq\{multimodel\}, then often some of the sub-dynamics may be fixed or known beforehand. In this case, the unknown dynamics can be inferred from data using a parametric or nonparametric method outlined in \\Sec\{bayesmodelling\} while the known parts can be included directly. A very clear and useful example of this for dynamical systems is the case where some states are known to be time derivatives of other states. In other words, position-velocity relationships.\
+\
+\
+\
+\\subsection\{Position-Velocity\}\
+\
+\
+\
+\
+Consider the common scenario in which the state $\\bx$ contains \\textit\{position\} states $\\bxp$ and \\textit\{velocity\} states $\\bxv$ which are related through\
+\\begin\{align\}\
+\\bxp_k &= \\int_\{-\\infty\}^t \\!\\!\\!\\!\\bxv(\\tau) \\dd\\tau \\quad\\text\{or\}\\quad\
+\\bxp_k = \\bxp_\{k-1\} + \\int_\{t-\\Dt\}^t \\!\\!\\!\\!\\bxv(\\tau) \\dd\\tau \\label\{eqn:posint\} \\\\[0.2cm]\
+\\bxv_k &= \\frac\{\\dd\\bxp(\\tau)\}\{\\dd \\tau\} \\bigg|_\{\\tau = t\} \\label\{eqn:veldiff\}\
+\\end\{align\}\
+where $k \\in \\ZZ$ and $t = k\\Dt$. In order to incorporate this information into the learning framework it is important to first determine whether a predictive model for the position states is to be inferred and the velocity states reconstructed from this prediction (numerical differentiation) or vice versa (numerical integration). Approximate solutions for both cases will be discussed.\
+\
+First consider the reconstruction of the position states $\\bxp_k$ given the previous position $\\bxp_\{k-1\}$ and the set of inferred velocities $\\bxv_k$ and $\\bxv_\{k-1\}$ from the probabilistic model. This corresponds to approximating the integral in \\Eq\{posint\} which is depicted graphically in \\Fig\{posint\}. Assuming the velocity follows a constant or linear variation (i.e.$\\!$ the acceleration is zero or constant across the interval) corresponds to the following approximations\
+\\begin\{align\}\
+\\bxp_k &\\approx \\bxp_\{k-1\} + \\Dt\\bxv_k \\label\{eqn:int1\} \\\\\
+\\bxp_k &\\approx \\bxp_\{k-1\} + \\tfrac\{1\}\{2\} \\Dt \\Big( \\bxv_k + \\bxv_\{k-1\} \\Big) \\label\{eqn:int2\}\
+\\end\{align\}\
+respectively. Now consider reconstruction of the velocity states $\\bxv_k$ given the inferred velocities $\\bxp_k$ and $\\bxp_\{k-1\}$. In this case assuming the position follows a linear or quadratic variation (or equivalently the velocity is constant or linear) leads to\
+\\begin\{align\}\
+\\bxv_k &\\approx \\Dt\\inv \\Big( \\bxp_k - \\bxp_\{k-1\} \\Big) \\label\{eqn:diff1\} \\\\\
+\\bxv_k &\\approx 2 \\Dt\\inv \\Big( \\bxp_k - \\bxp_\{k-1\} \\Big) - \\bxv_\{k-1\} \\label\{eqn:diff2\}\
+\\end\{align\}\
+respectively. Note that these relationships are simply rearrangements of \\Eqs\{int1\}\{int2\}. Since all these relationships are linear they can easily be incorporated into the multiple dynamics framework.\
+\
+\
+\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t]\
+\\centering\
+%\
+\\subfigure[Integral approximations.]\{\
+\\tikzstyle\{line\} = [draw, -stealth']\
+\\begin\{tikzpicture\}\
+	\\small\
+	\\node at (0,0) \{\\includegraphics[scale=0.61, clip, trim=0cm 0cm 0cm 0.2cm]\{figs/prioraug/vp1.pdf\}\};\
+	\\path[line] (-3.55,-2.45) -- (3.55,-2.45); \\path[line] (-3.45,-2.55) -- (-3.45,2.5);\
+	\\node at (2.3,-2.8) \{$t$\}; \\node at (3.2,-2.75) \{time\};\
+	\\node at (0,-2.8) \{$t-\\Dt$\};\
+	\\node at (-2.3,-2.8) \{$t-2\\Dt$\};\
+	\\node[rotate=90] at (-3.05,1.65) \{velocity $\\bxv$\};\
+	\\node at (1.2,-1) \{$\\int_\{t-\\Dt\}^t \\bxv \\dd\\tau$\};\
+\\end\{tikzpicture\}\
+\\label\{fig:posint\}\
+\}\
+%\
+\\subfigure[Derivative approximations.]\{\
+\\tikzstyle\{line\} = [draw, -stealth']\
+\\begin\{tikzpicture\}\
+	\\small\
+	\\node at (0,0) \{\\includegraphics[scale=0.61, clip, trim=0cm 0cm 0cm 0.2cm]\{figs/prioraug/vp2.pdf\}\};\
+	\\path[line] (-3.55,-2.45) -- (3.55,-2.45); \\path[line] (-3.45,-2.55) -- (-3.45,2.5);\
+	\\node at (2.3,-2.8) \{$t$\}; \\node at (3.2,-2.75) \{time\};\
+	\\node at (0,-2.8) \{$t-\\Dt$\};\
+	\\node at (-2.3,-2.8) \{$t-2\\Dt$\};\
+	\\node[rotate=90] at (-3.05,1.65) \{position $\\bxp$\};\
+	\\node at (3.2,-0.4) \{$\\frac\{\\dd\\bxp\}\{\\dd \\tau\}(t)$\};\
+\\end\{tikzpicture\}\
+\\label\{fig:veldiff\}\
+\}\
+%\
+\\caption\{Approximate reconstruction of the current position/velocity states given previous observations of the velocity/position states up to time $t-\\Dt$. The blue and red plots in each plot make approximation of constant and linearly varying velocity $\\bxv$ respectively. \}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t]\
+\\centering\
+%\
+\\subfigure[Integral approximations.]\{\
+\\tikzstyle\{line\} = [draw, -stealth']\
+\\begin\{tikzpicture\}\
+	\\small\
+	\\node at (0,0) \{\\includegraphics[scale=0.61, clip, trim=0cm 0cm 0cm 0.2cm]\{figs/prioraug/vp3.pdf\}\};\
+	\\path[line] (-3.55,-2.45) -- (3.55,-2.45); \\path[line] (-3.45,-2.55) -- (-3.45,2.5);\
+	\\node at (2.3,-2.8) \{$t$\}; \\node at (3.2,-2.78) \{time\};\
+	\\node at (0,-2.8) \{$t-\\Dt$\};\
+	\\node at (-2.3,-2.8) \{$t-2\\Dt$\};\
+	\\node[rotate=90] at (-3.05,1.65) \{velocity $\\bxv$\};\
+	\\node at (1.2,-1) \{$\\int_\{t-\\Dt\}^t \\bxv \\dd\\tau$\};\
+\\end\{tikzpicture\}\
+\}\
+%\
+\\subfigure[Derivative approximations.]\{\
+\\tikzstyle\{line\} = [draw, -stealth']\
+\\begin\{tikzpicture\}\
+	\\small\
+	\\node at (0,0) \{\\includegraphics[scale=0.61, clip, trim=0cm 0cm 0cm 0.2cm]\{figs/prioraug/vp4.pdf\}\};\
+	\\path[line] (-3.55,-2.45) -- (3.55,-2.45); \\path[line] (-3.45,-2.55) -- (-3.45,2.5);\
+	\\node at (2.3,-2.8) \{$t$\}; \\node at (3.2,-2.78) \{time\};\
+	\\node at (0,-2.8) \{$t-\\Dt$\};\
+	\\node at (-2.3,-2.8) \{$t-2\\Dt$\};\
+	\\node[rotate=90] at (-3.05,1.65) \{position $\\bxp$\};\
+	\\node at (3.2,-0.4) \{$\\frac\{\\dd\\bxp\}\{\\dd \\tau\}(t)$\};\
+\\end\{tikzpicture\}\
+\}\
+%\
+\\caption\{Approximate reconstruction of the current position/velocity states given previous observations of the velocity/position states up to time $t-2\\Dt$. The blue line in plot (a) and (b) use only the three observed points on the graph to make a quadratic approximation of the actual curve. The red line in plot (a) additionally uses the area $\\int \\bxv \\dd\\tau$ over $[t-2\\Dt,t-\\Dt]$ to form a cubic approximation. This is equivalent to the red line in plot (b) which uses the derivatives $\\frac\{\\dd\\bxp\}\{\\dd \\tau\}(t-\\Dt)$ and $\\frac\{\\dd\\bxp\}\{\\dd \\tau\} (t-2\\Dt)$ to make a quartic approximation.\}\
+\\label\{fig:posvel2\}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\
+\
+\
+\
+As discussed in \\Sec\{nonmarkov\} it is not a problem to form dependencies on delayed states $\\bx_\{k-i\}$ for $i >1$. Therefore, more elaborate approximations can be made by using information from previous timesteps. For example, fitting a cubic curve to the points $\\bxv_k, \\bxv_\{k-1\}, \\bxv_\{k-2\}$ and given the area defined by $\\bxp_\{k-1\} - \\bxp_\{k-2\}$ yields the following approximation\
+\\begin\{equation\}\
+\\bxp_\{k\} \\approx \\bxp_\{k-2\} + \\tfrac\{1\}\{3\}\\Dt\\Big( \\bxv_k + 4\\bxv_\{k-1\} + \\bxv_\{k-2\} \\Big) \\label\{eqn:mama\}\
+\\end\{equation\}\
+for position reconstruction. Note that since there are four constraints that must be satisfied then a cubic function can do this uniquely since it has four degree of freedom. Lower order polynomials could also be considered which would yield a unique analytic solution but would not guarantee satisfaction of the constraints. A cubic fit to the velocity profile is equivalent to fitting a quartic curve to the position points $\\bxp_k, \\bxp_\{k-1\}, \\bxp_\{k-2\}$ and the derivatives defined by $\\bxv_\{k-1\}$ and $\\bxv_\{k-2\}$ which gives the relationship\
+\\begin\{equation\}\
+\\bxv_\{k\} \\approx 3\\Dt\\inv \\Big( \\bxp_k - \\bxp_\{k-2\} \\Big) - \\Big( 4\\bxv_\{k-1\} + \\bxv_\{k-2\} \\Big)\
+\\end\{equation\}\
+which is clearly a rearrangement of \\Eq\{mama\}. These relationships are depicted in \\Fig\{posvel2\} alongside quadratic approximations which use only points on the function itself to infer the required integral or derivative.\
+\
+It is important to note that using additional information from previous timesteps and higher order polynomials will not necessarily give better approximations of the integral or derivative. This is clearly shown in \\Fig\{posvel2\} where the higher order polynomial fit (shown in red) produces a poorer approximation of the required integral and derivative in both instances. The quality of a given approximation scheme will therefore be judged by how well it performs in practice.\
+\
+\
+\\subsection\{Example: Pendulum\} \\label\{sec:pendulum\}\
+\
+\\subsubsection\{Setup\}\
+In order to analyse these approximation schemes, the torque-limited pendulum swing up problem was considered. This simple system is shown in \\Fig\{pendulum\} where the pendulum is considered to be a pole of uniform density. The equation of motion for this system is\
+\\begin\{equation\}\
+\\tfrac\{1\}\{3\}ml^2 \\ddot\{\\theta\} = u - b\\dot\\theta - \\tfrac\{1\}\{2\}mlg\\sin\\theta,\
+\\end\{equation\}\
+with mass $m=1\\!$ kg, length $l=1\\!$ m, friction $b = 0.1\\!$~N$\\,$s$^\{-1\}$, gravitational acceleration $g=9.81\\!$~m$\\,$s$^\{-2\}$, states $\\bx = [\\theta, \\dot\\theta]^\\top$ and constrained input torque $u\\in [-3,3]\\!$~N$\\,$m. This torque is insufficient to swing the pendulum up directly since $u_\{max\} < \\tfrac\{1\}\{2\}mlg$.\
+\
+The cost function used for learning was the angular distance to the upright position $c(\\bx) = \\half(\\cos\\theta+1) \\in [0,1]$. This cost makes no distinction between swinging the pendulum up to $\\theta=\\pi$ or $\\theta=-\\pi$. The prediction horizon was set to $T = 3\\!$~s with a discrete timestep $\\Delta_t = 0.1\\!$ s. Note that this discretisation is relatively short given that the natural period of the pendulum is $T_0 = 2\\pi/\\omega_0 \\approx 1.6\\!$~s where $\\omega_0 = \\sqrt\{3g/2l\}$.\
+The control policy consisted of a radial basis function with 50 Gaussian kernels in which the positions, widths and magnitudes of each kernel were free to be optimised. This was then passed through the approximate saturating block defined in \\Eq\{gsat\}. Finally, the algorithm was given an initial training data set of 3$\\,$s where random inputs were applied to the system.\
+\
+This is an interesting problem since many local minima exist. The optimal solution consists of a single swing back followed by the swing to the upright position, however other solutions may involve multiple swings or swinging the pendulum round and round many times.\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t]\
+\\centering\
+\\input\{figs/prioraug/pendulum\}\
+\\caption\{Torque-limited pendulum with angle from the down position $\\theta$, length $l$ and input torque $u$.\}\
+\\label\{fig:pendulum\}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\
+\\subsubsection\{Results\}\
+The costs after each learning iteration of the algorithm for 50 Monte Carlo runs are shown in \\Fig\{intdiff1\}. A constant acceleration approximation was made to reconstruct the position and velocity, therefore \\Eq\{int2\} and \\Eq\{diff2\} were used. In order to encode uncertainty in the approximation an artificial additive noise term was included. For example, in position and velocity reconstruction respectively the assumed relationship with a constance acceleration approximation is\
+\\begin\{align\}\
+\\theta_k &= \\theta_\{k-1\} + \\tfrac\{1\}\{2\} \\Dt \\big( \\dot\\theta_k + \\dot\\theta_\{k-1\} \\big) + \\kappa_\{\\text\{p\}\} \\\\\
+\\dot\\theta_k &= 2\\Dt\\inv \\big( \\theta_k - \\theta_\{k-1\} \\big) - \\dot\\theta_\{k-1\} + \\kappa_\{\\text\{v\}\}\
+\\end\{align\}\
+where $\\kappa_\{\\text\{p\}\} \\sim \\cN(0,\\sigma_\{\\text\{p\}\}^2)$ and $\\kappa_\{\\text\{v\}\} \\sim \\cN(0,\\sigma_\{\\text\{v\}\}^2)$. The variance of this noise term plays an important role in learning as will be demonstrated shortly. It should be noted that when a zero acceleration approximation, given by \\Eq\{int1\} and \\Eq\{diff1\}, was made there was always a significant degradation in performance.\
+\
+\
+\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t!]\
+\\centering \\footnotesize\
+\\subfigure[Standard learning algorithm]\{ % The control experiment\
+\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff1.pdf\}\
+\\label\{fig:stand1\}\} \\hspace\{5cm\}\
+\\subfigure[Position reconstruction]\{ % Position reconstruction\
+\\begin\{tikzpicture\}\
+  \\node at (0,0.0) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff2.pdf\}\};\
+  \\node at (0,-3.3) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff3.pdf\}\};\
+  \\node at (0,-6.6) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff4.pdf\}\};\
+  \\node at (0,-9.9) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff5.pdf\}\};\
+  \\node at (2.6,1.4) \{$\\sigma_\{\\text\{p\}\}^2 = 10^0$\};\
+  \\node at (2.6,-1.9) \{$\\sigma_\{\\text\{p\}\}^2 = 10^\{-1\}$\};\
+  \\node at (2.6,-5.2) \{$\\sigma_\{\\text\{p\}\}^2 = 10^\{-2\}$\};\
+  \\node at (2.6,-8.5) \{$\\sigma_\{\\text\{p\}\}^2 = 10^\{-3\}$\};\
+\\end\{tikzpicture\}\
+\\label\{fig:intfig1\}\} \\hfill\
+\\subfigure[Velocity reconstruction]\{ % Velocity reconstruction\
+\\begin\{tikzpicture\}\
+  \\node at (0,0.0) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff7.pdf\}\};\
+  \\node at (0,-3.3) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff8.pdf\}\};\
+  \\node at (0,-6.6) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff9.pdf\}\};\
+  \\node at (0,-9.9) \{\\includegraphics[scale = 0.72]\{figs/prioraug/intdiff10.pdf\}\};\
+  \\node at (2.6,1.4) \{$\\sigma_\{\\text\{v\}\}^2 = 10^0$\};\
+  \\node at (2.6,-1.9) \{$\\sigma_\{\\text\{v\}\}^2 = 10^\{-1\}$\};\
+  \\node at (2.6,-5.2) \{$\\sigma_\{\\text\{v\}\}^2 = 10^\{-2\}$\};\
+  \\node at (2.6,-8.5) \{$\\sigma_\{\\text\{v\}\}^2 = 10^\{-3\}$\};\
+\\end\{tikzpicture\}\
+\\label\{fig:difffig1\}\}\
+\\caption\{Box plots of the costs incurred by the pendulum after each iteration of the learning algorithm (given by the x-axis) for 50 Monte Carlo runs.\}\
+\\label\{fig:intdiff1\}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\
+First consider the results produced by the standard learning algorithm shown in \\Fig\{stand1\}. Most runs achieve the task within 5 iterations (33$\\,$s of data) with some even finding the optimal solution using only the initial data set (merely 3$\\,$s of data). However, only a few of these runs achieve the optimal solution within the 10 given iterations. This is due to the fact that there is no explicit form of exploration incorporated into the algorithm and therefore it is inherently cautious once it has found a ``reasonable'' solution. Note that some runs enter a failure mode in which they do not complete the task at all. These runs have fallen into the local minimum of spinning the pendulum around continuously.\
+\
+Now consider the case where GP learning the dynamics of the angular position $\\theta$ is replaced by a constant acceleration approximation (with artificial noise term $\\kappa_\{\\text\{p\}\}$). The results of these simulations are displayed in \\Fig\{intfig1\}. As one would expect, the algorithm cannot learn under very large values of $\\kappa_\{\\text\{p\}\}$. When the artificial noise variance is reduced to $\\kappa_\{\\text\{p\}\} = 10^\{-2\}$, over half the trials find the optimal solution using only the initial training data set, while most of them take only two iterations. This is a huge improvement over the standard algorithm with no prior knowledge of the position-velocity relationship. However, the most interesting artefact of these simulations is shown in the final boxplot with $\\kappa_\{\\text\{p\}\} = 10^\{-3\}$. Although this shows generally improved performance over the standard algorithm, the performance is worse than when the artificial noise was set to $10^\{-2\}$. This phenomenon will be discussed in greater detail in the following section.\
+\
+Finally, consider \\Fig\{difffig1\} and the case where the GP learning the dynamics of the angular velocity $\\dot\\theta$ is replaced by a constant acceleration approximation (with artificial noise term $\\kappa_\{\\text\{v\}\}$). Performance is very poor for $\\kappa_\{\\text\{v\}\}=10^\{0\}$ as would be expected, although a couple of the trials do manage to achieve the swing-up task despite this huge uncertainty. Again, the best performance is not achieved with the smallest value of $\\kappa_\{\\text\{v\}\}$ but with $\\kappa_\{\\text\{v\}\}=10^\{-1\}$ in which over half of the trials reach the optimal solution by the 10$\\tth$ iteration. However, even for this best trial, the overall performance is not as good as the standard algorithm since many trials fall into poor local minima and learning occurs at a generally slower rate.\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t!]\
+\\centering \\footnotesize\
+\\subfigure[Additional noise on $\\theta$]\{ % Position reconstruction\
+\\begin\{tikzpicture\}\
+  \\node at (0,0.0) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise2_2.pdf\}\};\
+  \\node at (0,-3.3) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise2_3.pdf\}\};\
+  \\node at (0,-6.6) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise2_4.pdf\}\};\
+  \\node at (0,-9.9) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise2_5.pdf\}\};\
+  \\node at (2.6,1.4) \{$\\sigma_\{\\text\{p\}\}^2 = 10^0$\};\
+  \\node at (2.6,-1.9) \{$\\sigma_\{\\text\{p\}\}^2 = 10^\{-1\}$\};\
+  \\node at (2.6,-5.2) \{$\\sigma_\{\\text\{p\}\}^2 = 10^\{-2\}$\};\
+  \\node at (2.6,-8.5) \{$\\sigma_\{\\text\{p\}\}^2 = 10^\{-3\}$\};\
+\\end\{tikzpicture\}\
+\} \\hfill\
+\\subfigure[Additional noise on $\\dot\\theta$]\{ % Velocity reconstruction\
+\\begin\{tikzpicture\}\
+  \\node at (0,0.0) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise3_2.pdf\}\};\
+  \\node at (0,-3.3) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise3_3.pdf\}\};\
+  \\node at (0,-6.6) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise3_4.pdf\}\};\
+  \\node at (0,-9.9) \{\\includegraphics[scale = 0.72]\{figs/prioraug/addnoise3_5.pdf\}\};\
+  \\node at (2.6,1.4) \{$\\sigma_\{\\text\{v\}\}^2 = 10^0$\};\
+  \\node at (2.6,-1.9) \{$\\sigma_\{\\text\{v\}\}^2 = 10^\{-1\}$\};\
+  \\node at (2.6,-5.2) \{$\\sigma_\{\\text\{v\}\}^2 = 10^\{-2\}$\};\
+  \\node at (2.6,-8.5) \{$\\sigma_\{\\text\{v\}\}^2 = 10^\{-3\}$\};\
+\\end\{tikzpicture\}\
+\}\
+\\caption\{Box plots of the costs incurred by the pendulum after each iteration of the learning algorithm (given by the x-axis) for 50 Monte Carlo runs.\}\
+\\label\{fig:intdiff1\}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\\subsection\{Example: Unicycle\} \\label\{sec:unicycle\}\
+\
+The scheme was then tested on a highly nontrivial control problem, the balancing of a robotic unicycle as shown in \\Fig\{unicycle\}. The equations of motion for this system can be found in the thesis of \\cite\{For09\}. The state consists of $\\bx = [x_\\text\{c\}, y_\\text\{c\}, \\theta, \\phi, \\psi, \\dot\\theta, \\dot\\phi, \\dot\\psi, \\dot\\psi_\\text\{w\}, \\dot\\psi_\\text\{t\}]^\\top \\in \\RR^\{10\}$ where $(x_\\text\{c\},y_\\text\{c\})$ is the position of the desired unicycle location in a coordinate system centred on the unicycle itself, $\\theta$ is the roll angle, $\\phi$ is the pitch angle, $\\psi$ is the yaw angle, $\\psi_\\text\{w\}$ is the angular position of the wheel and $\\psi_\\text\{t\}$ is the angular position of the turntable. The action vector is $\\bu = [u_\\text\{t\}, u_\\text\{w\}]^\\top \\in \\RR^2$, where $u_\\text\{t\}$ is the torque applied to the turntable and $u_\\text\{w\}$ is the torque applied to the wheel. The state measurement was corrupted with white noise of variance $0.002^2\\bI$ and the discrete timestep was set to $\\Delta_t = 0.15\\!$ s. This is a large timestep given the dynamics of the unicycle and therefore makes the task of control even harder. The prediction horizon was set to $H = \\big\\lceil 10/\\Delta_t \\big\\rceil$ steps to give a simulation time close to $10\\!$ s.\
+\
+\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t]\
+\\centering\
+\\input\{figs/prioraug/unicycle\}\
+\\caption\{Robotic unicycle with roll angle $\\theta$, pitch angle $\\phi$, yaw angle $\\psi$, turntable angle $\\psi_\{\\text\{t\}\}$ and wheel angle $\\psi_\{\\text\{w\}\}$. The controlled inputs are the torque applied to the turntable $u_\{\\text\{t\}\}$ and the torque applied to the wheel $u_\{\\text\{w\}\}$.\}\
+\\label\{fig:unicycle\}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+\
+\
+\
+\
+\
+\\section\{Reference Tracking\}\
+\
+\\subsection\{Problem Formulation\}\
+An extension of the regulation problem given by \\Eq\{Jcost\} is now considered. In particular, the problem of forcing a linear combination of the system states $\\bC\\bx^\{\\bx\}$ to track some reference $\\br := \\bC^\{\\br\}\\bx^\{\\br\}$ where $\\bx^\{\\br\} \\in \\RR^\{E_r\}$ is the underlying reference state. This will be achieved using a parameterised control policy $\\bpi: \\RR^\{E\} \\times \\RR^\{E_r\} \\rightarrow \\RR^F$ which has access to the full reference state.   Mathematically, this problem can be written as\
+\\begin\{align\}\
+& \\text\{minimise\} & J^\{\\bpi\} = \\EE_\{\\btau\}\\Bigg[ & \\sum_\{k=0\}^\{H-1\} c\\big(\\bC\\bx^\{\\bx\}_k - \\bC^\{\\br\}\\bx^\{\\br\}_k,\\bu_k\\big) + c_H\\big(\\bC\\bx^\{\\bx\}_H - \\bC^\{\\br\}\\bx^\{\\br\}_H\\big) \\, \\bigg| \\, p(\\bx^\{\\bx\}_0, \\bx^\{\\br\}_0) \\Bigg]\
+\\label\{eqn:reftrack1\} \\\\\
+&\\text\{subject to\} & \\bx^\{\\bx\}_k &= \\bff_\{\\bx\}\\big(\\bx^\{\\bx\}_\{k-1\},\\bu_\{k-1\}\\big) \
+\\quad \\text\{where\} \\quad \\bff_\{\\bx\} \\sim p\\big(\\bff_\{\\bx\}|\\cD,\\hyp\\big) & \\label\{eqn:reftrack2\}\\\\\
+\\nonumber && \\bx^\{\\br\}_k &= \\bff_\{\\br\}\\big(\\bx^\{\\br\}_\{k-1\}\\big) \\\\\
+\\nonumber && \\bu_k &= \\bpi\\big(\\bx^\{\\bx\}_k, \\bx^\{\\br\}_k \\big)\
+\\end\{align\}\
+where $\\btau := [\\bx^\{\\bx\}_0; \\bx^\{\\br\}_0; \\bu_0 \\dots \\bx^\{\\bx\}_H]$ is a sampled state-action and reference trajectory. In the spirit of \\cite\{BGW90\}, this problem can be recast as a regulation problem in terms of an augmented state space and dynamics model. First define augmented state as $\\bx := [\\bx^\{\\bx\}; \\bx^\{\\br\}]$. Next define the augmented dynamical system\
+\\begin\{equation*\}\
+\\bx_\{k\} =\
+\\bff(\\bx_\{k-1\}, \\bu_\{k-1\}) = \\bmat\{\
+\\bff_\{\\bx\}\\big(\\bx^\{\\bx\}_\{k-1\},\\bu_\{k-1\}\\big) \\\\\
+\\bff_\{\\br\}\\big(\\bx^\{\\br\}_\{k-1\}\\big)\
+\}\
+\\end\{equation*\}\
+and the stage-cost $c^\{\\br\}\\big(\\bx,\\bu\\big) := c\\big([\\bC, -\\bC^\{\\br\}]\\bx,\\bu\\big)$. The recast problem can now be stated as a regulation problem in terms of the augmented state space\
+\\begin\{align\}\
+& \\text\{minimise\} & J^\{\\bpi\} = \\EE_\{\\btau\}\\Bigg[ & \\sum_\{t=0\}^\{H-1\} c^\{\\br\}\\big(\\bx_k ,\\bu_k \\big) + c^\{\\br\}_T\\big(\\bx\\big) \\, \\bigg| \\, p(\\bx_0) \\Bigg]\
+ \\\\\
+&\\text\{subject to\} & \\bx_k &= \\bff\\big(\\bx_\{k-1\},\\bu_\{k-1\}\\big) \
+\\quad \\text\{where\} \\quad \\bff \\sim p\\big(\\bff|\\cD,\\hyp\\big) & \\\\\
+\\nonumber && \\bu_k &= \\bpi\\big( \\bx_k \\big)\
+\\end\{align\}\
+which is in exactly the same form as the original regulation problem posed in \\Eqs\{learn1\}\{learn2\}. Note that if the moments of the stage-cost $c$ are tractable given a Gaussian input $\\bx,\\bu \\sim \\cN$ then so will the moments of $c^\{\\br\}$ since the input has only undergone a linear transformation and therefore remains Gaussian.\
+\
+\
+\\subsection\{Preview Horizon\}\
+An important point to make is that the problem given in \\Eqs\{reftrack1\}\{reftrack2\} can handle the situation in which the control policy is allowed to anticipate the impending change in reference by having access to some \\textit\{preview horizon\} of the reference signal. In other words $\\bu_k$ is allowed to be functionally dependent on $\\br_\{k+i\}$ for $i \\in \\ZZ_\{[0,H_r]\}$ for preview horizon $H_r$ steps. This situation can be encoded by defining the reference state to consist of future values of $\\br$ over the preview horizon window $\\bx^\{\\br\}_k = [\\br_k; \\br_\{k+1\} \\dots \\br_\{k+H_r\}]$. Then defining the reference dynamics to consist of\
+\\begin\{equation\}\
+\\bx^\{\\br\}_k = \\bff_\{\\br\}\\big( \\bx^\{\\br\}_\{k-1\} \\big) = \\bmat\{\
+\\big[\\bO, \\bI] \\bx^\{\\br\}_\{k-1\} \\\\\
+\\bff_\{r\}(\\br_\{k+H_r-1\})\
+\}\
+\\end\{equation\}\
+the problem is back into the form outlined in the previous section. \
+\
+\
+\
+\
+\\subsection\{Reference Dynamics\}\
+\\subsubsection\{Linear\}\
+\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\\begin\{figure\}[t]\
+\\centering\
+\\tikzstyle\{line\} = [draw, -stealth']\
+%\
+\\subfigure[Steps]\{\
+\\begin\{tikzpicture\}\
+	\\footnotesize\
+	\\node at (0,0) \{\\includegraphics[scale=0.66, clip, trim = .1cm 0cm .1cm 0cm]\{figs/prioraug/ref_step.pdf\}\};\
+	\\node at (0.2,-2.6) \{time $(k)$\}; \\node at (-1.6,2) \{$r_k$\};\
+\\end\{tikzpicture\}\
+\\label\{fig:linref1\}\
+\}\
+%\
+\\subfigure[Periodic Waves]\{\
+\\begin\{tikzpicture\}\
+	\\footnotesize\
+	\\node at (0,0) \{\\includegraphics[scale=0.66, clip, trim = .1cm 0cm .1cm 0cm]\{figs/prioraug/ref_square.pdf\}\};\
+	\\node at (0.2,-2.6) \{time $(k)$\}; \\node at (-1.6,2) \{$r_k$\};\
+\\end\{tikzpicture\}\
+\\label\{fig:linref2\}\
+\}\
+%\
+\\subfigure[Filtered Noise]\{\
+\\begin\{tikzpicture\}\
+	\\footnotesize\
+	\\node at (0,0) \{\\includegraphics[scale=0.66, clip, trim = .1cm 0cm .1cm 0cm]\{figs/prioraug/ref_noise.pdf\}\};\
+	\\node at (0.2,-2.6) \{time $(k)$\}; \\node at (-1.6,2) \{$r_k$\};\
+\\end\{tikzpicture\}\
+\\label\{fig:linref3\}\
+\}\
+%\
+\\caption\{Examples of reference signals generated from the linear system $\\bx^\{\\br\}_k = \\bA^\{\\br\}\\bx^\{\\br\}_\{k-1\} + \\bb^\{\\br\}e_\{k-1\}$ where $r_k = [1,\\bO]\\bx^\{\\br\}$. Plots (a)-(c) were generated using $\\bA^\{\\br\}_1, \\bb^\{\\br\}_1$, $\\bA^\{\\br\}_2, \\bb^\{\\br\}_2$ and $\\bA^\{\\br\}_3, \\bb^\{\\br\}_3$ respectively. The means are plotted in thick solid lines, samples shown by dashed lines and the $2\\sigma$ confidence region shaded in grey.\}\
+\\label\{fig:linrefs\}\
+\\end\{figure\}\
+%-------------------------------------------------------------------------------------------------------------------------------------------\
+\
+When considering what kind of reference dynamics model to use it is worth noting that many standard reference signals can be generated using a simple linear system of equations. Some examples are given in \\Fig\{linrefs\}. These were generated using $\\bx^\{\\br\}_k = \\bA^\{\\br\}\\bx^\{\\br\}_\{k-1\} + \\bb ^\{\\br\}e_\{k-1\}$ where $r_k = [1,\\bO]\\bx^\{\\br\}$, $\\bx^\{\\br\} \\sim \\cN$ and $e_k \\sim \\cN(0,1)$. In particular \\Fig\{linrefs\}(a-c) were generated using \
+\\begin\{align*\}\
+\\bA_1^\{\\br\} &= \\bmat\{\\bO & \\bI \\\\ 0 & \\bO\} \\in \\RR^\{10\}, \\quad\
+\\bA_2^\{\\br\} = \\bmat\{\\bO & \\bI \\\\ -1 & \\bO\} \\in \\RR^\{10\}, \\quad\
+\\bA_3^\{\\br\} = \\bmat\{a & b \\\\ 0 & a\} \\in \\RR^\{2\} \
+\\end\{align*\}\
+and $\\bb_1^\{\\br\} = \\bb_2^\{\\br\} = \\bO$, $\\bb_3^\{\\br\} = [0;c]$, along with an appropriate distribution over the start state $\\bx^\{\\br\}_0$. The constants $a,b$ and $c$ were chosen such that $\\cov[r_k] \\rightarrow 5^2$ as $k \\rightarrow \\infty$ where $|a| <1$ is necessary for a stable filter.\
+\
+\\subsubsection\{Inferred\}\
+\
+\
+\
+\
+\
+\
+\\section\{Summary\}}

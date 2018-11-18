@@ -1,0 +1,35 @@
+% Define block styles
+\tikzstyle{block} = [thick, rectangle, draw, text width=7em, text centered, rounded corners, minimum height=4em, fill=black!15]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=10em, text centered, rounded corners, minimum height=5em, fill=black!25]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[rounded corners]
+
+	\node at(5,-2.8) [block](adapt){\textbf{Critic} \\[0.1cm] $\bpsi \leftarrow \bpsi - \alpha \nabla J$};
+        \path[line] (adapt.south) |- (-1.2,-4) -- (-1.2,-1.2) -- (1.2,1.2);
+
+	% Place nodes
+	\node at(0,0) [block](pol){\textbf{Actor} \\[0.1cm]$\pi(U|\bx,\br,\bpsi)$};
+	\node at(5,0) [bloc2k](sys){\textbf{System} \\[0.1cm]$p_f(X'|\bx,\bu)$};
+	
+	\node at(2.2,0)[dot](dot1){};
+	\node at(7.8,0)[dot](dot2){};
+	
+	% Draw arrows
+	\path[line] (pol.east) -- (sys.west);
+        \path[line] (sys.east) -- (dot2) |- (adapt.east);
+        \path[line] (dot2.east) -- ([xshift=1cm] dot2.east);
+        \path[line] (dot1) |- (adapt.west);
+        
+        \path[line] (dot2) |- ([xshift=-1cm,yshift=1.8cm] pol.west) |- (pol.west);
+        \path[line] (sys.south) -- (adapt.north);
+
+	% Labels
+        \node at (-2,0.3) {$\bx$};
+        \node at (8.3,0.3) {$\bx$};
+        \node at (2.2,0.3) {$\bu$};
+        \node at (-0.8,-3.6) {$\bpsi$};
+        \node at ([xshift=1cm,yshift=-0.5cm] sys.south) {$p_c(C|\by,\bu)$};
+
+\end{tikzpicture}

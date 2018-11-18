@@ -1,0 +1,41 @@
+% Define block styles
+\tikzstyle{block} = [thick,rectangle, draw, text width=7em, text centered, rounded corners, minimum height=4em, fill=black!15]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=10em, text centered, rounded corners, minimum height=5em, fill=black!25]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex]
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[rounded corners]
+
+	\node at(5.5,-2.3) [block](adapt){\textbf{Adaptation} \\[0.1cm]$\dot\bpsi = \bg(\be,\bu)$};
+        \path[line] ([yshift=-0.4cm]adapt.west) -| (-1.2,-1.2) -- (1.2,1.2);
+
+	% Place nodes
+	\node at(0,0) [block](pol){\textbf{Policy} \\[0.1cm] $\bu = \bpi(\bx,\br)$};
+	\node at(5.5,0) [bloc2k](sys){\textbf{System} \\[0.1cm] $\dot\bx = \bff(\bx,\bu)$};
+	\node at(2.5,0)[dot](dot1){};
+	\node at(8.5,0)[dot](dot2){};
+	\node at(8.5,-2.3)[sum, label=above right:{$+$}, label=below left:{$-$}](summy){};
+	\node at(-2,-0.4)[dot](dot3){};
+	\node at(5.5,-4.6) [bloc2k](desys){\textbf{Desired System} \\[0.1cm]$\dot\bx_m = \bff_m(\bx_m,\br)$};
+	
+	% Draw arrows
+	\path[line] (pol.east) -- (sys.west);
+	\path[line] (sys.east) -- (dot2) -- (summy.north);
+      \path[line] (dot2.east) -- ([xshift=1cm] dot2.east);
+      \path[line] (dot1) |- ([yshift=0.4cm]adapt.west);
+      \path[line] (dot2) |- ([xshift=-1cm,yshift=1.8cm] pol.west) |- ([yshift=0.4cm]pol.west);
+      \path[line] ([xshift=-1cm,yshift=-0.4cm] pol.west) -- ([yshift=-0.4cm]pol.west);
+      \path[line] (dot3) |- (desys.west);
+      \path[line] (summy.west) -- (adapt.east);
+      \path[line] (desys.east) -| (summy.south);
+        
+	% Labels
+	\node at (-2,-0.1) {$\br$};
+        \node at (-2,0.7) {$\bx$};
+        \node at (7.5,-2.05) {$\be$};
+        \node at (9,0.3) {$\bx$};
+        \node at (9,-4.6) {$\bx_m$};
+        \node at (2.4,0.3) {$\bu$};
+        \node at (-0.8,-2.4) {$\bpsi$};
+
+\end{tikzpicture}

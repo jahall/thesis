@@ -1,0 +1,39 @@
+% Define block styles
+\tikzstyle{block} = [thick,rectangle, draw, text width=7em, text centered, rounded corners, minimum height=4em, fill=black!15]
+\tikzstyle{bloc2k} = [thick,rectangle, draw, text width=10em, text centered, rounded corners, minimum height=5em, fill=black!25]
+\tikzstyle{sum} = [thick,circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[rounded corners]
+
+	\node at(5.5,-4.6) [block](poldel){\textbf{Policy \\Design}};
+        \path[line] (poldel.west) -| (-1.2,-1.2) -- (1.2,1.2);
+
+	% Place nodes
+	\node at(0,0) [block](pol){\textbf{Policy} \\[0.1cm] $\bu = \pi(\by,\br,\bpsi)$};
+	\node at(5.5,0) [bloc2k](sys){\textbf{System} \\[0.1cm] $\bx' = f(\bx,\bu,\bth)$ \\ $\by = h(\bx)$};
+	\node at(5.5,-2.2) [block](adapt){\textbf{Observer}};
+	
+	\node at(2.5,0)[dot](dot1){};
+	\node at(8.5,0)[dot](dot2){};
+	
+	
+	% Draw arrows
+	\path[line] (pol.east) -- (sys.west);
+        \path[line] (sys.east) -- (dot2) |- (adapt.east);
+        \path[line] (dot2.east) -- ([xshift=1cm] dot2.east);
+        \path[line] (dot1) |- (adapt.west);
+        \path[line] (adapt.south) -- (poldel.north);
+        \path[line] (dot2) |- ([xshift=-1cm,yshift=1.8cm] pol.west) |- ([yshift=0.4cm]pol.west);
+        \draw[-latex'] ([xshift=-1cm,yshift=-0.4cm] pol.west) -- ([yshift=-0.4cm]pol.west);
+
+        
+	% Labels
+	\node at (-2,-0.15) {$\br$};
+        \node at (-2,0.7) {$\by$};
+        \node at (9,0.3) {$\by$};
+        \node at (2.5,0.3) {$\bu$};
+        \node at (-0.8,-4.2) {$\bpsi$};
+        \node at (5.8,-3.35) {$\hat\bth$};
+
+\end{tikzpicture}

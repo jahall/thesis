@@ -1,0 +1,119 @@
+\relax 
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Case Studies}{91}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Introduction}{91}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Unicycle}{91}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Problem Overview}{91}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Linear Control Theory}{92}}
+\@writefile{toc}{\contentsline {subsubsection}{Model Identification}{92}}
+\@writefile{toc}{\contentsline {subsubsection}{Policy Design}{93}}
+\citation{Kal60b}
+\citation{BoVa04}
+\newlabel{eqn:lqr1}{{6.1}{94}}
+\newlabel{eqn:lqr2}{{6.2}{94}}
+\citation{NeLe89}
+\citation{Mac02}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Learning Control}{95}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Process Control}{95}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Problem Overview}{95}}
+\citation{NeLe89}
+\citation{NeLe89}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces \relax \fontsize  {10}{12}\selectfont  \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \topsep \z@ \parsep \parskip \itemsep \z@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip Schematic of the forced-circulation evaporator model of \cite  {NeLe89}. The model consists of three distinct components: the evaporator, separator and condenser. The state of the system is made up of the product composition $X_2$, the evaporator pressure $P_2$ and the separator level $L_2$. These are circled in red. The controlled inputs are product flow rate $F_2$, steam pressure $P_{100}$ and the cooling water flow rate $F_{200}$ which are applied through servomechanisms. These are circled in blue.}}{96}}
+\newlabel{fig:evap}{{6.1}{96}}
+\citation{Lju99}
+\citation{NeLe89}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Linear Control Theory}{97}}
+\@writefile{toc}{\contentsline {subsubsection}{Model Identification}{97}}
+\@writefile{toc}{\contentsline {subsubsection}{Control Policy Design}{97}}
+\citation{NeLe89}
+\newlabel{eqn:evap_aug}{{6.3}{98}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Learning Control}{98}}
+\@writefile{toc}{\contentsline {subsubsection}{Problem Setup}{98}}
+\@writefile{toc}{\contentsline {subsubsection}{Prior Over Dynamics}{99}}
+\@writefile{toc}{\contentsline {subsubsection}{Cost Function}{99}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Illustration of the intrinsic caution introduced when using barrier functions as soft constraints. Note that $p(x_2)$ will be penalised more heavily than $p(x_1)$ even though its mean is further away from the constraint edge.}}{100}}
+\newlabel{fig:bazza}{{6.2}{100}}
+\@writefile{toc}{\contentsline {subsubsection}{Policy Structure}{100}}
+\@writefile{toc}{\contentsline {subsubsection}{Safe Implementation}{100}}
+\newlabel{fig:RBFfig}{{6.3(a)}{101}}
+\newlabel{sub@fig:RBFfig}{{(a)}{101}}
+\newlabel{fig:aRBFfig}{{6.3(b)}{101}}
+\newlabel{sub@fig:aRBFfig}{{(b)}{101}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Basis function locations to provide a grid over a two dimensional space for a standard RBF compared with an additive RBF.}}{101}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {RBF}}}{101}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Additive RBF}}}{101}}
+\newlabel{fig:RBFs}{{6.3}{101}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}Application of Learning Control}{101}}
+\@writefile{toc}{\contentsline {subsubsection}{Experimental Setup}{101}}
+\@writefile{toc}{\contentsline {subsubsection}{Altering the Policy Structure}{101}}
+\citation{Mac02}
+\newlabel{fig:X2fig}{{6.4(a)}{102}}
+\newlabel{sub@fig:X2fig}{{(a)}{102}}
+\newlabel{fig:P2fig}{{6.4(b)}{102}}
+\newlabel{sub@fig:P2fig}{{(b)}{102}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Distributions over possible setpoint changes for the states $X_2$ and $P_2$. The change takes place over a period of 5 mins using a ramp function. The thick black line depicts the mean of the change, the gray areas denotes the 2$\sigma $ region and samples from these distributions are given by dashed lines.}}{102}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$X_2$ setpoint}}}{102}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$P_2$ setpoint}}}{102}}
+\newlabel{fig:X2P2sets}{{6.4}{102}}
+\newlabel{fig:pol_aff}{{6.5(a)}{103}}
+\newlabel{sub@fig:pol_aff}{{(a)}{103}}
+\newlabel{fig:pol_add}{{6.5(b)}{103}}
+\newlabel{sub@fig:pol_add}{{(b)}{103}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Trajectories of the state variables of the evaporator over five independent runs of the learning algorithm using different policy structures. The trials are the application of the current best policy after a given simulation phase. The actual state trajectories are given in blue, the setpoints are given in red and the tank constraints are given by the red dashed lines. The x-axes depict a range of $[0, 40]\tmspace  +\thinmuskip {.1667em}$mins while the y-axes show $[10, 30]\tmspace  +\thinmuskip {.1667em}$\%, $[40, 80]\tmspace  +\thinmuskip {.1667em}$kPa and $[-0.2, 4.2]\tmspace  +\thinmuskip {.1667em}$m for $X_2$, $P_2$ and $L_2$ respectively.}}{103}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Affine control policy}}}{103}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Additive Gaussian-RBF control policy}}}{103}}
+\newlabel{fig:randy}{{6.5}{103}}
+\newlabel{fig:lag08}{{6.6(a)}{104}}
+\newlabel{sub@fig:lag08}{{(a)}{104}}
+\newlabel{fig:lag04}{{6.6(b)}{104}}
+\newlabel{sub@fig:lag04}{{(b)}{104}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Trajectories of the state variables of the evaporator over five independent runs of the learning algorithm where wrong approximations of the real servomechanism lag of 1.2$\tmspace  +\thinmuskip {.1667em}$mins are forced upon the internal model of the dynamics. The trials are the application of the current best policy after a given simulation phase. The actual state trajectories are given in blue, the setpoints are given in red and the tank constraints are given by the red dashed lines. The x-axes depict a range of $[0, 40]\tmspace  +\thinmuskip {.1667em}$mins while the y-axes show $[10, 30]\tmspace  +\thinmuskip {.1667em}$\%, $[40, 80]\tmspace  +\thinmuskip {.1667em}$kPa and $[-0.2, 4.2]\tmspace  +\thinmuskip {.1667em}$m for $X_2$, $P_2$ and $L_2$ respectively.}}{104}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Assumed servomechanism lag of 0.8$\tmspace +\thinmuskip {.1667em}$mins}}}{104}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Assumed servomechanism lag of 0.4$\tmspace +\thinmuskip {.1667em}$mins}}}{104}}
+\newlabel{fig:laggy}{{6.6}{104}}
+\@writefile{toc}{\contentsline {subsubsection}{Incorporating Erroneous Prior Information}{105}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Summary}{105}}
+\@setckpt{c5_mpc/mpccomp}{
+\setcounter{page}{107}
+\setcounter{equation}{5}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{6}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{6}
+\setcounter{table}{0}
+\setcounter{subfigure}{0}
+\setcounter{lofdepth}{1}
+\setcounter{subtable}{0}
+\setcounter{lotdepth}{1}
+\setcounter{parentequation}{0}
+\setcounter{proof}{6}
+\setcounter{@pps}{0}
+\setcounter{@ppsavesec}{0}
+\setcounter{@ppsaveapp}{0}
+\setcounter{NAT@ctr}{0}
+\setcounter{r@tfl@t}{0}
+\setcounter{blindtext}{1}
+\setcounter{Blindtext}{5}
+\setcounter{blindlist}{0}
+\setcounter{blindlistlevel}{0}
+\setcounter{blindlist@level}{0}
+\setcounter{blind@listcount}{0}
+\setcounter{blind@levelcount}{0}
+\setcounter{lips@count}{0}
+\setcounter{defin}{0}
+\setcounter{ass}{0}
+\setcounter{theo}{0}
+\setcounter{algo}{0}
+\setcounter{lem}{0}
+}

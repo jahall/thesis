@@ -1,0 +1,219 @@
+\relax 
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Probabilistic Learning Control}{25}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Overview}{25}}
+\newlabel{sec:learnover}{{3.1}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Problem Formulation}{25}}
+\newlabel{eqn:system}{{3.1}{25}}
+\newlabel{eqn:learn1}{{3.2}{25}}
+\newlabel{eqn:learn2}{{3.3}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Framework for model-based learning control. The \textit  {interaction} phase involves the policy running in closed-loop with the system according to the current best parameter setting $\boldsymbol  {\psi }$. During this phase the model updates its training data set $\mathcal  {D}$ and then updates its internal model of the system. The \textit  {simulation} phase then involves improving the policy based on the updated model. This procedure then iterates until the task is has been achieved. }}{26}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Interaction phase}}}{26}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Simulation phase}}}{26}}
+\newlabel{fig:pilcoframework}{{3.1}{26}}
+\newlabel{eqn:Jcost}{{3.4}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Model-Based Approach}{26}}
+\newlabel{sec:modelbased}{{3.1.2}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}The Gaussian Assumption}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Stage-costs for which the expectation in Eq.$\tmspace  -\thinmuskip {.1667em}$~(\ref  {eqn:costint}) can be evaluated analytically for $\mathbf  {z}_k \sim \mathcal  {N}$. These functions in are useful for penalising deviations of the state-action $\mathbf  {z}$ from a given setpoint $\mathbf  {r}$. The quadratic is shown by the dashed line and the inverted-Gaussian is shown by the solid.}}{27}}
+\newlabel{fig:cost_costs}{{3.2}{27}}
+\@writefile{thm}{\contentsline {ass}{{Assumption}{3.{1}}{Moment Matching}}{27}}
+\newlabel{ass:moment}{{3.{1}}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Learning Control Policies}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Policy Evaluation}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{Stage-Costs}{27}}
+\newlabel{eqn:costint}{{3.5}{27}}
+\newlabel{eqn:cost_quad}{{3.6}{28}}
+\newlabel{eqn:cost_gauss}{{3.7}{28}}
+\newlabel{eqn:Equad}{{3.8}{28}}
+\newlabel{eqn:Egauss}{{3.9}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{Natural Exploration-Exploitation}{28}}
+\newlabel{sec:natexp}{{3.2.1}{28}}
+\newlabel{fig:exp_far}{{3.3(a)}{29}}
+\newlabel{sub@fig:exp_far}{{(a)}{29}}
+\newlabel{fig:exp_near}{{3.3(b)}{29}}
+\newlabel{sub@fig:exp_near}{{(b)}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Illustration of how a ``natural" exploration of the state-action space can arise through use of an inverted-Gaussian stage-cost. The stage-cost is shown as a black line and two distributions over state-action space are shown by the blue and red curves, with the means shown explicitly.}}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Distributions with means far away from the setpoint}}}{29}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Distributions with means close to the setpoint}}}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Policy Improvement}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Propagation of uncertainty from a given state-action pair $(\mathbf  {x}_{k-1},\mathbf  {u}_{k-1})$ to the pair at the following timestep $(\mathbf  {x}_k,\mathbf  {u}_k)$ given a distribution over dynamics functions $\mathbf  {f}$ and the control policy $\boldsymbol  {\pi }$.}}{30}}
+\newlabel{fig:propxu}{{3.4}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}State-Action Prediction}{30}}
+\newlabel{sec:xuprediction}{{3.3}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Propagating Uncertainty}{30}}
+\@writefile{thm}{\contentsline {ass}{{Assumption}{3.{2}}{}}{30}}
+\newlabel{ass:gauss}{{3.{2}}{30}}
+\newlabel{eqn:jointgauss}{{3.15}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Gaussian Approximation Schemes}{30}}
+\citation{JU97}
+\citation{DTHH12}
+\citation{RaWi06}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Modelling Uncertainty}{31}}
+\newlabel{fig:propLinUnsA}{{3.5(a)}{32}}
+\newlabel{sub@fig:propLinUnsA}{{(a)}{32}}
+\newlabel{fig:propLinUnsB}{{3.5(b)}{32}}
+\newlabel{sub@fig:propLinUnsB}{{(b)}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Propagation of uncertainty through a deterministic mapping $\mathbf  {f}$ using linearisation, the unscented transformation and exact moment matching. The lower plots show two distributions over $\mathbf  {z}$. The central plot shows the stochastic function $\mathbf  {f}$ with mean shown by the solid line and the 2$\sigma $ uncertainty region in gray. The right hand plot shows the true output distributions (obtained by sampling) and the various approximation schemes. Fig.$\tmspace  -\thinmuskip {.1667em}$ (a) is an example of the degeneracy of the linearise approximation and Fig.$\tmspace  -\thinmuskip {.1667em}$ (b) shows the degeneracy of the unscented transform.}}{32}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Linear approximation. Linearisations of the function about the state-action mean $\mathbb {E}{[\mathbf {z}]}$ are shown.}}}{32}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Unscented transformation. Sigma points $\mathcal {S}$ along with their projections $\mathbf {f}(\mathcal {S})$ and weights $W$ are shown.}}}{32}}
+\newlabel{fig:propLinUns}{{3.5}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Bayesian Modelling}{32}}
+\newlabel{sec:bayesmodelling}{{3.4}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Problem Outline}{32}}
+\newlabel{sec:bayesproblem}{{3.4.1}{32}}
+\@writefile{thm}{\contentsline {defin}{{Definition}{3.{1}}{Gaussian process}}{32}}
+\newlabel{def:GP}{{3.{1}}{32}}
+\newlabel{eqn:cZY}{{3.16}{33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Parametric Approach}{33}}
+\@writefile{toc}{\contentsline {paragraph}{Prior}{33}}
+\newlabel{eqn:param}{{3.17}{33}}
+\newlabel{eqn:Phi1}{{3.18}{33}}
+\newlabel{eqn:Phi2}{{3.19}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Samples from a prior and posterior distribution over quadratic functions $\mathbf  {f}(\mathbf  {z}) = \boldsymbol  {\Phi }(\mathbf  {z})^\top \mathbf  {w}$ where $\boldsymbol  {\phi }(\mathbf  {z}) = {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left [\vcenter to\@ne \big@size {}\right .$}\box \z@ }1; \mathbf  {z}; \mathrm  {vec}(\mathbf  {z}\mathbf  {z}^\top ){\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left ]\vcenter to\@ne \big@size {}\right .$}\box \z@ }$ with prior Gaussian distribution over the weights $p(\mathbf  {w}|\boldsymbol  {\theta }) = \mathcal  {N}(\mathbf  {0},\boldsymbol  {\Omega })$. The red, black and dashed lines show the underlying function $\mathbf  {f}$, mean of the distribution over functions (prior $\mathbf  {m}$ and posterior $\mathbf  {m}_+$) and sampled functions respectively. The grey regions denote two standard deviations, or 95\% confidence region, of the distribution. Training data is shown as blue dots on the posterior plot.}}{34}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Samples from the prior $p(\mathbf {f}|\boldsymbol {\theta })$.}}}{34}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Samples from the posterior $p(\mathbf {f}|\mathcal {D},\boldsymbol {\theta })$.}}}{34}}
+\newlabel{fig:linearprior}{{3.6}{34}}
+\newlabel{eqn:covfunc}{{3.21}{34}}
+\@writefile{toc}{\contentsline {paragraph}{Posterior}{34}}
+\citation{Mer1909}
+\newlabel{eqn:parampostM}{{3.24}{35}}
+\newlabel{eqn:parampostV}{{3.25}{35}}
+\newlabel{eqn:rbfM}{{3.26}{35}}
+\newlabel{eqn:rbfV}{{3.27}{35}}
+\@writefile{toc}{\contentsline {paragraph}{Kernel Trick}{35}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{3.{1}}{Kernel Trick}}{35}}
+\newlabel{theo:kerneltrick}{{3.{1}}{35}}
+\newlabel{eqn:rbfM2}{{3.28}{35}}
+\newlabel{eqn:rbfV2}{{3.29}{35}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{2}{}}{35}}
+\citation{RaWi06}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Nonparametric Approach}{36}}
+\@writefile{toc}{\contentsline {paragraph}{Prior}{36}}
+\@writefile{toc}{\contentsline {paragraph}{Posterior}{36}}
+\newlabel{eqn:gpbayes}{{3.32}{36}}
+\newlabel{eqn:marlik}{{3.33}{36}}
+\newlabel{fig:post}{{3.7(b)}{37}}
+\newlabel{sub@fig:post}{{(b)}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Samples from a Gaussian process prior and posterior after data from the underlying function has been observed. The red, black and dashed lines show the underlying function $\mathbf  {f}$, mean of the Gaussian process (prior $\mathbf  {m}$ and posterior $\mathbf  {m}_+$) and sampled functions respectively. The grey regions denote two standard deviations, or 95\% confidence region, of the GP distribution. Training data is shown as blue dots on the posterior plot.}}{37}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Samples from the GP prior $p(\mathbf {f}|\boldsymbol {\theta })$.}}}{37}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Samples from the GP posterior $p(\mathbf {f}|\mathcal {D},\boldsymbol {\theta })$.}}}{37}}
+\newlabel{fig:priorpost}{{3.7}{37}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{3.{2}}{Gaussian Process Posterior}}{37}}
+\newlabel{theo:GPpost}{{3.{2}}{37}}
+\newlabel{eqn:gpmean}{{3.34}{37}}
+\newlabel{eqn:gpvar}{{3.35}{37}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{3}{}}{37}}
+\citation{RaWi06}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Graphical model depicting the model selection hierarchy from possible model structures $\mathcal  {H}$ to the associated hyperparameters $\boldsymbol  {\theta }$ which in turn control the distribution over the actual underlying function $\mathbf  {f}$ which determines the observed data set $\mathcal  {D}$. The clear nodes depict hidden variables and the gray nodes depict observed variables.}}{38}}
+\newlabel{fig:modsel}{{3.8}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.4}Model Selection and Training}{38}}
+\newlabel{sec:nLML}{{3.4.4}{38}}
+\citation{RaWi06}
+\citation{QR05}
+\citation{SG06}
+\newlabel{eqn:hypbayes}{{3.37}{39}}
+\newlabel{eqn:logmar}{{3.38}{39}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.5}Sparse Approximations}{39}}
+\citation{Dei09}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.6}Kernels for Nonlinear Functions}{40}}
+\newlabel{sec:kernels}{{3.4.6}{40}}
+\@writefile{toc}{\contentsline {subsubsection}{Squared Exponential Kernel}{40}}
+\newlabel{eqn:SEkernel}{{3.41}{40}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{3.{3}}{Squared Exponential Kernel}}{40}}
+\newlabel{theo:SEkernel}{{3.{3}}{40}}
+\newlabel{eqn:universalapp}{{3.42}{40}}
+\citation{HT90}
+\citation{DNR11}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{4}{}}{41}}
+\@writefile{toc}{\contentsline {subsubsection}{Additive Squared Exponential Kernel}{41}}
+\newlabel{eqn:aSEkernel}{{3.44}{41}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Multiple-Step Predictions}{42}}
+\newlabel{sec:multistep}{{3.5}{42}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Overview}{42}}
+\newlabel{eqn:uncM}{{3.45}{42}}
+\newlabel{eqn:uncV}{{3.46}{42}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Parametric Form}{42}}
+\@writefile{toc}{\contentsline {subsubsection}{General Basis Functions}{42}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces The moment matching approximation for a Gaussian process evaluated at a distribution over state-actions $p(\mathbf  {z})$. The red lines depict the Gaussian approximations to the true distributions given by the red shaded areas.}}{43}}
+\newlabel{fig:multiprop}{{3.9}{43}}
+\newlabel{eqn:uncparamM}{{3.47}{43}}
+\newlabel{eqn:uncparamV}{{3.48}{43}}
+\@writefile{toc}{\contentsline {subsubsection}{Linear Model}{43}}
+\newlabel{eqn:linMU}{{3.49}{43}}
+\newlabel{eqn:linSIG}{{3.50}{43}}
+\citation{Dei09}
+\citation{GRQM03}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Nonparametric Form}{44}}
+\@writefile{toc}{\contentsline {subsubsection}{General Covariance Function}{44}}
+\newlabel{eqn:uncgpM}{{3.51}{44}}
+\newlabel{eqn:uncgpV}{{3.52}{44}}
+\newlabel{eqn:exps}{{3.53}{44}}
+\@writefile{toc}{\contentsline {subsubsection}{Squared-Exponential Kernel}{44}}
+\newlabel{eqn:SEpropM}{{3.54}{44}}
+\newlabel{eqn:muA}{{3.55}{45}}
+\newlabel{eqn:sigA}{{3.56}{45}}
+\newlabel{eqn:SEpropV}{{3.57}{45}}
+\newlabel{eqn:muAB}{{3.58}{45}}
+\newlabel{eqn:sigAB}{{3.59}{45}}
+\@writefile{toc}{\contentsline {subsubsection}{Additive Squared-Exponential Kernel}{45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Barrier functions for which the expectation in Eq.$\tmspace  -\thinmuskip {.1667em}$~(\ref  {eqn:costint}) can be evaluated analytically for $x \sim \mathcal  {N}$. These functions in are useful for penalising deviations outside of the set defined by $x_{\qopname  \relax m{min}}$ and $x_{\qopname  \relax m{max}}$. The polynomial is shown in blue and the affine is shown in red.}}{46}}
+\newlabel{fig:cost_barriers}{{3.10}{46}}
+\newlabel{eqn:aSEpropM}{{3.61}{46}}
+\newlabel{eqn:aSEpropV}{{3.62}{46}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Constraints}{46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}State Constraints}{46}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Approximations to the $\mathrm  {sat}$ function for which the expectation and covariance with respect to a Gaussian distributed input can be evaluated analytically. Specifically $s_1(u) = \qopname  \relax o{sin}(u)$ and $s_2(u) = \genfrac  {}{}{}1{9}{8}\qopname  \relax o{sin}{\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left (\vcenter to\@ne \big@size {}\right .$}\box \z@ }\genfrac  {}{}{}1{2}{3}u{\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left )\vcenter to\@ne \big@size {}\right .$}\box \z@ } + \genfrac  {}{}{}1{1}{8}\qopname  \relax o{sin}(2u)$. Both satisfy the conditions $s_i(u) \in [-1,1]$ and $s'_i(0) = 1$.}}{47}}
+\newlabel{fig:sinsat}{{3.11}{47}}
+\newlabel{eqn:con_poly}{{3.63}{47}}
+\newlabel{eqn:con_aff}{{3.64}{47}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Action Constraints}{47}}
+\newlabel{sec:actioncon}{{3.6.2}{47}}
+\newlabel{eqn:gsin}{{3.67}{47}}
+\newlabel{eqn:gsat}{{3.68}{47}}
+\citation{DR11}
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Summary}{48}}
+\@setckpt{c2_gpml/gpml}{
+\setcounter{page}{49}
+\setcounter{equation}{68}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{1}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{3}
+\setcounter{section}{7}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{11}
+\setcounter{table}{0}
+\setcounter{subfigure}{0}
+\setcounter{lofdepth}{1}
+\setcounter{subtable}{0}
+\setcounter{lotdepth}{1}
+\setcounter{parentequation}{0}
+\setcounter{proof}{4}
+\setcounter{@pps}{0}
+\setcounter{@ppsavesec}{0}
+\setcounter{@ppsaveapp}{0}
+\setcounter{NAT@ctr}{0}
+\setcounter{r@tfl@t}{0}
+\setcounter{blindtext}{1}
+\setcounter{Blindtext}{5}
+\setcounter{blindlist}{0}
+\setcounter{blindlistlevel}{0}
+\setcounter{blindlist@level}{0}
+\setcounter{blind@listcount}{0}
+\setcounter{blind@levelcount}{0}
+\setcounter{lips@count}{0}
+\setcounter{defin}{1}
+\setcounter{ass}{2}
+\setcounter{theo}{3}
+\setcounter{algo}{0}
+\setcounter{lem}{0}
+}

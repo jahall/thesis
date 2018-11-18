@@ -1,0 +1,60 @@
+\tikzstyle{dot} = [circle, draw, fill=white, thick]
+\tikzstyle{line} = [draw, -latex, thick]
+
+\begin{tikzpicture}[scale=0.9]
+
+	% Evaporator
+	\draw[thick] (-1.3,-1.7) rectangle (1.3, 1.7);
+	\draw[thick] (-1.3,1.7) -- (-1.0, 2) -- (1.0, 2) -- (1.3, 1.7);
+	\draw[thick] (-1.3,-1.7) -- (-1.0, -2) -- (1.0, -2) -- (1.3, -1.7);
+	\draw (-0.1,-1.7) rectangle (0.1,1.7);
+	\draw (-0.8,-1.7) rectangle (-0.6,1.7);
+	\draw (0.6,-1.7) rectangle (0.8,1.7);
+	\node at (2.5,0) {\bf \small Evaporator};
+	\path[line] (0,2) |- (3.5,3);
+	\path[line] (-1.3,-0.7) -| (-2.7,-1.5);
+	\path[line] (-2.9,0.7) -- (-1.3,0.7);
+	\node at (0.3,-2.4){\small $F_3$};
+	\node at (2.0,1.5){\small $P_2$}; \draw (1.7,1.4) -- (1.0,0.8);
+	\node at (-2.7,-1.8){\small Condensate};
+	\node at (-2.7,-2.75){\small Feed}; \node at (-2.7,-3.25){\small $F_1, X_1, T_1$};
+	\node at (-3.7,0.85){\small Steam}; \node at (-3.7,0.35){\small $F_{100},P_{100},T_{100}$}; %\node at (-3.5,0.2){\small $T_{100}$};
+	
+	\draw[fill=white] (-2.4,0.5) -- (-2.0,0.9) -- (-2.0,0.5) -- (-2.4,0.9) -- cycle;
+	
+	
+	% Bottom
+	\node at (0,-3) [dot, inner sep=3pt](dot1){};
+	\node at (4,-3) [dot, inner sep=3pt](dot2){};
+	\path[line] (dot2.west) -- (dot1.east);
+	\path[line] (dot2.east) -- (6.3,-3);
+	\path[line] (-1.9,-3) -- (dot1.west);
+	\path[line] (dot1.north) -- (0,-2);
+	\node at (7.3,-2.75){\small Product}; \node at (7.3,-3.25){\small $F_2, X_2, T_2$};
+	
+	\draw[fill=white] (5,-3.2) -- (5.4,-2.8) -- (5.4,-3.2) -- (5,-2.8) -- cycle;
+	
+	% Separator
+	\draw[thick] (4,2) -- (3.5,2.5) -- (3.5,3.5) -- (4.5,3.5) -- (4.5,2.5) -- cycle;
+	\node at (5.2,2) {\bf \small Separator};
+	\path[line] (4,2) -- (dot2.north);
+	\path[line] (4,3.5) |- (5.95,4.1);
+	\node at (4.8,3){\small $L_2$};
+	\node at (3.3,4.45){\small Vapour}; \node at (3.3,3.95){\small $F_4,T_3$};
+	\node at (4.2,5.2){\small $T_{201}$};
+	\draw (3.5,3) .. controls (3.61111,2.9) and (3.72222,2.9) .. (3.83333,3);
+	\draw (3.83333,3) .. controls (3.944444,2.9) and (4.055555,2.9) .. (4.166666,3);
+	\draw (4.166666,3) .. controls (4.277777,2.9) and (4.388888,2.9) .. (4.5,3);
+	
+	% Condenser
+	\draw[thick] (6.5,4.5) circle (.7cm);
+	\node at (6.5,3.5) {\bf \small Condenser};
+	\path[line] (7.07,4.1) -| (8.5,3.1);
+	\path[line] (8.7,4.9) -- (7.05,4.9);
+	\path[line] (5.92,4.9) -- (4,4.9);
+	\node at (9.7,5.20){\small Cooling water}; \node at (9.7,4.70){\small $F_{200},T_{200}$};
+	\node at (8.5,2.95){\small Condensate}; \node at (8.5,2.45){\small $F_5$};
+	
+	\draw[fill=white] (7.8,4.7) -- (8.2,5.1) -- (8.2,4.7) -- (7.8,5.1) -- cycle;
+
+\end{tikzpicture}

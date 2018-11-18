@@ -1,0 +1,223 @@
+\section{Known Local Linear Dynamics} %%%%%%%%%%%%%%%%%%%%%%
+\subsection{Artificial Training Data}
+When faced with modelling a nonlinear dynamical system the designer may have access to some local linear models which provide good predictions only in a certain region of the state-action space. It would be useful to be able to incorporate these models in the learning process. Further, it would be preferable to have a means in which the agent can determine for itself whether the model itself is trustworthy and to determine the region over which it is accurate. Gaussian processes provide a natural means of incorporating such information in the form of derivative observations.
+
+First, consider the form of the local models which shall be defined as follows
+\begin{equation}
+\bx_{k} = \bff_p(\bx_{k-1},\bu_{k-1}) =  \bA^p(\bx_{k-1} - \bar\bx^p) + \bB^p(\bu_{k-1} - \bar\bu^p) + \bo^p
+\end{equation}
+for $p \in \ZZ_{[1,P]}$ where $P$ local models are given with state-space matrices $\bA^p$ and $\bB^p$, operating point $(\bar\bx^p,\bar\bu^p)$ and offset $\bo^p$. If the operating point is an equilibrium then $\bo^p = \bar\bx^p$. The artificial training data set $\bar\cD = \{\bar\bZ,\bar\bY,\bar\bY'\}$ is then defined as
+\begin{align}
+\bar\bZ &= \bmat{\bar\bz^1 & \dots & \bar\bz^P} \in \RR^{D\times P}   \\
+\bar\bY &= \bmat{ \bff_1(\bar\bz^1) & \dots & \bff_P(\bar\bz^P)} \in \RR^{E\times P} \\
+\bar\bY' &= \bmat{\diff{\bff_1}{\bz}(\bar\bz^1) & \dots & \diff{\bff_P}{\bz}(\bar\bz^P)  } \in \RR^{E\times DP}
+\end{align}
+where $\bar\bz = [\bar\bx; \bar\bu]$. Since this is a linear system then the values in the target matrix $\bar\bY$ are simply $\bff_p(\bar\bz_p) = \bo_p$ and $\diff{\bff_p}{\bz} = [\bA^p, \bB^p]$. Now the question is how to define a Gaussian process model that can accept derivative observations?
+
+
+It was the observation of \cite{SMLL03} that since differentiation is a linear operation, the derivative of a Gaussian process remains a Gaussian process. This idea is explored in its generality by \cite{Sar11} where the observations passed to the GP are linear operations on the target space and the predictive outputs are linear operations applied to the outputs. In this context, if the underlying function $\bff$ is assumed to be drawn from a GP $\bff \sim \mathcal{GP}(\bO,\bK)$, the covariance between derivative observations and function observations are given by
+\begin{align}
+\cov\Big[\bff(\bz), \bff(\tilde\bz)\Big] &= \bK(\bz,\tilde\bz) \\
+\cov\Big[\tfrac{\dd\bff}{\dd\bz}(\bz), \bff(\tilde\bz) \Big] &= \bK'(\bz,\tilde\bz) := \pdiff{\bK(\bz,\tilde\bz)}{\bz} \\
+\cov\Big[\tfrac{\dd\bff}{\dd\bz}(\bz), \tfrac{\dd\bff}{\dd\bz}(\tilde\bz) \Big] &= \bK''(\bz,\tilde\bz) := \pdiff{\bK(\bz,\tilde\bz)}{\bz\partial \tilde\bz\T}
+\end{align}
+If the covariance function is stationary i.e.$\!$ $\bK(\bz,\tilde\bz) = \bK(\bz - \tilde\bz)$ then $\bK'(\bz,\tilde\bz) = -\bK'(\tilde\bz,\bz)$ and $\bK'(\bz,\tilde\bz)\T = -\bK'(\bz,\tilde\bz)$. This is the case for the squared exponential. Note that here the covariance of a matrix with respect to another matrix is defined in terms of vectorisations $\cov[\bA,\bB] = \cov\big[\vect(\bA),\vect(\bB)\big]$ for arbitrary matrices $\bA$ and $\bB$. The derivatives of the covariance matrix are then defined as
+\begin{align*}
+\pdiff{\bK(\bz,\tilde\bz)}{\bz} 
+&= \bmat{\pdiff{\bK(\bz,\tilde\bz)}{z^{(1)}} \\ \vdots \\ \pdiff{\bK(\bz,\tilde\bz)}{z^{(D)}}} \in \RR^{ED \times E}
+\;\;\;\text{and}\;\;\;
+\pdiff{\bK(\bz,\tilde\bz)}{\bz\partial \tilde\bz\T} 
+= \bmat{
+\pdiff{\bK(\bz,\tilde\bz)}{ z^{(1)} \partial \tilde z^{(1)} } & \dots & \pdiff{\bK(\bz,\tilde\bz)}{ z^{(1)} \partial \tilde z^{(D)} } \\
+\vdots & \ddots & \vdots \\
+\pdiff{\bK(\bz,\tilde\bz)}{ z^{(D)} \partial \tilde z^{(1)} } & \dots & \pdiff{\bK(\bz,\tilde\bz)}{ z^{(D)} \partial \tilde z^{(D)} }
+} \in \RR^{ED \times ED}
+\end{align*}
+which is in contrast to the convention laid out in \App{matcal}. This was necessary to ensure that the resulting covariance matrix was still symmetric.
+
+
+
+Now consider that a standard data set $\cD = \{\bZ,\bY\}$ has been observed. This can be combined with the artificial training data set $\bar\cD$ to form the augmented data set $\cD_{\aug} = \{\bar\cD,\cD\}$. The prior over the augmented data set is then given by
+\begin{align}
+\vec\bY_{\aug} &\sim \cN\big( \bO, \bK_{\aug} + \bS_{\aug} \big) \\[0.2cm]
+\nonumber \bmat{\vect\big(\bar\bY'\big) \\ \vect\big(\bar\bY\big) \\ \vect\big(\bY\big)} &\sim \cN\left( \bO, 
+\bmat{
+\bK''(\bar\bZ,\bar\bZ) & \bK'(\bar\bZ,\bar\bZ) & \bK'(\bar\bZ,\bZ)  \\
+\bK'(\bar\bZ,\bar\bZ)\T & \bK(\bar\bZ, \bar\bZ) & \bK(\bar\bZ,\bZ) \\
+\bK'(\bar\bZ,\bZ)\T & \bK(\bar\bZ, \bZ)\T & \bK(\bZ,\bZ)
+} +
+\bmat{
+\bS_{\bka} \otimes \bI & \bO & \bO  \\
+\bO & \bS_{\bka} \otimes \bI & \bO \\
+\bO & \bO & \bI \otimes \bS_{\be}
+}
+\right)
+\end{align}
+where $\bS_{\bka} = \diag\big\{ \bsig_{\bka} \big\}$ and $\bsig_{\bka} = \big[\sigma_1^2 \dots \sigma_P^2\big]\T$.
+Each $\sigma_p^2$ acts as a confidence tuning parameter for each local model. If, after training, $\sigma_p^2$ is large then the GP has determined that little confidence is to be placed in the predictions made by the $p\tth$ local model. Alternatively, if $\sigma_p^2 \rightarrow 0$ then the GP has determined that the predictions of the $p\tth$ local model agree with the observed data and therefore should be trusted.
+%
+It is also possible to divide these confidence parameters further, but this may lead to an unnecessary number of free parameters. Note that the training will tend to favour confidence in the observed data over confidence in the local model predictions since reducing $\bS_{\be}$ will have a bigger effect.
+
+Once the hyperparameters $\hyp$ and confidence parameters $\bsig_{\bka}$ have been selected or trained under a maximum marginal likelihood scheme then GP posterior is given by
+\begin{align}
+\bmm_{+}(\bz) &= \Big[\bK'\big(\bar\bZ,\bz\big)\T, \bK\big([\bar\bZ,\bZ],\bz\big)\T \Big] \bK_{\be,\aug}^{-1}\vec\bY_{\aug} \\
+\bK_{+}(\bz,\tilde\bz) &= \bK(\bz,\tilde\bz) - \Big[\bK'\big(\bar\bZ,\bz\big)\T, \bK\big([\bar\bZ,\bZ],\bz\big)\T \Big]
+\bK_{\be,\aug}^{-1}\bmat{\bK'\big(\bar\bZ,\tilde\bz\big) \\ \bK\big([\bar\bZ,\bZ],\tilde\bz\big)}
+\end{align}
+where $\bK_{\be,\aug} := \bK_{\aug}+\bS_{\aug}$ and prediction can proceed as usual by setting $\tilde\bz = \bz$.
+
+Consider for a moment the mean prediction $\bmm_{+}(\bz)$ only. For a na\"{i}ve user this could be used as an intuitive method of obtaining a smoothing function between a set of local linear models in which the hyperparameters could be chosen by hand and tuned to give desirable properties.
+
+
+
+\subsection{Propagation of Uncertainty}
+
+All the above has boiled down to is the definition of a new kernel or covariance function along with an augmented training data set and therefore propagation of uncertainty can proceed exactly according to \Eqs{uncgpM}{uncgpV} in \Sec{multistep}. In this section it shall be shown that if a squared exponential kernel is used then the expectation and covariance required for propagation of uncertainty can still be obtained analytically.
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------
+\begin{figure}[t]
+\centering
+\tikzstyle{line} = [draw, -stealth']
+\footnotesize
+\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[scale = 0.7]{figs/priorcov/dSEkernel.pdf}};
+	\node at (0.3,-2.6) {Distance $(z_i-z_j)$};
+	\node[rotate=90] at (-4.8,0) {Covariance};
+\end{tikzpicture}
+%
+\caption{The squared exponential kernel $k(z_i,z_j)$ with $\alpha = \lambda = 1$ is shown in black. The blue curve shows the first derivative $\partial k(z_i,z_j)/\partial z_i$ and the red curve depicts the second derivative $\partial k(z_i,z_j)/\partial z_i\partial z_j$.}
+\label{fig:dSEkernel}
+\end{figure}
+%-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+First, take the univariate squared exponential kernel defined in \Eq{SEkernel}
+\begin{equation*}
+k(\bz,\tilde\bz) = \alpha^2 \exp\Big(-\tfrac{1}{2}(\bz - \tilde\bz)\T\bLa^{-1}(\bz - \tilde\bz) \Big)
+\end{equation*}
+The relevant derivatives fall out as
+\begin{align}
+k'(\bz, \tilde\bz) &= k(\bz,\tilde\bz) \bLa\inv (\tilde\bz - \bz) \\
+k''(\bz, \tilde\bz) &= k(\bz, \tilde\bz)  \Big(\bLa\inv - \bLa\inv(\tilde\bz - \bz)(\tilde\bz - \bz)\T\bLa\inv \Big) 
+\end{align}
+These new functions are depicted graphically in \Fig{dSEkernel}. %Now take GP prior $\bK(\bz,\tilde\bz)$ which consists of univariate SE kernels. 
+The propagation of uncertainty equations for the expectation $\bm_* = \EE_{\bz,\bff}\big[\bff(\bz)\big]$ and covariance $\bS_* = \cov_{\bz,\bff}\big[\bff(\bz)\big]$ from  are
+\begin{align}
+\mu^{(a)}_* &= 
+\EE_{\bz} \!\bmat{\bk'_a \\ \bk_a}\T \!\!\bBe_{\aug} \\
+%
+\Sigma^{(a,b)}_* &= 
+\alpha^2_a\delta_{ab} + \tr\left( \EE_{\bz}\!\bmat{
+\bk'_a{\bk'_b}\T & \bk_a'\bk_b\T \\ \bk_a{\bk'_b}\T & \bk_a\bk_b\T
+} \Big(\bK_{\be,\aug}^{-1} + \bBe_{\aug}\bBe_{\aug}\T\Big) \right) 
+- \mu^{(a)}_*\mu^{(b)}_*
+\end{align}
+where $\bBe_{\aug} := \bK_{\be,\aug}\inv\vec\bY_{\aug}$, $\delta_{ab}$ is the Kronecker delta and $\bk_a$ and $\bk_a'$ are the $a\tth$ columns of $\bK\big(\bZ_{\aug},\bz\big)$ and $\bK'\big(\bar\bZ,\bz\big)$ respectively. The unknown quantities in these equations consist of expectations of the form $\EE_{\bz}\big[k'_i(\ba,\bz)\big]$, $\EE_{\bz}\big[k'_i(\ba,\bz)k_j(\bb,\bz)\big]$ and $\EE_{\bz}\big[k'_i(\ba,\bz)k'_j(\bb,\bz)\T\big]$
+where $\ba \in \bar\bZ$ for all terms, $\bb \in \bZ_{\aug}$ for the second term and $\bb \in \bar\bZ$ for the third term. Now since the distribution $p(\bz)$ is independent of the training data terms $\ba$ and $\bb$ these terms can be written as follows
+\begin{align}
+\EE_{\bz}\big[k'_i(\ba,\bz)\big]
+&= \pdiff{ \EE_{\bz}\big[k_i(\ba,\bz)\big] }{\ba} \label{eqn:kdiff1} \\
+\EE_{\bz}\big[k'_i(\ba,\bz)k_j(\bb,\bz)\big]
+&= \pdiff{ \EE_{\bz}\big[k_i(\ba,\bz)k_j(\bb,\bz)\big] }{\ba} \label{eqn:kdiff2} \\
+\EE_{\bz}\big[k'_i(\ba,\bz)k'_j(\bb,\bz)\T \big]
+&= \pdiff{  \EE_{\bz}\big[k_i(\ba,\bz)k_j(\bb,\bz)\big] }{\ba \partial \bb\T} \label{eqn:kdiff3} 
+\end{align}
+Note that they are derivatives of $\EE_{\bz}[k_i(\ba,\bz)]$ and $\EE_{\bz}[k_i(\ba,\bz)k_j(\bb,\bz)]$ which have already been evaluated and are given in \Eqs{SEpropM}{SEpropV}. Since both $\ba$ and $\bb$ occur in exponential terms, carrying out these derivatives leads to the following manipulations of the standard expressions
+\begin{align}
+\EE_{\bz}\big[k_i'(\ba,\bz)\big] &= \EE_{\bz}\big[k_i(\ba,\bz)\big] (\bLa_i+\bS)\inv(\bm - \ba) \\
+%
+\EE_{\bz}\big[k'_i(\ba,\bz)k_j(\bb,\bz)\big]
+&= \EE_{\bz}\big[k_i(\ba,\bz)k_j(\bb,\bz)\big] \bLa_i\inv \bR\inv \bxi_j \\
+%
+\EE_{\bz}\big[k'_i(\ba,\bz)k_j'(\bb,\bz)\T\big]
+&= \EE_{\bz}\big[k_i(\ba,\bz)k_j(\bb,\bz)\big] \bLa_i\inv \bR\inv \Big(\bxi_j\bxi_i\T + \bR\bS\Big) \bR^{-\top}\bLa_j\inv
+\end{align}
+where $\bR = \bS(\bLa_i\inv + \bLa_j\inv) + \bI$ as before and the following additional terms have been defined
+\begin{align*}
+\bxi_j &:= \bS\bLa_j\inv(\bb - \ba) + (\bm - \ba) \\
+\bxi_i &:= \bS\bLa_i\inv(\ba - \bb) + (\bm - \bb)
+\end{align*}
+This completes the necessary calculations for propagation of uncertainty using a Gaussian process model with derivative observations or local linear models.
+
+
+
+
+
+%\begin{comment} % THE LONG WAY!! -------------------------------------------------------------------------------
+
+Start by expanding out the first term
+\begin{align}
+\nonumber \EE_{\bz}\big[k'_i(\ba,\bz)\big]
+&= \bLa_i\inv \int (\bz - \ba) k(\ba,\bz) \cN(\bz|\bm,\bS) \dd\bz \\
+\nonumber &= \alpha_i^2(2\pi)^{D/2} |\bLa_i|^{1/2} \bLa_a\inv  \int (\bz - \ba)  \cN(\bz|\ba,\bLa_i) \cN(\bz|\bm,\bS)  \dd\bz   \\
+\nonumber &= {\color{blue} \alpha_i^2 (2\pi)^{D/2} |\bLa_i|^{1/2}  \cN\big(\bm|\ba,\bLa_i+\bS\big) }
+\bLa_i\inv \int (\bz - \ba) \cN\big(\bz|\bm_{\ba},\bS_{\ba}\big)  \dd\bz   \\
+&=  {\color{blue} \EE_{\bz}\big[k_i(\ba,\bz)\big] } \bLa_i\inv (\bm_{\ba} - \ba)
+\label{eqn:d1exp}
+\end{align}
+where $\bm_{\ba}$ and $\bS_{\ba}$ are given by \Eqs{muA}{sigA} and the step highlighted in blue follows from the derivation given in \Eq{SEpropM}. This expression can be further simplified by expanding out the mean $\bm_{\ba}$ as follows
+\begin{align*}
+\bLa_i\inv(\bm_{\ba} - \ba) 
+&= \bLa_i\inv \Big( \bLa_i(\bLa_i+\bS)\inv\bm + \big(\bS(\bLa_i+\bS)\inv - \bI\big)\ba \Big) \\
+&= (\bLa_i+\bS)\inv\bm
++ \underbrace{ \big(\bLa_i\inv(\bS\inv+\bLa_i\inv)\inv\bLa_i\inv - \bLa_i\inv\big) }
+_{-(\bLa_i+\bS)\inv \text{  woopee! }} \ba  \\[-0.5cm]
+&= (\bLa_i+\bS)\inv(\bm - \ba)
+\end{align*}
+Now turn to the next expectation to be evaluated and proceed in a similar fashion
+\begin{align}
+\nonumber \EE_{\bz}\big[k'_i&(\ba,\bz)k_j(\bb,\bz)\big] \\
+\nonumber &= \bLa_i\inv \int (\bz - \ba) k_i(\ba,\bz)k_j(\bb,\bz) \cN(\bz|\bm, \bS) \dd\bz \\
+\nonumber &= \alpha_i^2\alpha_j^2 (2\pi)^{D} |\bLa_i|^{1/2} |\bLa_j|^{1/2}
+\bLa_i\inv \int (\bz - \ba) \cN(\bz|\ba,\bLa_i)\cN(\bz|\bb,\bLa_j) \cN(\bz|\bm, \bS) \dd\bz   \\
+\nonumber &= {\color{blue} \alpha_i^2\alpha_j^2 (2\pi)^{D} |\bLa_i|^{1/2} |\bLa_j|^{1/2}
+\cN\big(\ba|\bb,\bLa_i+\bLa_j\big) \cN\big(\bm|\hat\bm,\hat\bS \big) }
+\bLa_i\inv \int (\bz - \ba) \cN(\bz|\bm_{\ba\bb},\bS_{\ba\bb}) \dd\bz \\
+&= {\color{blue} \EE_{\bz}\big[k'_i(\ba,\bz)k_j(\bb,\bz)\big] }
+\bLa_i\inv (\bm_{\ba\bb} - \ba)
+\label{eqn:d2exp}
+\end{align}
+where $\bm_{\ba\bb}$ and $\bS_{\ba\bb}$ are given by \Eqs{muAB}{sigAB} and the step highlighted in blue follows from the derivation given in \Eq{SEpropV}. Again, this expression can be expanded and simplified by considering
+\begin{align*}
+\bLa_i\inv (\bm_{\ba\bb} - \ba)
+&= \bLa_i\inv \big(\bLa_i\inv + \bLa_j\inv + \bS\inv \big)\inv
+\Big( \bLa_i\inv\ba + \bLa_j\inv\bb + \bS\inv\bm - \big(\bLa_i\inv + \bLa_j\inv + \bS\inv\big)\ba \Big) \\
+&= \bLa_i\inv \big(\bLa_i\inv + \bLa_j\inv + \bS\inv \big)\inv
+\Big( \bLa_j\inv(\bb-\ba) + \bS\inv(\bm-\ba) \Big) \\
+&= \bSS(\bb - \ba) + \bLa_i\inv \bR\inv(\bm - \ba)
+\end{align*}
+where $\bSS := \bLa_i\inv \bR\inv \bS\bLa_j\inv$ and $\bR = \bS(\bLa_i\inv + \bLa_j\inv) + \bI$ as before. 
+The final expectation then follows closely as
+\begin{align}
+\nonumber \EE_{\bz}\big[k'_i(\ba,\bz)k_j'(\bb,\bz)\T\big] 
+&= \bLa_i\inv \int (\bz - \ba)(\bz - \bb)\T k_i(\ba,\bz)k_j(\bb,\bz) \cN(\bz|\bm, \bS) \dd\bz\, \bLa_j\inv \\
+&= \EE_{\bz}\big[k_i(\ba,\bz)k_j(\bb,\bz) \big]
+\bLa_i\inv \Big( \bS_{\ba\bb} + (\bm_{\ba\bb} - \ba)(\bm_{\ba\bb} - \bb)\T \Big) \bLa_j\inv  
+\label{eqn:d3exp}
+\end{align}
+The expectations in \Eqs{d1exp}{d3exp} can now be written concisely in terms of the non-derivative expectations as  follows
+\begin{align}
+\EE_{\bz}\big[k_i'(\ba,\bz)\big] &= \EE_{\bz}\big[k_i(\ba,\bz)\big] (\bLa_i+\bS)\inv(\bm - \ba) \\
+%
+\EE_{\bz}\big[k'_i(\ba,\bz)k_j(\bb,\bz)\big]
+&= \EE_{\bz}\big[k_i(\ba,\bz)k_j(\bb,\bz)\big] \bxi_i \\
+%
+\EE_{\bz}\big[k'_i(\ba,\bz)k_j'(\bb,\bz)\big]
+&= \EE_{\bz}\big[k_i(\ba,\bz)k_j(\bb,\bz)\big] \big(\bSS + \bxi_i\bxi_j\T\big)
+\end{align}
+where the following additional terms have been defined
+\begin{align*}
+\bxi_i &:= \bSS(\bb - \ba) + \bLa_i\inv \bR\inv(\bm - \ba) \\
+\bxi_j &:= \bSS(\ba - \bb) + \bLa_j\inv \bR\inv(\bm - \bb)
+\end{align*}
+This completes the necessary calculations for propagation of uncertainty using a Gaussian process model with derivative observations or local linear models.
+
+%\end{comment} % THE LONG WAY!! -------------------------------------------------------------------------------
+
+
+
+
+\subsection{Related Work}
+The incorporation of local linear models as derivative models in a Gaussian process modelling framework for dynamical systems is not a new concept. It was first posed by \cite{KGL03} where the concept and the propagation of uncertainty equations were outlined. However, the authors did not observe that the relationships in \Eqs{kdiff1}{kdiff3} held and therefore went through the unnecessary calculations of evaluating the expectations directly. Therefore, this thesis has outlined a much simpler derivation. Derivative observations in GP models for system identification were subsequently used by \cite{AK11} and in a model predictive control framework by \cite{AK08}. These papers consider only ARX models, where the system has a single output and input and the state is made up of lagged versions of these. The work of this thesis extends the use of derivative observations to a general state-space set up and is the first study of their use in a learning framework. The introduction of a tuneable confidence parameter for each local model is also a novel concept.

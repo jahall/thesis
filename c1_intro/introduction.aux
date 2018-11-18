@@ -1,0 +1,197 @@
+\relax 
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{3}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}The Learning Framework}{3}}
+\newlabel{fig:learnframe}{{1.1(a)}{4}}
+\newlabel{sub@fig:learnframe}{{(a)}{4}}
+\newlabel{fig:learnframe2}{{1.1(b)}{4}}
+\newlabel{sub@fig:learnframe2}{{(b)}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces These figures demonstrate the high level distinction between a model free and model based framework for learning control. Both frameworks are used for learning a parameterised discrete-time state-feedback control policy $\boldsymbol  {\pi }$ to map the system state $\mathbf  {x}$ to the control action $\mathbf  {u}$. The system has dynamics governed by the unknown function $\mathbf  {f}$ which maps the current state and action to the state at the following timestep $\mathbf  {x}_+$. The learning block can be carried out online or offline and can make use of some scalar cost signal $c$ (a function of the state and action) which defines the desired task or system performance criteria. }}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Model free learning}}}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Model based learning}}}{4}}
+\citation{AsWi94}
+\citation{IoFi06}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Review of the Literature}{5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Background}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Adaptive Control}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Introduction}{5}}
+\citation{SBW92}
+\citation{KKK95}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Layout of an MRAC scheme where $\mathbf  {f}_m$ describes the ideal closed loop system and $\boldsymbol  {\epsilon }$ is the error between the actual $\mathbf  {x}$ and ideal response $\mathbf  {s}$. The adaptation function $\mathbf  {g}$ can be determined through a variety of methods including stability theory.}}{6}}
+\newlabel{fig:MRAC}{{2.1}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Model Reference Adaptive Control}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Traditional Approach}{6}}
+\citation{HGG94}
+\citation{HGGL98}
+\citation{Hja02}
+\@writefile{toc}{\contentsline {subsubsection}{Iterative Feedback Tuning}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Self-Tuning Regulators}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{Traditional Approach}{7}}
+\citation{TB75}
+\citation{AsWi94}
+\citation{Mac02}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Layout of an \textit  {indirect} self-tuning regulator for a system described by the equations $\mathbf  {x}_+ = \mathbf  {f}(\mathbf  {x},\mathbf  {u})$ parameterised by the unknown or time-varying parameters $\mathbf  {w}$. First an estimate of the unknown parameters is made $\mathbb  {E}[\mathbf  {w}]$, then the estimated system model is used under some control design scheme to determine policy parameters $\boldsymbol  {\psi }$.}}{8}}
+\newlabel{fig:STRfig}{{2.2}{8}}
+\citation{Fel61}
+\citation{Wit00}
+\citation{Wit95}
+\citation{Un00}
+\citation{TB72}
+\citation{FK97}
+\citation{SCT08}
+\citation{BNTM09}
+\@writefile{toc}{\contentsline {subsubsection}{Adaptive Model Predictive Control}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{Dual Control}{9}}
+\newlabel{sec:DC}{{2.2.3}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Extremum Seeking Control}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{Background}{9}}
+\citation{ArKr03}
+\citation{Nes09}
+\citation{ArKr03}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Layout of the extremum-seeking scheme with a sinusoidal dither signal of frequency $\omega $ for an unknown static map $g(\psi )$ with optimal value $g^*$ and associated setpoint $\psi ^*$.}}{10}}
+\newlabel{fig:statES}{{2.3}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{Illustrative Example}{10}}
+\newlabel{eqn:staticmap}{{2.1}{10}}
+\citation{CKAL02}
+\citation{Tes92}
+\citation{Tes95}
+\citation{SuBa98}
+\citation{KLM96}
+\citation{BerTs96}
+\newlabel{eqn:xi}{{2.2}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Reinforcement Learning}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Introduction}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Markov Decision Process Framework}{12}}
+\citation{Bell57}
+\citation{SuBa98}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Dynamic Programming}{13}}
+\@writefile{thm}{\contentsline {algo}{{Algorithm}{2.{1}}{Policy Iteration}}{13}}
+\newlabel{algo:polit}{{2.{1}}{13}}
+\@writefile{thm}{\contentsline {algo}{{Algorithm}{2.{2}}{Value Iteration}}{13}}
+\newlabel{algo:valit}{{2.{2}}{13}}
+\citation{Tes92}
+\citation{Tes95}
+\citation{BTW00}
+\citation{GP10b}
+\citation{TV97}
+\citation{Wat89}
+\citation{WD92}
+\newlabel{eqn:Qfixed}{{2.3}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Temporal Differences}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{Bootstrapping Methods}{14}}
+\newlabel{eqn:JQcost1}{{2.4}{14}}
+\newlabel{eqn:JQcost2}{{2.5}{14}}
+\citation{EGW05}
+\citation{EGCW09}
+\citation{EMM03}
+\citation{EMM05}
+\citation{GPF09}
+\citation{GP10a}
+\@writefile{toc}{\contentsline {subsubsection}{Residual Methods}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{Practical Issues}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Policy-Gradient Algorithms}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{Background}{15}}
+\citation{PS08}
+\citation{Mun06}
+\citation{Wil92}
+\citation{PS08}
+\citation{SMSM00}
+\citation{MT01}
+\citation{BB01}
+\citation{PS08}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Layout of the actor-critic policy gradient scheme where the policy is updated according to the rule $\boldsymbol  {\psi }\leftarrow \boldsymbol  {\psi }+ \Delta \boldsymbol  {\psi }$.}}{16}}
+\newlabel{fig:actorcritic}{{2.4}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{The Likelihood Ratio Trick}{16}}
+\citation{SMSM00}
+\citation{MT01}
+\citation{SMSM00}
+\citation{MT01}
+\citation{SMSM00}
+\citation{Kak02}
+\@writefile{toc}{\contentsline {subsubsection}{The Policy Gradient Theorem}{17}}
+\@writefile{thm}{\contentsline {theo}{{Theorem}{2.{1}}{Policy Gradient Theorem}}{17}}
+\newlabel{theo:polgrad}{{2.{1}}{17}}
+\@writefile{thm}{\contentsline {proof}{{\proofname }{1}{}}{17}}
+\citation{Ama98}
+\citation{Kak02}
+\citation{PVS05}
+\citation{PVS05}
+\citation{NJ00}
+\citation{NKJS04}
+\citation{NCDG04}
+\citation{TVS10}
+\@writefile{toc}{\contentsline {subsubsection}{The Natural Policy Gradient}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{Model-Based Policy Gradients}{18}}
+\citation{Dei09}
+\citation{DR11}
+\citation{DR11}
+\citation{DR11}
+\citation{DR11}
+\citation{JaMa70}
+\citation{TT09}
+\citation{ACQN07}
+\citation{MZA02}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Layout of the learning algorithm proposed by \cite  {DR11} for a system described by the equations $\mathbf  {x}_+ = \mathbf  {f}(\mathbf  {x},\mathbf  {u})$. The observer block learns a probabilstic model for $\mathbf  {f}$ which can be viewed as the distribution $p(\mathbf  {f}|\mathcal  {D})$. The learning block then optimises the policy parameters based on this model offline before updating the policy parameters allowing it to run online.}}{19}}
+\newlabel{fig:pilco}{{2.5}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.6}Local Learning}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{Differential Dynamic Programming and Iterative LQG}{19}}
+\citation{TL05}
+\citation{MKV10}
+\citation{VDS05}
+\citation{MKOKV10}
+\citation{TVS10}
+\citation{TBS10b}
+\citation{BSTS11}
+\citation{TBS10a}
+\citation{DR11}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Layout of a local learning scheme with learned dynamics model parameterised by $\mathbb  {E}[\mathbf  {w}|\mathcal  {D}]$. The iLQG or DDP algorithms would be placed in the local learning block in this diagram.}}{20}}
+\newlabel{fig:iLQGLD}{{2.6}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{Policy Improvement with Path Integrals}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Summary}{21}}
+\@setckpt{c1_intro/introduction}{
+\setcounter{page}{22}
+\setcounter{equation}{9}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{2}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{6}
+\setcounter{table}{0}
+\setcounter{subfigure}{0}
+\setcounter{lofdepth}{1}
+\setcounter{subtable}{0}
+\setcounter{lotdepth}{1}
+\setcounter{parentequation}{0}
+\setcounter{proof}{1}
+\setcounter{@pps}{0}
+\setcounter{@ppsavesec}{0}
+\setcounter{@ppsaveapp}{0}
+\setcounter{NAT@ctr}{0}
+\setcounter{r@tfl@t}{0}
+\setcounter{blindtext}{1}
+\setcounter{Blindtext}{5}
+\setcounter{blindlist}{0}
+\setcounter{blindlistlevel}{0}
+\setcounter{blindlist@level}{0}
+\setcounter{blind@listcount}{0}
+\setcounter{blind@levelcount}{0}
+\setcounter{lips@count}{0}
+\setcounter{defin}{0}
+\setcounter{ass}{0}
+\setcounter{theo}{1}
+\setcounter{algo}{2}
+\setcounter{lem}{0}
+}

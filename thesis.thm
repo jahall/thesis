@@ -1,0 +1,20 @@
+\contentsline {algo}{{Algorithm}{2.{1}}{Policy Iteration}}{15}
+\contentsline {algo}{{Algorithm}{2.{2}}{Value Iteration}}{15}
+\contentsline {theo}{{Theorem}{2.{1}}{Policy Gradient Theorem}}{19}
+\contentsline {proof}{{\proofname }{1}{}}{19}
+\contentsline {ass}{{Assumption}{3.{1}}{Moment Matching}}{27}
+\contentsline {ass}{{Assumption}{3.{2}}{}}{31}
+\contentsline {defin}{{Definition}{3.{1}}{Gaussian process}}{34}
+\contentsline {theo}{{Theorem}{3.{1}}{Kernel Trick}}{37}
+\contentsline {proof}{{\proofname }{2}{}}{38}
+\contentsline {theo}{{Theorem}{3.{2}}{Gaussian Process Posterior}}{40}
+\contentsline {proof}{{\proofname }{3}{}}{40}
+\contentsline {theo}{{Theorem}{3.{3}}{Squared Exponential Kernel}}{44}
+\contentsline {proof}{{\proofname }{4}{}}{44}
+\contentsline {exa}{{Example}{4.{1}}{Position-Velocity}}{54}
+\contentsline {exa}{{Example}{4.{2}}{Reference Generator}}{54}
+\contentsline {ass}{{Assumption}{4.{1}}{}}{55}
+\contentsline {theo}{{Theorem}{4.{1}}{Output-Input Covariance}}{55}
+\contentsline {proof}{{\proofname }{5}{}}{55}
+\contentsline {theo}{{Theorem}{4.{2}}{Conditional Independence}}{56}
+\contentsline {proof}{{\proofname }{6}{}}{57}

@@ -1,0 +1,34 @@
+% Define block styles
+\tikzstyle{block} = [thick, rectangle, draw, text width=7em, text centered, rounded corners, minimum height=4em, fill=black!15]
+\tikzstyle{bloc2k} = [thick, rectangle, draw, text width=10em, text centered, rounded corners, minimum height=5em, fill=black!25]
+\tikzstyle{sum} = [circle, draw, minimum height=.5cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=1pt]
+\begin{tikzpicture}[rounded corners]
+
+	% Place nodes
+	\node at(0,0) [block](pol){\textbf{Optimal \\ Policy}};
+	\node at(5,0) [bloc2k](sys){\textbf{System} \\[0.1cm] $p_f(X'|\bx,\bu,\hyp)$ \\ $p_h(Y|\bx)$};
+	\node at(5,-2.5) [block](adapt){\textbf{Observer}};
+	\node at(2.2,0)[dot](dot1){};
+	\node at(8,0)[dot](dot2){};
+	
+	% Draw arrows
+	\path[line] (pol.east) -- (sys.west);
+        \path[line] (sys.east) -- (dot2) |- (adapt.east);
+        \path[line] (dot2.east) -- ([xshift=1cm] dot2.east);
+        \path[line] (dot1) |- (adapt.west);
+        \path[line] (adapt.south) |- ([yshift=-3cm]pol.south) -- (pol.south);
+        %\path[line] (dot2) |- ([xshift=-1cm,yshift=1.8cm] pol.west) |- ([yshift=0.4cm]pol.west);
+        \path[line] ([xshift=-1cm] pol.west) -- (pol.west);
+        %\path[line] (sys.south) -- (adapt.north);
+
+	% Labels
+	\node at (-2,0.3) {$\br$};
+        %\node at (-2,0.6) {$\by$};
+        \node at (8,0.3) {$\by$};
+        \node at (2.2,0.3) {$\bu$};
+        \node at (1.1,-3.4) {$p_{\xi}(X,\Theta|\btau)$};
+        %\node at ([xshift=0.8cm,yshift=-0.5cm] sys.south) {$p(c|\bx,\bu)$};
+
+\end{tikzpicture}

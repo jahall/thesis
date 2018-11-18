@@ -1,0 +1,220 @@
+\usepackage[Glenn]{fncychap}
+\ChNumVar{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont}
+\ChTitleVar{\raggedleft\bf\LARGE }
+
+
+
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+%\usetikzlibrary{calc}
+\usetikzlibrary{shapes,arrows,backgrounds}
+\usetikzlibrary{3d}
+\usepackage{3dplot}
+\usepackage{etex}
+\usepackage{enumerate}
+%\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{framed}
+\usepackage[framed,numbered]{mcode}
+\usepackage[amsthm, framed]{ntheorem}
+\usepackage{fullpage}
+\usepackage{nicefrac}
+\usepackage{appendix}
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{setspace}
+\usepackage[round]{natbib}
+\usepackage{parskip,microtype}
+\usepackage{verbatim}
+\usepackage{wrapfig}
+\usepackage[footnotesize, bf, margin=.03\textwidth]{caption}
+\usepackage{array, multirow, rotating, booktabs, varwidth, ragged2e}
+\usepackage[english]{babel}
+
+
+\newcommand{\sfrac}[2]{\nicefrac{#1}{#2}}
+
+
+% Sort Out Contents
+\setcounter{secnumdepth}{2}
+%\renewcommand{\cftsecfont}{\bfseries}
+%\usepackage{tocloft}
+\setcounter{tocdepth}{2}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[RE]{}
+\fancyhead[LO]{}
+\fancyhead[LE]{\bf\thepage}
+\fancyhead[RO]{\bf\thepage}
+\headsep = 30pt
+
+%\makeatletter
+%\renewcommand\mainmatter{%
+%  \@mainmattertrue
+%  \pagenumbering{arabic}}
+%\makeatother
+
+\onehalfspacing
+
+
+% Definitions, Theorems and Lemmas
+\def\theorempreskipamount{0.2cm}
+\def\theorempostskipamount{0cm}
+\newtheorem{defin}{Definition}[chapter]
+\newtheorem{ass}{Assumption}[chapter]
+\newtheorem{exa}{Example}[chapter]
+
+%\theoremclass{Theorem}
+%\theoremstyle{blank}
+%\newcommand{\thmbox}[1]{
+%  \tikzstyle{thmbox} = [rectangle, rounded corners, draw=black, fill=black!20, inner sep=10pt]%
+%  \begin{tikzpicture}
+%   \node [thmbox] (box){  \textit{#1} };
+%  \end{tikzpicture}}
+%\def\theoremframecommand{\thmbox}
+%\def\theorempreskipamount{0cm}
+%\def\theorempostskipamount{0cm}
+
+\renewcommand*\FrameCommand{{\color{black!30}\vrule width 5pt \hspace{10pt}}}
+\newframedtheorem{theo}{Theorem}[chapter]
+\newframedtheorem{algo}{Algorithm}[chapter]
+\newtheorem{lem}{Lemma}[chapter]
+
+
+\makeatletter
+\renewcommand*\env@matrix[1][c]{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols #1}}
+\makeatother
+
+\newcolumntype{M}{>{$}l<{$}}
+
+% Operators and other stuff
+\newcommand{\bmmD}{\mathbf{m}_\Delta}
+\newcommand{\bKD}{\mathbf{K}_\Delta}
+\newcommand{\bffs}{\mathbf{f}_{\Delta}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dpp}{\mathrm{\partial}}
+\newcommand{\T}{^\top}
+\newcommand{\inv}{^{-1}}
+\newcommand{\bil}{\big(}
+\newcommand{\Bil}{\Big(}
+\newcommand{\bir}{\big)}
+\newcommand{\Bir}{\Big)}
+\newcommand{\oi}{\circ}
+\newcommand{\bO}{\mathbf{0}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\tbx}{\tilde{\mathbf{x}}}
+\newcommand{\tbz}{\tilde{\mathbf{z}}}
+\newcommand{\tbs}{\tilde{\mathbf{s}}}
+\newcommand{\tbp}{\tilde{\mathbf{p}}}
+\newcommand{\hbp}{\hat{\mathbf{p}}}
+\newcommand{\hbz}{\hat{\mathbf{z}}}
+\newcommand{\aug}{\text{aug}}
+\newcommand{\SARSA}{\textsc{sarsa}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\var}{\mathrm{var}}
+\newcommand{\cov}{\mathrm{cov}}
+\newcommand{\vect}{\mathrm{vec}}
+\newcommand{\ci}{\perp\!\!\!\perp}
+\newcommand{\tth}{\ensuremath{^{\text{th}}}}
+\newcommand{\Dt}{\delta_t}
+\newcommand{\tDt}{\tilde{\delta}_t}
+\newcommand{\bxp}{\mathbf{x}^{\text{p}}}
+\newcommand{\bxv}{\mathbf{x}^{\text{v}}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\sha}{\sfrac{1}{2}}
+\newcommand{\bbz}{\bar\mathbf{z}}
+\newcommand{\spa}{\vspace{0.2cm}}
+\newcommand{\espa}{\vspace{-0.4cm}}
+\newcommand{\qed}{\hfill $\blacksquare$}
+\newcommand{\eqed}{\vspace{-1.9cm}\begin{flushright} $\blacksquare$ \end{flushright}}
+
+% Stuff with arguments
+\newcommand{\bpx}[1]{\mathbf{p}_{\mathbf{x}#1}}
+\newcommand{\bpu}[1]{\mathbf{p}_{\mathbf{u}#1}}
+\newcommand{\argmin}[1]{\underset{#1}{\arg\!\min}}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\uz}{\ul{\mathbf{z}}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\oz}{\ol{\mathbf{z}}}
+\newcommand{\ouz}{\ul{\ol{\mathbf{z}}}}
+\newcommand{\te}[1]{\text{#1}}
+\newcommand{\Theo}[1]{Theorem~\ref{theo:#1}}
+\newcommand{\Def}[1]{Definition~\ref{def:#1}}
+\newcommand{\Ass}[1]{Assumption~\ref{ass:#1}}
+\newcommand{\Lem}[1]{Lemma.$\!$~\ref{lem:#1}}
+\newcommand{\Eq}[1]{Eq.$\!$~(\ref{eqn:#1})}
+\newcommand{\Eqs}[2]{Eqs.$\!$~(\ref{eqn:#1})--(\ref{eqn:#2})}
+\newcommand{\Fig}[1]{Fig.$\!$~\ref{fig:#1}}
+\newcommand{\Sec}[1]{Sec.$\!$~\ref{sec:#1}}
+\newcommand{\App}[1]{Appendix~\ref{app:#1}}
+\newcommand{\Tab}[1]{Table~\ref{tab:#1}}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\diff}[2]{\frac{\dd #1}{\dd #2}}
+\newcommand{\pdiff}[2]{\frac{\dpp #1}{\dpp #2}}
+\newcommand{\mfile}[1]{\textsc{#1}}
+
+
+% English Characters in 1. Lower-case bold 2. Upper-case bold 3. Mathbb 4. Mathcal
+\newcommand{\ba}{\mathbf{a}}	\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}	\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bc}{\mathbf{c}}	\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bd}{\mathbf{d}}	\newcommand{\bD}{\mathbf{D}}								\newcommand{\cD}{\mathcal{D}}
+\newcommand{\bee}{\mathbf{e}}								\newcommand{\EE}{\mathbb{E}}
+\newcommand{\bff}{\mathbf{f}}		\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bg}{\mathbf{g}}	\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bh}{\mathbf{h}}	\newcommand{\bH}{\mathbf{H}}								\newcommand{\cH}{\mathcal{H}}
+\newcommand{\bi}{\mathbf{i}}		\newcommand{\bI}{\mathbf{I}}									\newcommand{\cI}{\mathcal{I}}
+\newcommand{\bj}{\mathbf{j}}
+\newcommand{\bk}{\mathbf{k}}	\newcommand{\bK}{\mathbf{K}}
+							\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bmm}{\mathbf{m}}	\newcommand{\bM}{\mathbf{M}}								\newcommand{\cM}{\mathcal{M}}
+																					\newcommand{\cN}{\mathcal{N}}
+\newcommand{\bo}{\mathbf{o}}															\newcommand{\cO}{\mathcal{O}}
+\newcommand{\bp}{\mathbf{p}}	\newcommand{\bP}{\mathbf{P}}
+							\newcommand{\bQ}{\mathbf{Q}}								\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\br}{\mathbf{r}}		\newcommand{\bR}{\mathbf{R}}	\newcommand{\RR}{\mathbb{R}}
+\newcommand{\bs}{\mathbf{s}}	\newcommand{\bSS}{\mathbf{S}}								\newcommand{\cS}{\mathcal{S}}
+							\newcommand{\bT}{\mathbf{T}}								\newcommand{\cT}{\mathcal{T}}
+\newcommand{\bu}{\mathbf{u}}								\newcommand{\UU}{\mathbb{U}}	\newcommand{\cU}{\mathcal{U}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}	\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bx}{\mathbf{x}}	\newcommand{\bX}{\mathbf{X}}	\newcommand{\XX}{\mathbb{X}}	\newcommand{\cX}{\mathcal{X}}
+\newcommand{\by}{\mathbf{y}}	\newcommand{\bY}{\mathbf{Y}}								\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\bz}{\mathbf{z}}	\newcommand{\bZ}{\mathbf{Z}}	\newcommand{\ZZ}{\mathbb{Z}}	\newcommand{\cZ}{\mathcal{Z}}
+
+
+% Greek Characters in bold
+\newcommand{\balp}{\boldsymbol{\alpha}}
+\newcommand{\bBe}{\boldsymbol{\beta}}
+\newcommand{\be}{\boldsymbol{\epsilon}}
+\newcommand{\bka}{\boldsymbol{\kappa}}
+\newcommand{\bet}{\boldsymbol{\eta}}
+\newcommand{\hyp}{\boldsymbol{\theta}}
+\newcommand{\bLa}{\boldsymbol{\Lambda}}
+\newcommand{\bm}{\boldsymbol{\mu}}
+\newcommand{\bXi}{\boldsymbol{\Xi}}
+\newcommand{\bxi}{\boldsymbol{\xi}}
+\newcommand{\bchi}{\boldsymbol{\chi}}
+\newcommand{\bpi}{\boldsymbol{\pi}}
+\newcommand{\btau}{\boldsymbol{\tau}}
+\newcommand{\bsig}{\boldsymbol{\sigma}}
+\newcommand{\bS}{\boldsymbol{\Sigma}}
+\newcommand{\bph}{\boldsymbol{\phi}}
+\newcommand{\bPh}{\boldsymbol{\Phi}}
+\newcommand{\bpsi}{\boldsymbol{\psi}}
+\newcommand{\brho}{\boldsymbol{\rho}}
+\newcommand{\bPsi}{\boldsymbol{\Psi}}
+\newcommand{\bPi}{\boldsymbol{\Pi}}
+\newcommand{\bOm}{\boldsymbol{\Omega}}
+\newcommand{\bom}{\boldsymbol{\omega}}
+\newcommand{\bGam}{\boldsymbol{\Gamma}}
+
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}

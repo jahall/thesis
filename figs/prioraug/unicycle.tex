@@ -1,0 +1,55 @@
+
+\begin{tikzpicture}[]
+
+\begin{scope}[canvas is xz plane at y=-1.5]
+  \draw[draw=black,fill=black!10,rounded corners] (2.3,2) rectangle (-2.5,-2);
+\end{scope}
+
+% origin is (-2.5,-1.5,2)
+\draw[thick,blue,-latex'] (-2.7,-1.5,2) -- (-0.5,-1.5,2);
+\draw[thick,blue,-latex'] (-2.5,-1.7,2) -- (-2.5,0.5,2);
+\draw[thick,blue,-latex'] (-2.5,-1.5,2.3) -- (-2.5,-1.5,-0.8);
+
+\begin{scope}[canvas is xz plane at y=-0.1]
+  \draw[rotate=0,-latex',black, thick] (-2.2,2) arc (0:-320:0.3cm);
+\end{scope}
+\begin{scope}[canvas is xy plane at z=0.1]
+  \draw[rotate=0,-latex',black, thick] (-2.25,-1.5) arc (0:-300:0.25cm);
+\end{scope}
+\begin{scope}[canvas is yz plane at x=-1.1]
+  \draw[rotate=0,-latex',black, thick] (-1.2,2) arc (0:300:0.3cm);
+\end{scope}
+
+\begin{scope}[canvas is yx plane at z=-0.05]
+  \draw[draw=black,fill=black!30,thick,opacity=0.8] (0,0) circle (1.5cm);
+\end{scope}
+\begin{scope}[canvas is yx plane at z=0.05]
+  \draw[draw=black,fill=black!30,thick,opacity=0.8] (0,0) circle (1.5cm);
+  \draw[draw=black,fill=black,thick] (0,0) circle (0.1cm);
+  \draw[rotate=45,-latex',red, thick] (1.7,0) arc (0:50:1.7cm);
+  \draw[rotate=45,-latex', thick] (0.3,0) arc (0:300:0.3cm);
+\end{scope}
+
+\draw[line width = 0.05cm] (0,3,0) -- (0,0,0);
+\draw[line width = 0.1cm] (0,3,0) -- (0,1.48,0);
+
+\begin{scope}[canvas is xz plane at y=2.94]
+  \draw[draw=black,fill=black!30,thick,opacity=0.8] (0,0) circle (1.5cm);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=3]
+  \draw[draw=black,fill=black!30,thick,opacity=0.8] (0,0) circle (1.5cm);
+  \draw[draw=black,fill=black,thick] (0,0) circle (0.1cm);
+   \draw[rotate=-5,-latex',red, thick] (1.7,0) arc (0:-50:1.7cm);
+   \draw[rotate=0,-latex', thick] (0.4,0) arc (0:-300:0.4cm);
+\end{scope}
+
+
+\node at (-0.4,-1.5,2.8) {{\color{blue}$x$}}; \node at (-0.9,-1.2,1.7) {$\theta$};
+\node at (-2.1,-1.5,-0.2) {{\color{blue}$y$}}; \node at (-2.5,-1.0,-0.2) {$\phi$};
+\node at (-2.2,0.4,2) {{\color{blue}$z$}}; \node at (-2.9,0.2,2) {$\psi$};
+
+\node at (-0.3,-0.6,0) {$\phi_\text{w}$}; \node at (-0.7,3,0.3) {$\psi_\text{t}$};
+\node at (1.9,0.7,0) {\color{red}$u_\text{w}$}; \node at (2.3,3.4,0.5) {\color{red}$u_\text{t}$};
+
+
+\end{tikzpicture}

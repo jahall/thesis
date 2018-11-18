@@ -1,0 +1,30 @@
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{dot} = [circle, draw, fill=black, inner sep=0.8pt, thick]
+\begin{tikzpicture}[thick]
+
+	% Nodes
+	\node at (-1.6,0){\Large $\pi$};
+	\node at (1.6,0){\Large $V$};
+	\node[dot] at (3.5,0){};
+	\node[dot] at (2.5,0){};
+	\node[dot] at (3,0){};
+	\node at (4.7,0){\Large $\pi^*$};
+	\node at (6.9,0){\Large $V^*$};
+	
+	% Paths
+	\path[line] (-1.58,0.3) arc (170:10:1.6cm);
+	\path[line] (1.58,-0.3) arc (-10:-170:1.6cm);
+	%\path[line] (-1.6,0.3) .. controls (-1,1.5) and (1,1.5) .. (1.6,0.3);
+	%\path[line] (1.6,-0.3) .. controls (1,-1.5) and (-1,-1.5) .. (-1.6,-0.3);
+	\path[line] (5.1,0.1) to (6.5,0.1);
+	\path[line] (6.4,-0.1) to (5,-0.1);
+	
+	% Labels
+	%\node at (0,0.7){\small \textit{evaluation}};
+	\node at (0,1.95){\small \textbf{Evaluation}};
+	%\node at (0,-0.9){\small \textit{improvement}};
+	\node at (0,-1.95){\small \textbf{Improvement}};
+	\node at (0,1.1){\small$V \rightarrow V^\pi$};
+	\node at (0,-0.7){\small$\pi \rightarrow \text{greedy}(V)$};
+	
+\end{tikzpicture}
